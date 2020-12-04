@@ -8,15 +8,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+    app:cardCornerRadius="@dimen/sixteen"
+    android:backgroundTint="@color/grey_100"
+    android:layout_marginVertical="@dimen/four"
+    android:layout_marginHorizontal="@dimen/eight"
+
+
+    >
 
 <TableLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/sixteen">
+    >
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/eight"
+        >
         <ImageView
             android:id="@+id/ps_profile_image"
             android:src="@drawable/ic_baseline_person_24"
@@ -35,6 +44,7 @@
         <ImageView
             android:id="@+id/ps_fav"
             android:layout_gravity="end|center_vertical"
+            app:tint="@color/brown"
             android:src="@drawable/ic_baseline_star"
             android:layout_width="@dimen/forty_eight"
             android:layout_height="@dimen/forty_eight"/>
@@ -44,12 +54,37 @@
         android:id="@+id/ps_post_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/post_text"
+        android:layout_margin="@dimen/eight"
         />
     <ImageView
         android:id="@+id/ps_post_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/eight"
+        android:visibility="gone"
         />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/eight"
+        >
+        <view
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            />
+        <ImageView
+            android:id="@+id/ps_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            app:tint="@color/red"
+            android:src="@drawable/ic_outline_favorite_border_24"
+            />
+    </TableRow>
+
 </TableLayout>
 
 </androidx.cardview.widget.CardView>
