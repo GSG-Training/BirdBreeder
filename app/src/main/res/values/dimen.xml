@@ -7,6 +7,8 @@
     <dimen name="eight">8dp</dimen>
     <dimen name="sixteen">16dp</dimen>
     <dimen name="thirty_two">32dp</dimen>
+    <dimen name="fifty_six">65dp</dimen>
+    <dimen name="forty_eight">48dp</dimen>
     <dimen name="twenty_four">24dp</dimen>
 
 
