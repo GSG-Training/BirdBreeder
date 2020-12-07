@@ -9,10 +9,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-    app:cardCornerRadius="@dimen/sixteen"
-    android:backgroundTint="@color/grey_100"
-    android:layout_marginVertical="@dimen/four"
-    android:layout_marginHorizontal="@dimen/eight"
+        android:backgroundTint="@color/grey_100"
+        android:layout_marginVertical="@dimen/four"
+        android:layout_marginHorizontal="@dimen/eight"
 
 
     >
@@ -37,6 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/user_name"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:layout_marginHorizontal="@dimen/eight"
@@ -54,7 +54,7 @@
         android:id="@+id/ps_post_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/post_text"
+        android:text="@string/dummy_text"
         android:layout_margin="@dimen/eight"
         />
     <ImageView
@@ -70,8 +70,8 @@
         android:layout_margin="@dimen/eight"
         >
         <view
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/zero"
+            android:layout_height="@dimen/zero"
             android:layout_weight="1"
             android:visibility="invisible"
             />

@@ -19,12 +19,12 @@
         app:layout_constraintVertical_chainStyle="packed"
         app:srcCompat="@drawable/ic_logo" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_in"
-        android:layout_marginTop="@dimen/eight"
+        android:layout_marginTop="@dimen/sixteen"
         app:layout_constraintBottom_toTopOf="@+id/sign_up"
         app:layout_constraintEnd_toEndOf="@+id/profile_image"
         app:layout_constraintHorizontal_bias="0.5"
@@ -36,6 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_up"
+
+        android:layout_marginTop="@dimen/eight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/sign_in_button"
         app:layout_constraintHorizontal_bias="0.5"
