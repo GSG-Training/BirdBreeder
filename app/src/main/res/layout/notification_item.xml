@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/fifty_six"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/grey_100"
+    android:divider="@color/black"
+    android:showDividers="end">
+
+    <ImageView
+        android:id="@+id/notification_image"
+        android:layout_width="@dimen/forty_eight"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_margin="@dimen/eight"
+        android:background="@drawable/circle"
+        android:src="@drawable/ic_baseline_notifications_active_24"
+        android:scaleType="center"
+        />
+
+    <TextView
+        android:id="@+id/notification_title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:hint="@string/no_account"
+        android:gravity="center_vertical"
+ />
+    <ImageView
+        android:id="@+id/notification_seen"
+        android:layout_width="@dimen/thirty_two"
+        android:layout_height="@dimen/thirty_two"
+        android:layout_margin="@dimen/eight"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+        />
+</LinearLayout>

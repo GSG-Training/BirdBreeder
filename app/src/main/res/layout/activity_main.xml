@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,15 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/eighty_four"
         android:backgroundTint="@color/blue_300"
+        android:layout_alignParentTop="true"
      >
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/eighty_four"
             android:background="@color/blue_300"
             android:backgroundTint="@color/blue_300"
-            android:minHeight="@dimen/eighty_four">
+            android:minHeight="@dimen/eighty_four"
+            >
             <include
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -28,34 +29,21 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+    <include
+        android:layout_below="@id/appBarLayout"
+        layout="@layout/fragment_main"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/grey_100"
-      >
+        android:src="@drawable/ic_baseline_post_add_24"
+        android:layout_margin="@dimen/twenty_four"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        app:elevation="@dimen/four"
+        />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Monday" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tuesday" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wednesday" />
-    </com.google.android.material.tabs.TabLayout>
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/grey_100"
-     />
-
-
-</LinearLayout>
+</RelativeLayout>

@@ -10,15 +10,8 @@
         android:id="@+id/progress"
         android:layout_width="@dimen/thirty_two"
         android:layout_height="@dimen/thirty_two"
-android:layout_centerInParent="true"     />
- <com.google.android.material.floatingactionbutton.FloatingActionButton
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_alignParentBottom="true"
-     android:layout_alignParentEnd="true"
-     android:src="@drawable/ic_baseline_post_add_24"
-     android:layout_margin="@dimen/twenty_four"
-    /><androidx.recyclerview.widget.RecyclerView
+        android:layout_centerInParent="true"     />
+ <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
