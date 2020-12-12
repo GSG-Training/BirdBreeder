@@ -11,39 +11,38 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/eighty_four"
-        android:backgroundTint="@color/blue_300"
         android:layout_alignParentTop="true"
-     >
+        android:backgroundTint="@color/blue_300">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/eighty_four"
             android:background="@color/blue_300"
             android:backgroundTint="@color/blue_300"
-            android:minHeight="@dimen/eighty_four"
-            >
+            android:minHeight="@dimen/eighty_four">
+
             <include
+                layout="@layout/tool_bar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                layout="@layout/tool_bar" />
+                android:layout_height="match_parent" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <include
-        android:layout_below="@id/appBarLayout"
         layout="@layout/fragment_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appBarLayout" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_post_add_24"
-        android:layout_margin="@dimen/twenty_four"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        app:elevation="@dimen/four"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/twenty_four"
+        android:src="@drawable/ic_baseline_post_add_24"
+        app:elevation="@dimen/four" />
 
 </RelativeLayout>
