@@ -3,15 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/eight"
-    android:layout_marginVertical="@dimen/four"
+    android:layout_marginVertical="@dimen/two"
     android:backgroundTint="@color/grey_100"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-
-
+    android:padding="@dimen/eight"
     >
 
     <TableLayout
@@ -50,38 +48,54 @@
         </TableRow>
 
         <TextView
-            android:id="@+id/ps_post_text"
+            android:id="@+id/br_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/eight"
+            android:layout_margin="@dimen/four"
             android:text="@string/dummy_text" />
-
-        <ImageView
-            android:id="@+id/ps_post_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/eight"
-            android:visibility="gone" />
-
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/eight">
-
-            <view
-                android:layout_width="@dimen/zero"
-                android:layout_height="@dimen/zero"
+            android:layout_margin="@dimen/four">
+            <TextView
+                android:id="@+id/br_own_species_no"
+                android:layout_width="0dp"
                 android:layout_weight="1"
-                android:visibility="invisible" />
-
-            <ImageView
-                android:id="@+id/ps_like"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:src="@drawable/ic_outline_favorite_border_24"
-                app:tint="@color/red" />
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/text_twenty_four"
+                android:textStyle="bold"
+                android:textColor="@color/reddish_brown"
+                android:text="@string/dummy_num"/>
+            <TextView
+                android:id="@+id/br_sale_birds_no"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/text_twenty_four"
+                android:textColor="@color/reddish_brown"
+                android:textStyle="bold"
+                android:text="@string/dummy_num"/>
         </TableRow>
+       <TableRow
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_margin="@dimen/four">
+           <TextView
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="match_parent"
+               android:gravity="center_horizontal"
+               android:text="@string/own_species"/>
+           <TextView
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="match_parent"
+               android:gravity="center_horizontal"
+               android:text="@string/sale_bird"/>
+       </TableRow>
+
 
     </TableLayout>
 

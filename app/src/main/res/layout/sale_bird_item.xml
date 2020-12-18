@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/two_hundred"
+    android:layout_height="@dimen/three_hundred"
+    android:layout_marginVertical="@dimen/two"
+    android:backgroundTint="@color/grey_100"
+    android:padding="@dimen/eight"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_100"
+    android:layout_marginVertical="@dimen/eight"
+      >
+    <ImageView
+        android:id="@+id/bird_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/hundred_fifty"
+        android:src="@drawable/ic__bird"
+        android:layout_margin="@dimen/four"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="@color/blue_300"
+        app:tint="@color/grey_100"
+        android:scaleType="centerInside"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/image_bird" />
+    <TextView
+        android:id="@+id/bird_breed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bird_image"
+        android:text="@string/breed"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_twenty_four"/>
+    <TextView
+        android:id="@+id/bird_cost"
+        android:layout_width="@dimen/hundred_twenty"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/dummy_cost"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_twenty_four"
+        android:layout_below="@id/bird_breed"
+    />
+    <ImageView
+        android:id="@+id/add_to_cart"
+        android:layout_width="@dimen/forty_eight"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_toEndOf="@id/bird_cost"
+        android:layout_marginVertical="@dimen/eight"
+        android:src="@drawable/ic_baseline_add_shopping_cart_24"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/bird_breed"
+        app:tint="@color/grey_200"
+        android:scaleType="center"
+        android:background="@drawable/shopping_background"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/shopping" />
+</RelativeLayout>
+</androidx.cardview.widget.CardView>

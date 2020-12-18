@@ -4,21 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChatStationFragment">
+    tools:context=".HomeFragment"
+    android:padding="@dimen/four">
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/progress"
         android:layout_width="@dimen/thirty_two"
         android:layout_height="@dimen/thirty_two"
         android:layout_centerInParent="true" />
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bird_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/four"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:orientation="horizontal"
+        tools:listitem="@layout/sale_bird_item" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/post_recycler"
+        android:id="@+id/breeder_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginVertical="@dimen/eight"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bird_recycler"
+        android:padding="@dimen/four"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/notification_item" />
+        tools:listitem="@layout/breeder_item" />
 
 </RelativeLayout>

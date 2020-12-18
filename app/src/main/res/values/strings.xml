@@ -11,7 +11,15 @@
     <string name="repeat_password">Repeat Password</string>
     <string name="forget_password">Forget your password?</string>
     <string name="gmail">Gmail</string>
-    <string name="dummy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="breed">Bird Breed</string>
+    <string name="dummy_cost">$100</string>
+    <string name="dummy_num">00</string>
+    <string name="own_species">Species Owned</string>
+    <string name="sale_bird">Sale Birds</string>
+    <string name="shopping">Add to Cart</string>
+    <string name="image_bird">Bird Image</string>
+    <string name="dummy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,PageMaker including versions of Lorem Ipsum.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="offered_for_sale">Offered</string>
+    <string name="offer_for_sale">Offer</string>
 </resources>

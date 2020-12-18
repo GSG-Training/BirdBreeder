@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/two_hundred"
+    android:layout_height="@dimen/three_hundred"
+    android:layout_marginVertical="@dimen/two"
+    android:backgroundTint="@color/grey_100"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:padding="@dimen/eight"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/eight">
+
+        <ImageView
+            android:id="@+id/br_profile_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/hundred_fifty"
+            android:background="@drawable/rectangle"
+            android:backgroundTint="@color/blue_300"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic__bird"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/grey_100" />
+
+        <TextView
+            android:id="@+id/br_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/eight"
+            android:layout_marginHorizontal="@dimen/eight"
+            android:text="@string/user_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ToggleButton
+            android:id="@+id/br_offered"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/eight"
+            android:textOff="@string/offer_for_sale"
+            android:textOn="@string/offered_for_sale"
+            android:textColor="@color/reddish_brown"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="@+id/br_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/br_id"
+            app:layout_constraintTop_toTopOf="@+id/br_id" />
+
+        <ImageView
+            android:id="@+id/br_sound"
+            android:layout_width="@dimen/forty_eight"
+            android:layout_height="@dimen/forty_eight"
+            app:layout_constraintBottom_toBottomOf="@+id/br_profile_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.84"
+            app:layout_constraintStart_toStartOf="@+id/br_profile_image"
+            app:layout_constraintTop_toBottomOf="@+id/br_profile_image"
+            android:background="@drawable/circle"
+            app:tint="@color/grey_100"
+            android:backgroundTint="@color/reddish_brown"
+            android:elevation="@dimen/four"
+            app:srcCompat="@drawable/ic_baseline_play_arrow_24" />
+
+        <TextView
+            android:id="@+id/br_species"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/eight"
+            android:text="@string/breed"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/br_sound"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/br_sound" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
