@@ -43,6 +43,8 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
+
+
     <style name="Theme.BirdBreeder.ToolBarText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:background">@android:color/transparent</item>
         <item name="android:fontFamily">@font/cairoregular</item>
