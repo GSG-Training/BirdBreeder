@@ -216,7 +216,7 @@
             app:layout_constraintTop_toTopOf="@+id/textView7" />
 
         <Button
-            android:id="@+id/mating_view_details"
+            android:id="@+id/mating_edit_details"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginEnd="@dimen/four"

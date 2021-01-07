@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:maxLevel="0"
+        android:minLevel="0"
+        android:drawable="@drawable/ic_relationship"/>
+    <item android:maxLevel="110"
+     android:minLevel="110"
+     android:drawable="@drawable/ic_male"/>
+    <item android:maxLevel="111"
+        android:minLevel="111"
+        android:drawable="@drawable/ic_female"/>
+</level-list>

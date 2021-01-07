@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BirdsFragment">
+    tools:context=".View.ui.Birds.BirdsFragment">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+        android:id="@+id/main_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/grey_100"
@@ -30,10 +30,10 @@
 
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
+        android:id="@+id/main_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tabLayout"
+        android:layout_below="@id/main_tabs"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:background="@color/grey_100" />

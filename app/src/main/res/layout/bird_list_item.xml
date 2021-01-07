@@ -57,7 +57,7 @@
             app:layout_constraintTop_toTopOf="@+id/br_id" />
 
         <ImageView
-            android:id="@+id/br_sound"
+            android:id="@+id/br_gender"
             android:layout_width="@dimen/forty_eight"
             android:layout_height="@dimen/forty_eight"
             app:layout_constraintBottom_toBottomOf="@+id/br_profile_image"
@@ -66,10 +66,12 @@
             app:layout_constraintStart_toStartOf="@+id/br_profile_image"
             app:layout_constraintTop_toBottomOf="@+id/br_profile_image"
             android:background="@drawable/circle"
-            app:tint="@color/grey_100"
-            android:backgroundTint="@color/reddish_brown"
+            android:backgroundTint="@color/white"
             android:elevation="@dimen/four"
-            app:srcCompat="@drawable/ic_baseline_play_arrow_24" />
+            app:srcCompat="@drawable/gender"
+            android:scaleType="centerInside"
+            android:padding="@dimen/eight"
+           />
 
         <TextView
             android:id="@+id/br_species"
@@ -78,9 +80,9 @@
             android:layout_margin="@dimen/eight"
             android:text="@string/breed"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/br_sound"
+            app:layout_constraintEnd_toEndOf="@+id/br_gender"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/br_sound" />
+            app:layout_constraintTop_toBottomOf="@+id/br_gender" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

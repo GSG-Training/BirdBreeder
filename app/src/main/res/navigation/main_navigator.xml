@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigator"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.birdbreeder.View.ui.Activites.MainActivity.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/birdListFragment"
+        android:name="com.example.birdbreeder.View.ui.Birds.BirdListFragment"
+        android:label="fragment_bird_list"
+        tools:layout="@layout/fragment_bird_list" />
+    <fragment
+        android:id="@+id/birdProfileFragment"
+        android:name="com.example.birdbreeder.View.ui.Birds.BirdProfileFragment"
+        android:label="fragment_bird_profile"
+        tools:layout="@layout/fragment_bird_profile" />
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.example.birdbreeder.View.ui.Activites.SplashActivity"
+        android:label="activity_splash"
+        tools:layout="@layout/activity_splash" />
+    <activity
+        android:id="@+id/logInActivity"
+        android:name="com.example.birdbreeder.View.ui.Activites.LogInActivity"
+        android:label="activity_log_in"
+        tools:layout="@layout/activity_log_in" />
+    <activity
+        android:id="@+id/signUpActivity"
+        android:name="com.example.birdbreeder.View.ui.Activites.SignUpActivity"
+        android:label="activity_sign_up"
+        tools:layout="@layout/activity_sign_up" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.birdbreeder.View.ui.Activites.MainActivity.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.birdbreeder.View.ui.Activites.MainActivity.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/birdsFragment"
+        android:name="com.example.birdbreeder.View.ui.Birds.BirdsFragment"
+        android:label="fragment_birds"
+        tools:layout="@layout/fragment_birds" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.birdbreeder.View.ui.Activites.MainActivity.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.birdbreeder.View.ui.Activites.MainActivity.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/editMatingFragment"
+        android:name="com.example.birdbreeder.View.ui.Birds.EditMatingFragment"
+        android:label="fragment_edit_mating"
+        tools:layout="@layout/fragment_edit_mating" />
+    <fragment
+        android:id="@+id/newMatingFragment"
+        android:name="com.example.birdbreeder.View.ui.Birds.NewMatingFragment"
+        android:label="fragment_new_mating"
+        tools:layout="@layout/fragment_new_mating" />
+    <fragment
+        android:id="@+id/matingsFragment"
+        android:name="com.example.birdbreeder.View.ui.Birds.MatingsFragment"
+        android:label="fragment_matings"
+        tools:layout="@layout/fragment_matings" />
+</navigation>

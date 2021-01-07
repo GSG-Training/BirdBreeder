@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BirdBreeder">
-        <activity android:name=".SignUpActivity"/>
-        <activity android:name=".LogInActivity" />
-        <activity android:name=".SplashActivity"/>
+        <activity android:name=".View.ui.Activites.SignUpActivity"/>
+        <activity android:name=".View.ui.Activites.LogInActivity" />
+        <activity android:name=".View.ui.Activites.SplashActivity"/>
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".View.ui.Activites.MainActivity.MainActivity"
            >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />

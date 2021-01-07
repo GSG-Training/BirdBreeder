@@ -22,14 +22,14 @@
             android:layout_margin="@dimen/eight">
 
             <ImageView
-                android:id="@+id/ps_profile_image"
+                android:id="@+id/br_user_profile_image"
                 android:layout_width="@dimen/forty_eight"
                 android:layout_height="@dimen/forty_eight"
                 android:background="@drawable/circle"
                 android:src="@drawable/ic_baseline_person_24" />
 
             <TextView
-                android:id="@+id/ps_name"
+                android:id="@+id/br_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/eight"
@@ -39,11 +39,11 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/ps_fav"
-                android:layout_width="@dimen/forty_eight"
-                android:layout_height="@dimen/forty_eight"
+                android:id="@+id/br_fav"
+                android:layout_width="@dimen/fifty_six"
+                android:layout_height="@dimen/fifty_six"
                 android:layout_gravity="end|center_vertical"
-                android:src="@drawable/ic_baseline_star"
+                android:src="@drawable/fav"
                 app:tint="@color/brown" />
         </TableRow>
 

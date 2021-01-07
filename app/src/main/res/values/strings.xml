@@ -40,4 +40,10 @@
     <string name="start_date">Incubation Start Date</string>
     <string name="expect_date">Expecting Hatching Date</string>
     <string name="delete">Delete</string>
+    <string name="search">Search</string>
+    <string name="bird_fragment_title">Birds Fragment</string>
+    <string name="notification_fragment_title">Notifications</string>
+    <string name="profile_fragment_title">Profile</string>
+    <string name="home_fragment_title">Home</string>
+    <string name="email_breeder">Email Breeder</string>
 </resources>
