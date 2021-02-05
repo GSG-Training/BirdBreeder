@@ -36,5 +36,7 @@ public interface BirdBreederConstants {
     int UNFERTILIZED = 22 ;
     int HATCHED_OK = 23 ;
 
+    int PAGE_ITEM_COUNT = 10 ;
+
 
 }

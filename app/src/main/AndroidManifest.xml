@@ -11,15 +11,17 @@
         android:theme="@style/Theme.BirdBreeder">
         <activity android:name=".View.ui.Activites.SignUpActivity"/>
         <activity android:name=".View.ui.Activites.LogInActivity" />
-        <activity android:name=".View.ui.Activites.SplashActivity"/>
+        <activity android:name=".View.ui.Activites.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".View.ui.Activites.MainActivity.MainActivity"
            >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
     </application>
 

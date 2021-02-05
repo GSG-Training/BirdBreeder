@@ -29,11 +29,23 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include
-        layout="@layout/fragment_main"
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/main_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/appBarLayout" />
+        android:background="@color/grey_100"
+        android:layout_below="@id/appBarLayout"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/main_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_tabs"
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey_100" />
+
 
 
 

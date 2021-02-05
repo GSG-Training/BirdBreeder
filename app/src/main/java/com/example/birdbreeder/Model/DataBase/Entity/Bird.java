@@ -13,21 +13,25 @@ import com.example.birdbreeder.Model.BirdBreederConstants;
 import java.util.Date;
 @Entity (tableName = BirdBreederConstants.BIRDS_TABLE)
 public class Bird {
-    @PrimaryKey
-    private String birdId ;
+    @PrimaryKey(autoGenerate = true)
+    private int birdId ;
+    private String ringNo ;
     @ForeignKey(entity = Species.class, parentColumns= "speciesId", childColumns = "speciesId", deferred = false)
     private int speciesId;
     private String species ;
     private double weight;
     private double cost;
     private int status ;
+    @Ignore
     private Date bthDate ;
     private int gender ;
     private boolean offered ;
+    @Ignore
     private Bitmap profileImage ;
+    //private int breederId "Foreign KEY"
 
     @Ignore
-    public Bird(String birdId, int speciesId, Date bthDate , int gender) {
+    public Bird(int birdId, int speciesId, Date bthDate , int gender) {
         this.birdId = birdId;
         this.speciesId = speciesId;
         this.bthDate = bthDate;
@@ -37,7 +41,7 @@ public class Bird {
     public Bird() {
     }
      @Ignore
-    public Bird(String birdId, int speciesId, double weight, int status, Date bthDate) {
+    public Bird(int birdId, int speciesId, double weight, int status, Date bthDate) {
         this.birdId = birdId;
         this.speciesId = speciesId;
         this.weight = weight;
@@ -45,11 +49,11 @@ public class Bird {
         this.bthDate = bthDate;
     }
 
-    public String getBirdId() {
+    public int getBirdId() {
         return birdId;
     }
 
-    public void setBirdId(String birdId) {
+    public void setBirdId(int birdId) {
         this.birdId = birdId;
     }
 
@@ -123,5 +127,13 @@ public class Bird {
 
     public void setSpecies(String species) {
         this.species = species;
+    }
+
+    public String getRingNo() {
+        return ringNo;
+    }
+
+    public void setRingNo(String ringNo) {
+        this.ringNo = ringNo;
     }
 }

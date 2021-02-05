@@ -40,11 +40,7 @@
         android:name="com.example.birdbreeder.View.ui.Activites.MainActivity.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.birdbreeder.View.ui.Activites.MainActivity.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+
     <fragment
         android:id="@+id/birdsFragment"
         android:name="com.example.birdbreeder.View.ui.Birds.BirdsFragment"

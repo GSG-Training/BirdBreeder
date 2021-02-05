@@ -1,10 +1,15 @@
 package com.example.birdbreeder.View.Adapters;
 
 
+import android.graphics.drawable.Drawable;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.google.android.material.tabs.TabLayout;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -12,11 +17,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TabsLayoutAdapter extends FragmentStatePagerAdapter {
-    private final List<Fragment> fragmentList = new ArrayList<>();
-    private final List<String> fragmentTitle = new ArrayList<>();
+    private  List<Fragment> fragmentList ;
+    private  List<String> fragmentTitle ;
+    private  List<Drawable> fragmentIcons ;
+
 
     public TabsLayoutAdapter(FragmentManager fm) {
-        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        super(fm);
+          fragmentList = new ArrayList<>();
+          fragmentTitle = new ArrayList<>();
+           fragmentIcons = new ArrayList<>();
     }// end constructer
 
     @Nullable
@@ -25,9 +35,12 @@ public class TabsLayoutAdapter extends FragmentStatePagerAdapter {
         return fragmentTitle.get(position);
     }// end getPageTitle()
 
-    public void addFragment(Fragment fragment, String title){
+
+
+    public void addFragment(Fragment fragment, String title , Drawable icon ){
         fragmentList.add(fragment);
         fragmentTitle.add(title);
+        fragmentIcons.add(icon);
     }// end addFragment()
     @NotNull
     @Override
@@ -41,4 +54,16 @@ public class TabsLayoutAdapter extends FragmentStatePagerAdapter {
 
         return fragmentList.size();
     } // end getCount()
+
+    public List<Drawable> getFragmentIcons() {
+        return fragmentIcons;
+    }
+
+    public void setIcons(TabLayout tabs){
+        for (int i =0 ; i < getCount() ; i++) {
+            tabs.getTabAt(i).setIcon(getFragmentIcons().get(i));
+            tabs.getTabAt(i).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_UNLABELED);
+        }
+
+    }
 }//end class
