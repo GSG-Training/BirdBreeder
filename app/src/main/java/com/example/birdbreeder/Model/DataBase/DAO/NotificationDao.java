@@ -31,5 +31,9 @@ public interface NotificationDao {
 
     @Query("SELECT * FROM "+ BirdBreederConstants.NOTIFICATION_TABLE)
     LiveData<List<Notification>> getAllItems();
+
+    LiveData<List<Notification>> getPage();
+
+    void get(int id);
 }
 

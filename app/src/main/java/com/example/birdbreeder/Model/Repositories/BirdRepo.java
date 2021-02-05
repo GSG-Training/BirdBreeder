@@ -46,5 +46,7 @@ public class BirdRepo {
         return  birdDao.getPage();
     }
 
-
+        public void deleteAll(){
+        birdDao.deleteAllItems();
+        }
 }
