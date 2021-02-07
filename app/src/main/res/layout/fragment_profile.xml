@@ -14,10 +14,21 @@
         android:padding="@dimen/eight"
         android:scaleType="fitXY"
         android:src="@drawable/rectangle"
-        app:tint="@color/grey_100"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/grey_100" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="@+id/fav_chip"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/whatsapp" />
 
     <ImageView
         android:id="@+id/user_image"
@@ -35,13 +46,12 @@
         android:id="@+id/facebook"
         android:layout_width="@dimen/thirty_two"
         android:layout_height="@dimen/thirty_two"
-        android:layout_marginStart="@dimen/forty_eight"
         android:src="@drawable/ic_facebook"
         app:layout_constraintBottom_toBottomOf="@+id/whatsapp"
         app:layout_constraintEnd_toStartOf="@+id/whatsapp"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/user_image" />
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/user_image" />
 
     <ImageView
         android:id="@+id/whatsapp"
@@ -79,6 +89,7 @@
         android:id="@+id/gmail"
         android:layout_width="@dimen/thirty_two"
         android:layout_height="@dimen/thirty_two"
+        android:layout_marginEnd="@dimen/twenty_four"
         android:src="@drawable/ic_gmail"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
@@ -138,9 +149,9 @@
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight"
         android:text="@string/user_name"
         android:textStyle="bold"
-        android:layout_marginStart="@dimen/eight"
         app:layout_constraintBottom_toBottomOf="@+id/user_image"
         app:layout_constraintStart_toEndOf="@+id/user_image"
         app:layout_constraintTop_toTopOf="@+id/user_image" />
@@ -149,29 +160,48 @@
         android:id="@+id/edit_button"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/sixteen"
         android:text="@string/edit"
         android:textSize="@dimen/text_sixteen"
-        android:layout_marginVertical="@dimen/sixteen"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/gmail"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/fav_chip"
         android:layout_width="@dimen/fifty_six"
         android:layout_height="@dimen/fifty_six"
         android:allowUndo="true"
+        android:checkable="true"
         app:checkedIcon="@drawable/ic_baseline_star_24"
-        app:chipIcon="@drawable/ic_baseline_star"
-        app:chipCornerRadius="@dimen/fifty_six"
+        app:checkedIconVisible="true"
         app:chipBackgroundColor="@color/blue_300"
+        app:chipCornerRadius="@dimen/fifty_six"
+        app:chipIcon="@drawable/ic_baseline_star"
         app:chipIconSize="@dimen/forty_eight"
         app:chipStartPadding="@dimen/eight"
-        app:checkedIconVisible="true"
-        android:checkable="true"
         app:layout_constraintBottom_toBottomOf="@+id/user_name"
         app:layout_constraintEnd_toEndOf="@+id/gmail"
         app:layout_constraintTop_toTopOf="@+id/user_name" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="@+id/species_recycler"
+        app:layout_constraintStart_toStartOf="@+id/species_recycler" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/facebook"
+        app:layout_constraintEnd_toEndOf="@+id/fav_chip"
+        app:layout_constraintStart_toStartOf="@+id/facebook"
+        app:layout_constraintTop_toBottomOf="@+id/user_image" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
