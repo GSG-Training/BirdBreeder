@@ -31,9 +31,9 @@ public interface EggDao {
 
     @Query("SELECT * FROM "+ BirdBreederConstants.EGG_TABLE)
     LiveData<List<Egg>> getAllItems();
-
-    LiveData<List<Egg>> getPage();
-
-    void get(int eggId);
+//
+//    LiveData<List<Egg>> getPage();
+//
+//    void get(int eggId);
 }
 

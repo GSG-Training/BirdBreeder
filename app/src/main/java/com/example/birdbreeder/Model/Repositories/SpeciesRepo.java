@@ -33,7 +33,7 @@ public class SpeciesRepo {
 
     //TODO: FIX WHERE CLAUSE
     public  void getSpecies(int  id){
-        speciesDao.get(id);
+        //speciesDao.get(id);
     }
     public LiveData<List<Species>> getAllSpecies(){
         return  speciesDao.getAllItems();
@@ -44,7 +44,7 @@ public class SpeciesRepo {
     public LiveData<List<Species>> getPageOfSpecies(int pageNum){
         int to = pageNum* BirdBreederConstants.PAGE_ITEM_COUNT ;
         int from = to - pageNum ;
-        return  speciesDao.getPage();
+        return  speciesDao.getAllItems();
     }
 
     public void deleteAll(){

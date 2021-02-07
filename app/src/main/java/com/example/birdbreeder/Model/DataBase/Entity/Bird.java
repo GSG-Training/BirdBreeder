@@ -18,7 +18,7 @@ public class Bird {
     private String ringNo ;
     @ForeignKey(entity = Species.class, parentColumns= "speciesId", childColumns = "speciesId", deferred = false)
     private int speciesId;
-    private String species ;
+    private String species = "CANARY" ;
     private double weight;
     private double cost;
     private int status ;
@@ -31,8 +31,8 @@ public class Bird {
     //private int breederId "Foreign KEY"
 
     @Ignore
-    public Bird(int birdId, int speciesId, Date bthDate , int gender) {
-        this.birdId = birdId;
+    public Bird(String ringNo, int speciesId, Date bthDate , int gender) {
+        this.ringNo = ringNo;
         this.speciesId = speciesId;
         this.bthDate = bthDate;
         this.gender=gender;
@@ -41,8 +41,8 @@ public class Bird {
     public Bird() {
     }
      @Ignore
-    public Bird(int birdId, int speciesId, double weight, int status, Date bthDate) {
-        this.birdId = birdId;
+    public Bird(String ringNo, int speciesId, double weight, int status, Date bthDate) {
+         this.ringNo = ringNo;
         this.speciesId = speciesId;
         this.weight = weight;
         this.status = status;
@@ -122,7 +122,8 @@ public class Bird {
     }
 
     public String getSpecies() {
-        return species;
+        //TODO:  SPECIES STRING FIXING
+        return "species";
     }
 
     public void setSpecies(String species) {

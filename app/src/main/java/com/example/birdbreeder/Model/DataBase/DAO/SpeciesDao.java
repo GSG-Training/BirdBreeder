@@ -32,8 +32,8 @@ public interface SpeciesDao {
     @Query("SELECT * FROM "+ BirdBreederConstants.SPECIES_TABLE)
     LiveData<List<Species>> getAllItems();
 
-    LiveData<List<Species>> getPage();
-
-    void get(int id);
+//    LiveData<List<Species>> getPage();
+//
+//    void get(int id);
 }
 

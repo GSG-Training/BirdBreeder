@@ -64,7 +64,7 @@
         <item name="contentPadding">@dimen/zero</item>
         <item name="cardUseCompatPadding">true</item>
         <item name="cardCornerRadius">@dimen/eight</item>
-        <item name="cardElevation">@dimen/four</item>
+        <item name="cardElevation">@dimen/two</item>
         <item name="android:clipToPadding">false</item>
         <item name="tint">@color/blue_100</item>
         <item name="android:foreground">?android:attr/selectableItemBackground</item>

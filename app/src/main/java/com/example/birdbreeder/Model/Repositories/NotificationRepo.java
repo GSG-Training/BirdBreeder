@@ -33,7 +33,7 @@ public class NotificationRepo {
 
     //TODO: FIX WHERE CLAUSE
     public  void getNotification(int id){
-        notificationDao.get(id);
+        //notificationDao.get(id);
     }
     public LiveData<List<Notification>> getAllNotifications(){
         return  notificationDao.getAllItems();
@@ -44,7 +44,7 @@ public class NotificationRepo {
     public LiveData<List<Notification>> getPageOfNotification(int pageNum){
         int to = pageNum* BirdBreederConstants.PAGE_ITEM_COUNT ;
         int from = to - pageNum ;
-        return  notificationDao.getPage();
+        return  notificationDao.getAllItems();
     }
 
     public void deleteAll(){

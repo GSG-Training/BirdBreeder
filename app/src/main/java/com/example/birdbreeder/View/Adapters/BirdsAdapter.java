@@ -20,7 +20,9 @@ public class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private List<Bird> birdList = new ArrayList<>();
     private OnItemClickListener listener;
     private  boolean forSale ;
-
+    public BirdsAdapter( boolean forSale) {
+        this.forSale = forSale;
+    }
     public BirdsAdapter(List<Bird> birdList, boolean forSale) {
         this.birdList = birdList;
         this.forSale = forSale;
@@ -43,12 +45,12 @@ public class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         Bird bird = birdList.get(position);
       if(forSale){
           ForSaleViewHolder viewHolder = (ForSaleViewHolder) holder ;
-          viewHolder.birdImage.setImageBitmap(bird.getProfileImage());
+          //viewHolder.birdImage.setImageBitmap(bird.getProfileImage());
           viewHolder.cost.setText("$" + bird.getCost());
           viewHolder.species.setText(bird.getSpecies());
       }else{
           ForShowViewHolder viewHolder = (ForShowViewHolder) holder ;
-          viewHolder.birdImage.setImageBitmap(bird.getProfileImage());
+         // viewHolder.birdImage.setImageBitmap(bird.getProfileImage());
           viewHolder.birdId.setText(bird.getBirdId());
           viewHolder.species.setText(bird.getSpecies());
           viewHolder.gender.setImageLevel(bird.getGender());

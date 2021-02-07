@@ -23,8 +23,7 @@ public class Egg {
     public Egg() {
     }
 @Ignore
-    public Egg(int eggId, int matingId, Date layDate) {
-        this.eggId = eggId;
+    public Egg( int matingId, Date layDate) {
         this.matingId = matingId;
         this.layDate = layDate;
     }

@@ -32,8 +32,8 @@ public interface MatingDao {
     @Query("SELECT * FROM "+ BirdBreederConstants.MATING_TABLE)
     LiveData<List<Mating>> getAllItems();
 
-    void get(int id);
-
-    LiveData<List<Mating>> getPage();
+//    void get(int id);
+//
+//    LiveData<List<Mating>> getPage();
 }
 

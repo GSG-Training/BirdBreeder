@@ -33,7 +33,7 @@ public class MatingRepo {
 
     //TODO: FIX WHERE CLAUSE
     public  void getMating(int id){
-        matingDao.get(id);
+        //matingDao.get(id);
     }
     public LiveData<List<Mating>> getAllMatings(){
         return  matingDao.getAllItems();
@@ -44,7 +44,7 @@ public class MatingRepo {
     public LiveData<List<Mating>> getPageOfMatings(int pageNum){
         int to = pageNum* BirdBreederConstants.PAGE_ITEM_COUNT ;
         int from = to - pageNum ;
-        return  matingDao.getPage();
+        return  matingDao.getAllItems();
     }
 
     public void deleteAll(){

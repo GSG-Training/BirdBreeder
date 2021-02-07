@@ -3,6 +3,7 @@
     android:layout_width="@dimen/two_hundred"
     android:layout_height="@dimen/three_hundred"
     android:layout_marginVertical="@dimen/two"
+    android:layout_marginHorizontal="@dimen/four"
     android:backgroundTint="@color/grey_100"
     android:padding="@dimen/eight"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -35,7 +36,7 @@
         android:textSize="@dimen/text_twenty_four"/>
     <TextView
         android:id="@+id/bird_cost"
-        android:layout_width="@dimen/hundred_twenty"
+        android:layout_width="@dimen/hundred"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="@string/dummy_cost"

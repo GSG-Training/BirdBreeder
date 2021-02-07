@@ -23,9 +23,11 @@ import com.example.birdbreeder.Model.DataBase.TypeConverters.DateConverter;
 @TypeConverters(DateConverter.class)
 public abstract class BirdsDataBase extends RoomDatabase {
     private static BirdsDataBase instance;
+    //TODO: EXECUTER NEEDED IN MAIN ACTIVITY
     public static synchronized BirdsDataBase getInstance(Context context){
         if(instance==null){
             instance= Room.databaseBuilder(context.getApplicationContext(),BirdsDataBase.class, BirdBreederConstants.DB_NAME)
+                    .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();
         }//end if

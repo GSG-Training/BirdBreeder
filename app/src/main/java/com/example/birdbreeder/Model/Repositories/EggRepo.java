@@ -32,7 +32,7 @@ public class EggRepo {
 
     //TODO: FIX WHERE CLAUSE
     public  void getEgg(int eggId){
-        eggDao.get(eggId);
+        //eggDao.get(eggId);
     }
     public LiveData<List<Egg>> getAllEggs(){
         return  eggDao.getAllItems();
@@ -43,7 +43,7 @@ public class EggRepo {
     public LiveData<List<Egg>> getPageOfEggs(int pageNum){
         int to = pageNum* BirdBreederConstants.PAGE_ITEM_COUNT ;
         int from = to - pageNum ;
-        return  eggDao.getPage();
+        return  eggDao.getAllItems();
     }
 
     public void deleteAll(){
