@@ -31,13 +31,16 @@ public class BirdsFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
-
+ /* TODO :
+ *   * ADD NEW BIRD
+ *   * ADD NEW MATING
+    **/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         birdsBinding = FragmentBirdsBinding.inflate(inflater, container, false);
-        adapter = new TabsLayoutAdapter(getParentFragmentManager());
+        adapter = new TabsLayoutAdapter(getChildFragmentManager());
         adapter.addFragment(new BirdListFragment() , getString(R.string.bird_fragment_title) , getContext().getDrawable(R.drawable.ic__bird_and_house));
         adapter.addFragment(new MatingsFragment() , getString(R.string.mating_title) , getContext().getDrawable(R.drawable.ic_chicks));
         birdsBinding.mainViewPager.setAdapter(adapter);

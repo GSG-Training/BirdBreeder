@@ -31,7 +31,7 @@ public class BreederAdapter extends RecyclerView.Adapter<BreederAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull BreederAdapter.MyViewHolder holder, int position) {
       Breeder breeder = breeders.get(position);
-      holder.profileImage.setImageBitmap(breeder.getPhoto());
+      if(breeder.getPhone()!=null)holder.profileImage.setImageBitmap(breeder.getPhoto());
       holder.userName.setText(breeder.getName());
       holder.soldBirdNum.setText(breeder.getSoldNum()+"");
       holder.speciesNum.setText(breeder.getSpeciesNum()+"");

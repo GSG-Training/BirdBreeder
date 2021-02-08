@@ -51,7 +51,6 @@ public class TabsLayoutAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-
         return fragmentList.size();
     } // end getCount()
 
@@ -63,6 +62,7 @@ public class TabsLayoutAdapter extends FragmentStatePagerAdapter {
         for (int i =0 ; i < getCount() ; i++) {
             tabs.getTabAt(i).setIcon(getFragmentIcons().get(i));
             tabs.getTabAt(i).setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_UNLABELED);
+            tabs.getTabAt(i).setText("");
         }
 
     }

@@ -45,13 +45,13 @@ public class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         Bird bird = birdList.get(position);
       if(forSale){
           ForSaleViewHolder viewHolder = (ForSaleViewHolder) holder ;
-          //viewHolder.birdImage.setImageBitmap(bird.getProfileImage());
+          if(bird.getProfileImage()!=null)viewHolder.birdImage.setImageBitmap(bird.getProfileImage());
           viewHolder.cost.setText("$" + bird.getCost());
           viewHolder.species.setText(bird.getSpecies());
       }else{
           ForShowViewHolder viewHolder = (ForShowViewHolder) holder ;
-         // viewHolder.birdImage.setImageBitmap(bird.getProfileImage());
-          viewHolder.birdId.setText(bird.getBirdId());
+         if(bird.getProfileImage()!=null) viewHolder.birdImage.setImageBitmap(bird.getProfileImage());
+          viewHolder.birdId.setText(bird.getRingNo());
           viewHolder.species.setText(bird.getSpecies());
           viewHolder.gender.setImageLevel(bird.getGender());
           viewHolder.offered.setChecked(bird.isOffered());
