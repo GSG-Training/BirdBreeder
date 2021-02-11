@@ -35,8 +35,14 @@ public interface BirdBreederConstants {
     int INCUBATED = 21 ;
     int UNFERTILIZED = 22 ;
     int HATCHED_OK = 23 ;
-
     int PAGE_ITEM_COUNT = 10 ;
+
+
+    int NEW_BIRD = 1 ;
+    int SHOW_BIRD= 2 ;
+
+    int NEW_MATING = 11 ;
+    int EDIT_MATING= 12 ;
 
 
 }

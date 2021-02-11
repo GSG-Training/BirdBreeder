@@ -1,18 +1,16 @@
 package com.example.birdbreeder.View.ui.Birds;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.GridLayoutManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+
+import com.example.birdbreeder.Model.BirdBreederConstants;
 import com.example.birdbreeder.Model.DataBase.Entity.Bird;
-import com.example.birdbreeder.R;
 import com.example.birdbreeder.View.Adapters.BirdsAdapter;
 import com.example.birdbreeder.ViewModel.BirdViewModel;
 import com.example.birdbreeder.databinding.FragmentBirdListBinding;
@@ -55,7 +53,13 @@ public class BirdListFragment extends Fragment {
         adapter = new BirdsAdapter(false);
         birdListBinding.birdListRecycler.setAdapter(adapter);
         viewModel.getAllBirds().observe(getViewLifecycleOwner(),observer);
-
+        birdListBinding.newBirdFb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext() ,BirdProfileActivity.class );
+                startActivityForResult(intent , BirdBreederConstants.NEW_BIRD);
+            }
+        });
         return birdListBinding.getRoot();
     }
 

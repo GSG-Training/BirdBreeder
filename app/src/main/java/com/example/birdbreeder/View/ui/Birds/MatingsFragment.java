@@ -1,5 +1,6 @@
 package com.example.birdbreeder.View.ui.Birds;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.birdbreeder.Model.BirdBreederConstants;
 import com.example.birdbreeder.Model.DataBase.Entity.Mating;
 import com.example.birdbreeder.R;
 import com.example.birdbreeder.View.Adapters.MatingAdapter;
@@ -55,7 +57,13 @@ public class MatingsFragment extends Fragment {
         binding = FragmentMatingsBinding.inflate(inflater , container , false);
         binding.matingListRecycler.setAdapter(adapter);
         viewModel.getAllMatings().observe(getViewLifecycleOwner() , observer);
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_matings, container, false);
+        binding.newMatingFb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext() , NewMatingActivity.class);
+                startActivityForResult(intent , BirdBreederConstants.EDIT_MATING);
+            }
+        });
+        return binding.getRoot();
     }
 }

@@ -23,6 +23,6 @@
         android:layout_below="@id/main_tabs"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:background="@color/grey_100" />
+         />
 
 </RelativeLayout>

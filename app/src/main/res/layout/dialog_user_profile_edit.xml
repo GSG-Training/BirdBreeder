@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="@dimen/eight">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/eight"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/user_name"
+        android:hint="@string/user_name"
+        app:layout_constraintBottom_toTopOf="@+id/edit_twitter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <EditText
+        android:id="@+id/edit_twitter"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/twitter"
+        android:hint="@string/twitter"
+        app:layout_constraintBottom_toTopOf="@+id/edit_face"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+    <EditText
+        android:id="@+id/edit_face"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/facebook"
+        android:text="@string/facebook"
+        app:layout_constraintBottom_toTopOf="@+id/edit_whats"
+        app:layout_constraintEnd_toEndOf="@+id/edit_whats"
+        app:layout_constraintTop_toBottomOf="@+id/edit_twitter" />
+
+    <EditText
+        android:id="@+id/edit_whats"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/whatsapp"
+        android:hint="@string/whatsapp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_insta"
+        app:layout_constraintEnd_toEndOf="@+id/edit_insta"
+        app:layout_constraintTop_toBottomOf="@+id/edit_face" />
+
+    <EditText
+        android:id="@+id/edit_insta"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        android:ems="10"
+        android:hint="@string/insta"
+        android:inputType="textPersonName"
+        android:text="@string/insta"
+        app:layout_constraintBottom_toTopOf="@+id/edit_telegram"
+        app:layout_constraintEnd_toEndOf="@+id/edit_telegram"
+        app:layout_constraintTop_toBottomOf="@+id/edit_whats" />
+
+    <EditText
+        android:id="@+id/edit_telegram"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        android:ems="10"
+        android:hint="@string/telegram"
+        android:inputType="textPersonName"
+        android:text="@string/telegram"
+        app:layout_constraintBottom_toTopOf="@+id/edit_gmail"
+        app:layout_constraintEnd_toEndOf="@+id/edit_gmail"
+        app:layout_constraintTop_toBottomOf="@+id/edit_insta" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="@dimen/forty_eight"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView10"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        app:srcCompat="@drawable/ic_gmail" />
+
+    <ImageView
+        android:id="@+id/edit_profile_image"
+        android:layout_width="@dimen/forty_eight"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_margin="@dimen/eight"
+        app:layout_constraintBottom_toTopOf="@+id/imageView11"
+        app:layout_constraintEnd_toStartOf="@+id/username"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_24"
+        android:background="@drawable/circle"/>
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="@dimen/forty_eight"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/edit_profile_image"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_image"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_image"
+        app:srcCompat="@drawable/ic_twitter" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="@dimen/forty_eight"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        app:layout_constraintBottom_toTopOf="@+id/imageView12"
+        app:layout_constraintEnd_toEndOf="@+id/imageView11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        app:srcCompat="@drawable/ic_facebook" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="@dimen/forty_eight"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        app:layout_constraintBottom_toTopOf="@+id/imageView9"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:srcCompat="@drawable/ic_whatsapp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="@dimen/forty_eight"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/imageView9"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:srcCompat="@drawable/ic_telegram" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="@dimen/forty_eight"
+        android:layout_height="@dimen/forty_eight"
+        android:layout_marginVertical="@dimen/eight"
+        app:layout_constraintBottom_toTopOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="@+id/imageView12"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView12"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        app:srcCompat="@drawable/ic_instagram" />
+
+    <EditText
+        android:id="@+id/edit_gmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/eight"
+        android:ems="10"
+        android:hint="@string/gmail"
+        android:inputType="textPersonName"
+        android:text="@string/gmail"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_telegram" />
+</androidx.constraintlayout.widget.ConstraintLayout>

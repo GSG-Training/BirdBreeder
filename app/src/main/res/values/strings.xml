@@ -47,4 +47,23 @@
     <string name="home_fragment_title">Home</string>
     <string name="email_breeder">Email Breeder</string>
     <string name="mating_title">Mating</string>
+    <string name="bird_ring_no">Ring Number</string>
+    <string name="bird_id">Bird Id</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="bird_color">Color</string>
+    <string name="bird_age">Age</string>
+    <string name="bird_weight">Weight</string>
+    <string name="bird_from">From</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="choose_image">Choose Photo</string>
+    <string name="male_ring_no">Male Ring Number</string>
+    <string name="female_ring_no">Female Ring Number</string>
+    <string name="mating_status">Status</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="insta">Instagram</string>
+    <string name="telegram">Telegram</string>
+    <string name="new_egg">New Egg</string>
 </resources>
