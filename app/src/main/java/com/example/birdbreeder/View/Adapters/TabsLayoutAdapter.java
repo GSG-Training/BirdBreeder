@@ -3,15 +3,14 @@ package com.example.birdbreeder.View.Adapters;
 
 import android.graphics.drawable.Drawable;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-
 import com.google.android.material.tabs.TabLayout;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +41,8 @@ public class TabsLayoutAdapter extends FragmentStatePagerAdapter {
         fragmentTitle.add(title);
         fragmentIcons.add(icon);
     }// end addFragment()
-    @NotNull
+
+    @NonNull
     @Override
     public Fragment getItem(int position) {
 

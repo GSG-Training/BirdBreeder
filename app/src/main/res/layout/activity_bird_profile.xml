@@ -139,6 +139,7 @@
         android:minLines="3"
         />
     <TextView
+        android:visibility="gone"
         android:layout_alignParentEnd="true"
         android:layout_alignBottom="@id/bird_image"
         android:layout_margin="@dimen/eight"

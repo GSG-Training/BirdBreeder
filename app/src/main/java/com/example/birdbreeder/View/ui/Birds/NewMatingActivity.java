@@ -7,24 +7,47 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.birdbreeder.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class NewMatingActivity extends AppCompatActivity {
+public class NewMatingActivity extends AppCompatActivity implements View.OnClickListener {
     private FloatingActionButton fab ;
+    private Button button ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_mating);
         fab = findViewById(R.id.new_egg_fb);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    AlertDialog.Builder builder = new  AlertDialog.Builder(getApplicationContext());
-                builder.setView(R.layout.dialog_new_egg);
-                builder.show();
-            }
-        });
+        fab.setOnClickListener(this);
+        button = findViewById(R.id.mating_edit_details);
+        button.setOnClickListener(this);
+    }
+
+    private void showEggDialog(){
+        AlertDialog.Builder builder = new  AlertDialog.Builder(this);
+        builder.setView(R.layout.dialog_new_egg);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
+    private void showEditDialog(){
+        AlertDialog.Builder builder = new  AlertDialog.Builder(this);
+        builder.setView(R.layout.dialog_edit_mating);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.new_egg_fb :
+                showEggDialog();
+                break;
+            case R.id.mating_edit_details:
+                showEditDialog();
+                break;
+        }
     }
 }
