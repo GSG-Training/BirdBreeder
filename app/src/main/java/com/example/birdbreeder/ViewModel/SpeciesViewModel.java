@@ -28,17 +28,16 @@ public class SpeciesViewModel extends AndroidViewModel {
             repo.deleteSpecies(species);
         }
 
-        public  void getSpecies(int  id){
-            repo.getSpecies(id);
+        public  LiveData<Species>  getSpecies(int  id){
+            return repo.getSpecies(id);
         }
         public LiveData<List<Species>> getAllSpecies(){
             return  repo.getAllSpecies();
         }
 
 
-        public LiveData<List<Species>> getPageOfSpecies(int pageNum){
-
-            return  repo.getPageOfSpecies(pageNum);
+        public LiveData<List<String>> getNamesOfSpecies(){
+            return  repo.getNameOfSpecies();
         }
 
         public void deleteAll(){

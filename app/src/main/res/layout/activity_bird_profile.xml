@@ -17,7 +17,7 @@
     <ImageView
         android:id="@+id/bird_image"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/two_hundred"
+        android:layout_height="@dimen/hundred_eighty"
         android:src="@color/grey_200"/>
     <LinearLayout
         android:id="@+id/details"
@@ -32,6 +32,7 @@
             android:orientation="vertical"
             android:layout_margin="@dimen/eight">
             <TextView
+                android:id="@+id/label"
                 android:text="@string/bird_id"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
@@ -47,11 +48,13 @@
                 android:text="@string/breed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <EditText
+            <Spinner
+                android:background="@drawable/rectangle"
                 android:id="@+id/bird_species"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/eight"
+                android:pointerIcon="arrow"
                 />
             <TextView
                 android:text="@string/birth_date"
@@ -62,18 +65,52 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/eight"
+                android:drawableEnd="@drawable/ic_baseline_today_24"
+                android:drawableTint="@color/blue_300"
                 />
             <TextView
                 android:text="@string/bird_weight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:maxLines="1"
+                android:inputType="numberDecimal"
                 android:id="@+id/bird_weight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/eight"
                 />
 
+            <LinearLayout
+                android:layout_marginVertical="@dimen/eight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cost_layout"
+                android:orientation="horizontal">
+                <ToggleButton
+                    android:id="@+id/offered"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sixteen"
+                    android:textOff="@string/offer_for_sale"
+                    android:textOn="@string/offered_for_sale"
+                    android:textColor="@color/reddish_brown"
+                    android:textAllCaps="false"/>
+                <EditText
+                    android:visibility="gone"
+                    android:layout_margin="@dimen/eight"
+                    android:hint="@string/cost"
+                    android:maxLines="1"
+                    android:id="@+id/bird_cost"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/eight"
+                    android:inputType="numberDecimal"
+                    android:drawableTint="@color/blue_300"
+                    android:drawableStart="@drawable/ic_baseline_attach_money_24"
+                    /></LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -96,6 +133,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
+              android:maxLength="30"
+               android:lines="1"
                 android:id="@+id/bird_color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,20 +151,44 @@
                 android:layout_marginHorizontal="@dimen/eight"
                 />
             <TextView
-                android:text="@string/bird_from"
+                android:text="@string/mating_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <EditText
-                android:id="@+id/bird_from"
+            <Spinner
+                android:background="@drawable/rectangle"
+                android:id="@+id/bird_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/eight"
+                android:pointerIcon="arrow"
                 />
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+
+                android:layout_marginHorizontal="@dimen/eight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender"/>
+            <ToggleButton
+                android:layout_marginVertical="@dimen/eight"
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sixteen"
+                android:textOff="@string/female"
+                android:textOn="@string/male"
+                android:textColor="@color/reddish_brown"
+                android:textAllCaps="false"/></LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
     <TextView
-        android:layout_margin="@dimen/eight"
         android:layout_below="@id/details"
+        android:layout_margin="@dimen/eight"
         android:id="@+id/des"
         android:text="@string/description"
         android:layout_width="match_parent"
@@ -136,7 +199,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/eight"
-        android:minLines="3"
+        android:minLines="2"
         />
     <TextView
         android:visibility="gone"

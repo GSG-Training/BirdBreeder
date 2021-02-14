@@ -44,20 +44,18 @@ public class BirdListFragment extends Fragment {
             }
         };
     }
-   //TODO: onItemClick Listener
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         birdListBinding = FragmentBirdListBinding.inflate(inflater , container , false);
-        adapter = new BirdsAdapter(false);
-        birdListBinding.birdListRecycler.setAdapter(adapter);
+        setAdapter();
         viewModel.getAllBirds().observe(getViewLifecycleOwner(),observer);
         birdListBinding.newBirdFb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext() ,BirdProfileActivity.class );
-                startActivityForResult(intent , BirdBreederConstants.NEW_BIRD);
+                toBirdProfile(-1);
             }
         });
         return birdListBinding.getRoot();
@@ -67,5 +65,30 @@ public class BirdListFragment extends Fragment {
     public void onResume() {
         super.onResume();
         viewModel.getAllBirds().observe(getViewLifecycleOwner(),observer);
+    }
+
+
+    private void setAdapter(){
+        adapter = new BirdsAdapter(false , getActivity().getApplication()) {
+            @Override
+            public void itemClick(int position) {
+                int birdId = getItemAt(position).getBirdId();
+                toBirdProfile(birdId);
+            }
+        };
+        birdListBinding.birdListRecycler.setAdapter(adapter);
+    }
+
+    private void toBirdProfile(int id){
+        Intent intent = new Intent(getContext() ,BirdProfileActivity.class );
+        if(id == -1) {
+            intent.putExtra(BirdBreederConstants.BIRD_ACTION , BirdBreederConstants.NEW_BIRD);
+        }
+        else {
+            intent.putExtra(BirdBreederConstants.BIRD_ACTION , BirdBreederConstants.SHOW_BIRD);
+            intent.putExtra(BirdBreederConstants.BIRD_ID , id);
+        }
+        startActivity(intent);
+
     }
 }

@@ -66,4 +66,30 @@
     <string name="insta">Instagram</string>
     <string name="telegram">Telegram</string>
     <string name="new_egg">New Egg</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="cost">Cost</string>
+    <string name="select_image">Select Bird Image</string>
+
+    <array name="bird_status">
+        <item name = "sick">Sick</item>
+        <item name = "sold">Sold</item>
+        <item name = "in_rest">In Rest</item>
+        <item name = "in_breeding">In Breeding</item>
+    </array>
+
+    <array name="egg_status">
+        <item name = "failed_incubated">Failed Incubated</item>
+        <item name = "incubated">Incubated</item>
+        <item name = "unfertilized">Unfertilized</item>
+        <item name = "hatched_ok">Hatched Ok</item>
+    </array>
+
+
+    <array name="mating_status">
+        <item name = "in_breeding">In Breeding</item>
+        <item name = "in_rest">In Rest</item>
+        <item name = "separated">Separated</item>
+    </array>
 </resources>

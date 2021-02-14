@@ -31,20 +31,16 @@ public class SpeciesRepo {
         speciesDao.delete(species);
     }
 
-    //TODO: FIX WHERE CLAUSE
-    public  void getSpecies(int  id){
-        //speciesDao.get(id);
+    public  LiveData<Species> getSpecies(int  id){
+       return speciesDao.get(id);
     }
     public LiveData<List<Species>> getAllSpecies(){
         return  speciesDao.getAllItems();
     }
 
 
-    //TODO: FIX PAGINATION
-    public LiveData<List<Species>> getPageOfSpecies(int pageNum){
-        int to = pageNum* BirdBreederConstants.PAGE_ITEM_COUNT ;
-        int from = to - pageNum ;
-        return  speciesDao.getAllItems();
+    public LiveData<List<String>> getNameOfSpecies(){
+        return  speciesDao.getSpeciesNames();
     }
 
     public void deleteAll(){

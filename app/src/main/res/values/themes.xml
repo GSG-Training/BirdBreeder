@@ -32,7 +32,7 @@
         <item name="android:paddingEnd">@dimen/sixteen</item>
     </style>
 
-    <style name="Theme.BirdBreeder.InputText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="Theme.BirdBreeder.InputText" parent="Widget.AppCompat.EditText">
         <item name="android:background">@drawable/rectangle</item>
         <item name="android:fontFamily">@font/cairoregular</item>
         <item name="android:layout_height">@dimen/thirty_two</item>
@@ -41,6 +41,9 @@
         <item name="android:textColor">@color/dark_brown</item>
         <item name="hintTextColor">@color/blue_300</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:editable">true</item>
+        <item name="android:cursorVisible">true</item>
+        <item name="android:enabled">true</item>
     </style>
 
 

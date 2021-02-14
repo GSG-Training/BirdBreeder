@@ -1,10 +1,8 @@
 package com.example.birdbreeder.Model.DataBase.Entity;
 
 import android.graphics.Bitmap;
-import android.media.MediaActionSound;
 
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
@@ -16,34 +14,33 @@ public class Bird {
     @PrimaryKey(autoGenerate = true)
     private int birdId ;
     private String ringNo ;
-    @ForeignKey(entity = Species.class, parentColumns= "speciesId", childColumns = "speciesId", deferred = false)
-    private int speciesId;
-    private String species = "CANARY" ;
+    private String species;
     private double weight;
     private double cost;
     private int status ;
-    @Ignore
     private Date bthDate ;
-    private int gender ;
+    private boolean gender ;
     private boolean offered ;
-    @Ignore
     private Bitmap profileImage ;
-    //private int breederId "Foreign KEY"
+    private String desc ;
+    private String color ;
 
     @Ignore
-    public Bird(String ringNo, int speciesId, Date bthDate , int gender) {
+    public Bird(String ringNo, String species, Date bthDate , boolean gender) {
         this.ringNo = ringNo;
-        this.speciesId = speciesId;
+        this.species = species;
         this.bthDate = bthDate;
         this.gender=gender;
     }
 
     public Bird() {
     }
+
+
      @Ignore
-    public Bird(String ringNo, int speciesId, double weight, int status, Date bthDate) {
+    public Bird(String ringNo, String species, double weight, int status, Date bthDate) {
          this.ringNo = ringNo;
-        this.speciesId = speciesId;
+        this.species = species;
         this.weight = weight;
         this.status = status;
         this.bthDate = bthDate;
@@ -57,12 +54,12 @@ public class Bird {
         this.birdId = birdId;
     }
 
-    public int getSpeciesId() {
-        return speciesId;
+    public String getSpecies() {
+        return species;
     }
 
-    public void setSpeciesId(int speciesId) {
-        this.speciesId = speciesId;
+    public void setSpecies(String species) {
+        this.species = species;
     }
 
     public double getWeight() {
@@ -89,11 +86,11 @@ public class Bird {
         this.bthDate = bthDate;
     }
 
-    public int getGender() {
+    public boolean getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
     }
 
@@ -121,20 +118,27 @@ public class Bird {
         this.cost = cost;
     }
 
-    public String getSpecies() {
-        //TODO:  SPECIES STRING FIXING
-        return "species";
-    }
-
-    public void setSpecies(String species) {
-        this.species = species;
-    }
-
     public String getRingNo() {
         return ringNo;
     }
 
     public void setRingNo(String ringNo) {
         this.ringNo = ringNo;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

@@ -1,5 +1,8 @@
 package com.example.birdbreeder.View.Adapters;
 
+import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +13,26 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.birdbreeder.Model.BirdBreederConstants;
 import com.example.birdbreeder.Model.DataBase.Entity.Bird;
 import com.example.birdbreeder.R;
+import com.example.birdbreeder.View.ui.Birds.BirdProfileActivity;
+import com.example.birdbreeder.ViewModel.BirdViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public abstract class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     private List<Bird> birdList = new ArrayList<>();
-    private OnItemClickListener listener;
+    private Context context ;
     private  boolean forSale ;
-    public BirdsAdapter( boolean forSale) {
+    private BirdViewModel birdViewModel ;
+
+    public BirdsAdapter(boolean forSale , Application application) {
         this.forSale = forSale;
+        birdViewModel = new BirdViewModel(application);
+        context= application.getApplicationContext();
+
     }
     public BirdsAdapter(List<Bird> birdList, boolean forSale) {
         this.birdList = birdList;
@@ -53,7 +64,12 @@ public class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
          if(bird.getProfileImage()!=null) viewHolder.birdImage.setImageBitmap(bird.getProfileImage());
           viewHolder.birdId.setText(bird.getRingNo());
           viewHolder.species.setText(bird.getSpecies());
-          viewHolder.gender.setImageLevel(bird.getGender());
+          if(bird.getGender()){
+              viewHolder.gender.setImageLevel(110);
+          }else{
+              viewHolder.gender.setImageLevel(111);
+          }
+
           viewHolder.offered.setChecked(bird.isOffered());
 
       }
@@ -89,18 +105,20 @@ public class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
            birdImage = itemView.findViewById(R.id.br_profile_image);
            gender = itemView.findViewById(R.id.br_gender);
            offered= itemView.findViewById(R.id.br_offered);
-            // TODO:offered OnClick
-            offered.setOnCheckedChangeListener((compoundButton, b) -> {
 
+            offered.setOnCheckedChangeListener((compoundButton, b) -> {
+                Bird bird = birdList.get(getAdapterPosition());
+                bird.setOffered(offered.isChecked());
+                birdViewModel.updateBird(bird);
             });
             //attaching the listener
-            // TODO:ItemOnClick
-            itemView.setOnClickListener(v -> {
-                int position = getAdapterPosition();
-                if (listener != null && position != RecyclerView.NO_POSITION) {
-                    listener.onItemClick(birdList.get(position));
-
-                }//end if
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION)
+                        itemClick(position);
+                }
             });
         }//end MyViewHolder(itemView)
 
@@ -123,21 +141,19 @@ public class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             // TODO:email_breeder OnClick
             //attaching the listener
             // TODO:ItemOnClick
-            itemView.setOnClickListener(v -> {
-                int position = getAdapterPosition();
-                if (listener != null && position != RecyclerView.NO_POSITION) {
-                    listener.onItemClick(birdList.get(position));
-
-                }//end if
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION)
+                    itemClick(position);
+                }
             });
+
         }//end MyViewHolder(itemView)
 
     }//end MyViewHolder class
 
-
-    public interface OnItemClickListener {
-        void onItemClick(Bird bird);
-    }//end OnItemClickListener
-
+   public  abstract void  itemClick(int position);
 
 }//end  Class

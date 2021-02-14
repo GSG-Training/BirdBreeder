@@ -30,24 +30,35 @@ public class BirdRepo {
         birdDao.delete(bird);
     }
 
-    //TODO: FIX WHERE CLAUSE
-    public  void getBird(String ring){
-        //birdDao.get(ring);
+    public  LiveData<Bird> getBird(String ring){
+      return   birdDao.get(ring);
     }
+
     public LiveData<List<Bird>> getAllBirds(){
         return  birdDao.getAllItems();
     }
 
 
-    //TODO: FIX PAGINATION
-    public LiveData<List<Bird>> getPageOfBirds(int pageNum){
-        int to = pageNum* BirdBreederConstants.PAGE_ITEM_COUNT ;
-        int from = to - pageNum ;
-        return  birdDao.getAllItems();
-                //birdDao.getPage();
+    public LiveData<List<String>> getRingNOfBirds(){
+        return  birdDao.getRingNOfBirds();
+
     }
 
+
+    public LiveData<List<String>> getRingNOfMales(){
+        return  birdDao.getRingNOfMales();
+
+    }
+
+    public LiveData<List<String>> getRingNOfFemales(){
+        return  birdDao.getRingNOfFemales();
+
+    }
         public void deleteAll(){
         birdDao.deleteAllItems();
         }
+
+    public  LiveData<Bird> getBird(int id) {
+        return  birdDao.get(id)  ;
+    }
 }

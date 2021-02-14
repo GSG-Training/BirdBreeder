@@ -17,10 +17,11 @@ import com.example.birdbreeder.Model.DataBase.Entity.Egg;
 import com.example.birdbreeder.Model.DataBase.Entity.Mating;
 import com.example.birdbreeder.Model.DataBase.Entity.Notification;
 import com.example.birdbreeder.Model.DataBase.Entity.Species;
+import com.example.birdbreeder.Model.DataBase.TypeConverters.BitmapConverter;
 import com.example.birdbreeder.Model.DataBase.TypeConverters.DateConverter;
 
 @Database(entities = {Bird.class , Egg.class , Mating.class , Notification.class , Species.class} , version = BirdBreederConstants.DB_VERSION , exportSchema = false)
-@TypeConverters(DateConverter.class)
+@TypeConverters({DateConverter.class , BitmapConverter.class})
 public abstract class BirdsDataBase extends RoomDatabase {
     private static BirdsDataBase instance;
     //TODO: EXECUTER NEEDED IN MAIN ACTIVITY

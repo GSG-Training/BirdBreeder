@@ -3,7 +3,7 @@ package com.example.birdbreeder.Model;
 public interface BirdBreederConstants {
     //DATABASE
     String DB_NAME = "bird_breeder_db";
-    int DB_VERSION =1 ;
+    int DB_VERSION =2 ;
     //Tables
     String BIRDS_TABLE ="birds";
     String SPECIES_TABLE ="species";
@@ -22,8 +22,8 @@ public interface BirdBreederConstants {
     //MATING STATUS
     int SEPARATED = -2 ;
     //BIRD GENDER
-    int MALE= 110 ;
-    int FEMALE= 111 ;
+    boolean MALE= true ;
+    boolean FEMALE= false ;
     //NOTIFICATION STATUS
     int VIEWED= 201 ;
     int UN_VIEWED= 200 ;
@@ -45,4 +45,7 @@ public interface BirdBreederConstants {
     int EDIT_MATING= 12 ;
 
 
+    String BIRD_ID = "bird_id";
+    String BIRD_ACTION = "bird_action";
+    int PICK_IMAGE = 410;
 }

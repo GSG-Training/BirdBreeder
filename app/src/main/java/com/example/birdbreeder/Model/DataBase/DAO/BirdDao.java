@@ -31,11 +31,20 @@ public interface BirdDao {
     @Query("SELECT * FROM "+ BirdBreederConstants.BIRDS_TABLE)
     LiveData<List<Bird>> getAllItems();
 
-// //   @Query( "SELECT * FROM " + BirdBreederConstants.BIRDS_TABLE + " WHERE ringNo LIKE ")
-//    LiveData<Bird> get(String ring);
-//
-//    @Query("SELECT * FROM "+ BirdBreederConstants.BIRDS_TABLE)
-//    LiveData<List<Bird>> getPage();
+   @Query( "SELECT * FROM " + BirdBreederConstants.BIRDS_TABLE + " WHERE ringNo  LIKE :ring ")
+    LiveData<Bird> get(String ring);
+    @Query( "SELECT * FROM " + BirdBreederConstants.BIRDS_TABLE + " WHERE birdId  = :id ")
+    LiveData<Bird> get(int id);
+
+    @Query("SELECT ringNo FROM "+ BirdBreederConstants.BIRDS_TABLE)
+    LiveData<List<String>> getRingNOfBirds();
+
+    @Query("SELECT ringNo FROM "+ BirdBreederConstants.BIRDS_TABLE + " WHERE gender  =  " +BirdBreederConstants.MALE )
+    LiveData<List<String>> getRingNOfMales();
+
+    @Query("SELECT ringNo FROM "+ BirdBreederConstants.BIRDS_TABLE + " WHERE gender  =  " +BirdBreederConstants.FEMALE )
+    LiveData<List<String>> getRingNOfFemales();
+
 
 }
 

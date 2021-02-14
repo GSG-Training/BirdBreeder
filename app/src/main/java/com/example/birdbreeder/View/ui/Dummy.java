@@ -19,10 +19,10 @@ import java.util.Date;
 public class Dummy {
     public static void addBirds(Application application){
         BirdViewModel viewModel = new BirdViewModel(application);
-        viewModel.addBird(new Bird("H2152",1,new Date(),BirdBreederConstants.MALE));
-        viewModel.addBird(new Bird("H214",2,new Date(),BirdBreederConstants.MALE));
-        viewModel.addBird(new Bird("H2752",2,new Date(),BirdBreederConstants.FEMALE));
-        viewModel.addBird(new Bird("H2552",1,new Date(),BirdBreederConstants.FEMALE));
+//        viewModel.addBird(new Bird("H2152",1,new Date(),BirdBreederConstants.MALE));
+//        viewModel.addBird(new Bird("H214",2,new Date(),BirdBreederConstants.MALE));
+//        viewModel.addBird(new Bird("H2752",2,new Date(),BirdBreederConstants.FEMALE));
+//        viewModel.addBird(new Bird("H2552",1,new Date(),BirdBreederConstants.FEMALE));
     }
 
 

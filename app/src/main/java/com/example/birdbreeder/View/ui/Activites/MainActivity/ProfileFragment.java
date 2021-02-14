@@ -1,5 +1,6 @@
 package com.example.birdbreeder.View.ui.Activites.MainActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,11 +9,13 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 
+import com.example.birdbreeder.Model.BirdBreederConstants;
 import com.example.birdbreeder.Model.DataBase.Entity.Bird;
 import com.example.birdbreeder.Model.DataBase.Entity.Species;
 import com.example.birdbreeder.R;
 import com.example.birdbreeder.View.Adapters.BirdsAdapter;
 import com.example.birdbreeder.View.Adapters.SpeciesAdapter;
+import com.example.birdbreeder.View.ui.Birds.BirdProfileActivity;
 import com.example.birdbreeder.View.ui.Dummy;
 import com.example.birdbreeder.ViewModel.BirdViewModel;
 import com.example.birdbreeder.ViewModel.SpeciesViewModel;
@@ -49,7 +52,15 @@ private Observer<List<Bird>> birdsObserver ;
         speciesViewModel = new SpeciesViewModel(getActivity().getApplication());
         birdViewModel = new BirdViewModel(getActivity().getApplication());
         speciesAdapter = new SpeciesAdapter();
-        birdsAdapter = new BirdsAdapter(true);
+        birdsAdapter =  new BirdsAdapter(true , getActivity().getApplication()) {
+            @Override
+            public void itemClick(int position) {
+                Bird bird = getItemAt(position);
+                Intent intent = new Intent(getContext() , BirdProfileActivity.class );
+                intent.putExtra(BirdBreederConstants.BIRD_ID , bird.getBirdId());
+                startActivity(intent);
+            }
+        };
         speciesObserver= new Observer<List<Species>>() {
             @Override
             public void onChanged(List<Species> species) {

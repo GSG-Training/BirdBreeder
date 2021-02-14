@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
 import com.example.birdbreeder.Model.DataBase.Entity.Bird;
 import com.example.birdbreeder.Model.Repositories.BirdRepo;
 
@@ -18,6 +17,7 @@ public class BirdViewModel extends AndroidViewModel {
     public BirdViewModel(@NonNull Application application) {
         super(application);
         repo = new BirdRepo(application);
+
     }
 
 
@@ -32,19 +32,35 @@ public class BirdViewModel extends AndroidViewModel {
         repo.deleteBird(bird);
     }
 
-    public  void getBird(String ring){
-        repo.getBird(ring);
+    public  LiveData<Bird> getBird(String ring){
+       return repo.getBird(ring);
+    }
+
+    public   LiveData<Bird> getBird(int id){
+     return    repo.getBird(id);
     }
     public LiveData<List<Bird>> getAllBirds(){
         return  repo.getAllBirds();
     }
 
 
-    public LiveData<List<Bird>> getPageOfBirds(int pageNum){
-        return  repo.getPageOfBirds(pageNum);
+
+    public LiveData<List<String>> getRingNOfBirds(){
+        return  repo.getRingNOfBirds();
+
     }
 
+    public LiveData<List<String>> getRingNOfMales(){
+        return  repo.getRingNOfMales();
+
+    }
+
+    public LiveData<List<String>> getRingNOfFemales(){
+        return  repo.getRingNOfFemales();
+
+    }
     public void deleteAll(){
         repo.deleteAll();
     }
+
 }
