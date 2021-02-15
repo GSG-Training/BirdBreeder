@@ -46,6 +46,7 @@ public class HomeFragment extends Fragment {
             public void itemClick(int position) {
                 Bird bird = getItemAt(position);
                 Intent intent = new Intent(getContext() , BirdProfileActivity.class );
+                intent.putExtra(BirdBreederConstants.BIRD_ACTION , BirdBreederConstants.SHOW_BIRD);
                  intent.putExtra(BirdBreederConstants.BIRD_ID , bird.getBirdId());
                  startActivity(intent);
             }

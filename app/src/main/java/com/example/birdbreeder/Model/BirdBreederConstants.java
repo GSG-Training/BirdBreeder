@@ -48,4 +48,6 @@ public interface BirdBreederConstants {
     String BIRD_ID = "bird_id";
     String BIRD_ACTION = "bird_action";
     int PICK_IMAGE = 410;
+
+    String DATE_PICKER = "datePicker";
 }

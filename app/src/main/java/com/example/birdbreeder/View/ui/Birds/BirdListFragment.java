@@ -43,6 +43,18 @@ public class BirdListFragment extends Fragment {
                 adapter.setItems(birds);
             }
         };
+
+        adapter = new BirdsAdapter(false , getActivity().getApplication()) {
+            @Override
+            public void itemClick(int position) {
+                Bird bird = getItemAt(position);
+                Intent intent = new Intent(getContext() , BirdProfileActivity.class );
+                intent.putExtra(BirdBreederConstants.BIRD_ACTION , BirdBreederConstants.SHOW_BIRD);
+                intent.putExtra(BirdBreederConstants.BIRD_ID , bird.getBirdId());
+                startActivity(intent);
+            }
+        };
+
     }
 
 
@@ -50,7 +62,6 @@ public class BirdListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         birdListBinding = FragmentBirdListBinding.inflate(inflater , container , false);
-        setAdapter();
         viewModel.getAllBirds().observe(getViewLifecycleOwner(),observer);
         birdListBinding.newBirdFb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +69,7 @@ public class BirdListFragment extends Fragment {
                 toBirdProfile(-1);
             }
         });
+        birdListBinding.birdListRecycler.setAdapter(adapter);
         return birdListBinding.getRoot();
     }
 
@@ -68,16 +80,7 @@ public class BirdListFragment extends Fragment {
     }
 
 
-    private void setAdapter(){
-        adapter = new BirdsAdapter(false , getActivity().getApplication()) {
-            @Override
-            public void itemClick(int position) {
-                int birdId = getItemAt(position).getBirdId();
-                toBirdProfile(birdId);
-            }
-        };
-        birdListBinding.birdListRecycler.setAdapter(adapter);
-    }
+
 
     private void toBirdProfile(int id){
         Intent intent = new Intent(getContext() ,BirdProfileActivity.class );

@@ -3,6 +3,7 @@ package com.example.birdbreeder.View.Adapters;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,15 +25,12 @@ import java.util.List;
 
 public abstract class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     private List<Bird> birdList = new ArrayList<>();
-    private Context context ;
     private  boolean forSale ;
     private BirdViewModel birdViewModel ;
 
     public BirdsAdapter(boolean forSale , Application application) {
         this.forSale = forSale;
         birdViewModel = new BirdViewModel(application);
-        context= application.getApplicationContext();
-
     }
     public BirdsAdapter(List<Bird> birdList, boolean forSale) {
         this.birdList = birdList;
@@ -56,8 +54,13 @@ public abstract class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Bird bird = birdList.get(position);
       if(forSale){
           ForSaleViewHolder viewHolder = (ForSaleViewHolder) holder ;
-          if(bird.getProfileImage()!=null)viewHolder.birdImage.setImageBitmap(bird.getProfileImage());
-          viewHolder.cost.setText("$" + bird.getCost());
+          if(bird.getProfileImage()!=null){
+              //TODO : RESIZE IMAGE TO FIT
+                Bitmap birdImage = bird.getProfileImage() ;
+//              Bitmap resized = Bitmap.createScaledBitmap(birdImage,(int)(birdImage.getWidth()*0.8), (int)(birdImage.getHeight()*0.8), true);
+              viewHolder.birdImage.setImageBitmap(birdImage);
+          }
+          viewHolder.cost.setText(bird.getCost()+"");
           viewHolder.species.setText(bird.getSpecies());
       }else{
           ForShowViewHolder viewHolder = (ForShowViewHolder) holder ;
@@ -111,6 +114,7 @@ public abstract class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 bird.setOffered(offered.isChecked());
                 birdViewModel.updateBird(bird);
             });
+            itemView.setClickable(true);
             //attaching the listener
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -138,9 +142,7 @@ public abstract class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             species = itemView.findViewById(R.id.bird_breed);
             birdImage = itemView.findViewById(R.id.bird_image);
             emailBreeder = itemView.findViewById(R.id.email_breeder);
-            // TODO:email_breeder OnClick
-            //attaching the listener
-            // TODO:ItemOnClick
+            itemView.setClickable(true);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

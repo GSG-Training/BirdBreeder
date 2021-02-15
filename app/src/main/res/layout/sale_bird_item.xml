@@ -22,7 +22,8 @@
         android:background="@drawable/rectangle"
         android:backgroundTint="@color/blue_300"
         app:tint="@color/grey_100"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
         android:layout_alignParentTop="true"
         android:contentDescription="@string/image_bird" />
     <TextView

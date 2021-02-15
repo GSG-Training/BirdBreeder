@@ -47,16 +47,17 @@ private Observer<List<Bird>> birdsObserver ;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  Dummy.addBirds(getActivity().getApplication());
-     //   Dummy.addSpecies(getActivity().getApplication());
         speciesViewModel = new SpeciesViewModel(getActivity().getApplication());
+//        speciesViewModel.deleteAll();
+//         Dummy.addSpecies(getActivity().getApplication());
         birdViewModel = new BirdViewModel(getActivity().getApplication());
         speciesAdapter = new SpeciesAdapter();
-        birdsAdapter =  new BirdsAdapter(true , getActivity().getApplication()) {
+        birdsAdapter = new BirdsAdapter(true , getActivity().getApplication()) {
             @Override
             public void itemClick(int position) {
                 Bird bird = getItemAt(position);
                 Intent intent = new Intent(getContext() , BirdProfileActivity.class );
+                intent.putExtra(BirdBreederConstants.BIRD_ACTION , BirdBreederConstants.SHOW_BIRD);
                 intent.putExtra(BirdBreederConstants.BIRD_ID , bird.getBirdId());
                 startActivity(intent);
             }

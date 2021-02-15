@@ -71,6 +71,8 @@
     <string name="female">Female</string>
     <string name="cost">Cost</string>
     <string name="select_image">Select Bird Image</string>
+    <string name="update_note">Bird is updated</string>
+    <string name="add_note">New Bird Added</string>
 
     <array name="bird_status">
         <item name = "sick">Sick</item>
