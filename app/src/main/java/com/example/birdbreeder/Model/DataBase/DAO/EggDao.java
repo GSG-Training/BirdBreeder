@@ -8,8 +8,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
-import com.example.birdbreeder.Model.DataBase.Entity.Bird;
+import com.example.birdbreeder.Model.Constants;
 import com.example.birdbreeder.Model.DataBase.Entity.Egg;
 
 import java.util.List;
@@ -26,10 +25,10 @@ public interface EggDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void update(Egg egg);
 
-    @Query("DELETE FROM "+ BirdBreederConstants.EGG_TABLE)
+    @Query("DELETE FROM "+ Constants.EGG_TABLE)
     void deleteAllItems();
 
-    @Query("SELECT * FROM "+ BirdBreederConstants.EGG_TABLE)
+    @Query("SELECT * FROM "+ Constants.EGG_TABLE)
     LiveData<List<Egg>> getAllItems();
 //
 //    LiveData<List<Egg>> getPage();

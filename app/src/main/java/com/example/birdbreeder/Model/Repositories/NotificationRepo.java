@@ -4,10 +4,9 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
+import com.example.birdbreeder.Model.Constants;
 import com.example.birdbreeder.Model.DataBase.BirdsDataBase;
 import com.example.birdbreeder.Model.DataBase.DAO.NotificationDao;
-import com.example.birdbreeder.Model.DataBase.Entity.Bird;
 import com.example.birdbreeder.Model.DataBase.Entity.Notification;
 
 import java.util.List;
@@ -42,7 +41,7 @@ public class NotificationRepo {
 
     //TODO: FIX PAGINATION
     public LiveData<List<Notification>> getPageOfNotification(int pageNum){
-        int to = pageNum* BirdBreederConstants.PAGE_ITEM_COUNT ;
+        int to = pageNum* Constants.PAGE_ITEM_COUNT ;
         int from = to - pageNum ;
         return  notificationDao.getAllItems();
     }

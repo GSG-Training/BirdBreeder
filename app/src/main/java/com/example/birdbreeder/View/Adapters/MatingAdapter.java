@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MatingAdapter  extends RecyclerView.Adapter<MatingAdapter.MyViewHolder> {
-    List<Mating> matings = new ArrayList<>();
-
+    private List<Mating> matings = new ArrayList<>();
+    private OnMatingClickListener listener ;
 
     @NonNull
     @Override
@@ -30,14 +30,14 @@ public class MatingAdapter  extends RecyclerView.Adapter<MatingAdapter.MyViewHol
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Mating mating = matings.get(position);
-        holder.mateId.setText(mating.getMatingId()+"");
+        holder.mateId.setText(String.format("%s", mating.getMatingId()));
         holder.species.setText(mating.getSpecies());
         holder.maleId.setText(mating.getMaleId());
         holder.femaleId.setText(mating.getFemaleId());
         holder.date.setText(DateFormat.format("yyyy-MM-dd",mating.getFormationDate()));
-        holder.totalNum.setText(mating.getTotalEggsNum()+"");
-        holder.incubatedNum.setText(mating.getIncubatedEggsNum()+"");
-        holder.hatchedNum.setText(mating.getHatchedEggsNum()+"");
+        holder.totalNum.setText(String.format("%s", mating.getTotalEggsNum()));
+        holder.incubatedNum.setText(String.format("%s", mating.getIncubatedEggsNum()));
+        holder.hatchedNum.setText(String.format("%s", mating.getHatchedEggsNum()));
 
 
     }//end onBindViewHolder(..)
@@ -74,11 +74,21 @@ public class MatingAdapter  extends RecyclerView.Adapter<MatingAdapter.MyViewHol
             hatchedNum= itemView.findViewById(R.id.produced_chicks_no);
             totalNum= itemView.findViewById(R.id.total_eggs_no);
             incubatedNum= itemView.findViewById(R.id.current_eggs);
-            //todo:edit on click listener
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onMatingClick();
+                }
+            });
         }//end MyViewHolder(itemView)
-
     }//end MyViewHolder class
 
+
+    public interface OnMatingClickListener {
+          void onMatingClick() ;
+    }
+    public void setOnItemClickListener( OnMatingClickListener listener) {
+        this.listener = listener;
+    }// end setOnItemClickListener
 
 }//end  Class

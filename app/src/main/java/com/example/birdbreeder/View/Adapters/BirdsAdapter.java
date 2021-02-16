@@ -1,8 +1,6 @@
 package com.example.birdbreeder.View.Adapters;
 
 import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,27 +12,22 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
 import com.example.birdbreeder.Model.DataBase.Entity.Bird;
 import com.example.birdbreeder.R;
-import com.example.birdbreeder.View.ui.Birds.BirdProfileActivity;
 import com.example.birdbreeder.ViewModel.BirdViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
+public  class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     private List<Bird> birdList = new ArrayList<>();
-    private  boolean forSale ;
-    private BirdViewModel birdViewModel ;
+    private final boolean forSale ;
+    private final BirdViewModel birdViewModel ;
+    private OnBirdClickListener onBirdClickListener ;
 
     public BirdsAdapter(boolean forSale , Application application) {
         this.forSale = forSale;
         birdViewModel = new BirdViewModel(application);
-    }
-    public BirdsAdapter(List<Bird> birdList, boolean forSale) {
-        this.birdList = birdList;
-        this.forSale = forSale;
     }
 
     @NonNull
@@ -60,7 +53,7 @@ public abstract class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 //              Bitmap resized = Bitmap.createScaledBitmap(birdImage,(int)(birdImage.getWidth()*0.8), (int)(birdImage.getHeight()*0.8), true);
               viewHolder.birdImage.setImageBitmap(birdImage);
           }
-          viewHolder.cost.setText(bird.getCost()+"");
+          viewHolder.cost.setText(String.format("%s", bird.getCost()));
           viewHolder.species.setText(bird.getSpecies());
       }else{
           ForShowViewHolder viewHolder = (ForShowViewHolder) holder ;
@@ -116,13 +109,10 @@ public abstract class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             });
             itemView.setClickable(true);
             //attaching the listener
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = getAdapterPosition();
-                    if(position != RecyclerView.NO_POSITION)
-                        itemClick(position);
-                }
+            itemView.setOnClickListener(view -> {
+                int position = getAdapterPosition();
+                if(position != RecyclerView.NO_POSITION)
+                    onBirdClickListener.itemClick(position);
             });
         }//end MyViewHolder(itemView)
 
@@ -143,19 +133,22 @@ public abstract class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             birdImage = itemView.findViewById(R.id.bird_image);
             emailBreeder = itemView.findViewById(R.id.email_breeder);
             itemView.setClickable(true);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = getAdapterPosition();
-                    if(position != RecyclerView.NO_POSITION)
-                    itemClick(position);
-                }
+            itemView.setOnClickListener(view -> {
+                int position = getAdapterPosition();
+                if(position != RecyclerView.NO_POSITION)
+                onBirdClickListener.itemClick(position);
             });
 
         }//end MyViewHolder(itemView)
 
     }//end MyViewHolder class
 
-   public  abstract void  itemClick(int position);
+    public interface  OnBirdClickListener{
+        void  itemClick(int position);
+    }
+
+    public void setOnBirdClickListener(OnBirdClickListener onBirdClickListener) {
+        this.onBirdClickListener = onBirdClickListener;
+    }
 
 }//end  Class

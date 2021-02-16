@@ -4,10 +4,8 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
 import com.example.birdbreeder.Model.DataBase.BirdsDataBase;
 import com.example.birdbreeder.Model.DataBase.DAO.SpeciesDao;
-import com.example.birdbreeder.Model.DataBase.Entity.Bird;
 import com.example.birdbreeder.Model.DataBase.Entity.Species;
 
 import java.util.List;

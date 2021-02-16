@@ -8,8 +8,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
-import com.example.birdbreeder.Model.DataBase.Entity.Bird;
+import com.example.birdbreeder.Model.Constants;
 import com.example.birdbreeder.Model.DataBase.Entity.Notification;
 
 import java.util.List;
@@ -26,10 +25,10 @@ public interface NotificationDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void update(Notification notification);
 
-    @Query("DELETE FROM "+ BirdBreederConstants.NOTIFICATION_TABLE)
+    @Query("DELETE FROM "+ Constants.NOTIFICATION_TABLE)
     void deleteAllItems();
 
-    @Query("SELECT * FROM "+ BirdBreederConstants.NOTIFICATION_TABLE)
+    @Query("SELECT * FROM "+ Constants.NOTIFICATION_TABLE)
     LiveData<List<Notification>> getAllItems();
 
 //    LiveData<List<Notification>> getPage();

@@ -8,7 +8,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
+import com.example.birdbreeder.Model.Constants;
 import com.example.birdbreeder.Model.DataBase.Entity.Bird;
 
 import java.util.List;
@@ -25,24 +25,24 @@ public interface BirdDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void update(Bird bird);
 
-    @Query("DELETE FROM "+ BirdBreederConstants.BIRDS_TABLE)
+    @Query("DELETE FROM "+ Constants.BIRDS_TABLE)
     void deleteAllItems();
 
-    @Query("SELECT * FROM "+ BirdBreederConstants.BIRDS_TABLE)
+    @Query("SELECT * FROM "+ Constants.BIRDS_TABLE)
     LiveData<List<Bird>> getAllItems();
 
-   @Query( "SELECT * FROM " + BirdBreederConstants.BIRDS_TABLE + " WHERE ringNo  LIKE :ring ")
+   @Query( "SELECT * FROM " + Constants.BIRDS_TABLE + " WHERE ringNo  LIKE :ring ")
     LiveData<Bird> get(String ring);
-    @Query( "SELECT * FROM " + BirdBreederConstants.BIRDS_TABLE + " WHERE birdId  = :id ")
+    @Query( "SELECT * FROM " + Constants.BIRDS_TABLE + " WHERE birdId  = :id ")
     LiveData<Bird> get(int id);
 
-    @Query("SELECT ringNo FROM "+ BirdBreederConstants.BIRDS_TABLE)
+    @Query("SELECT ringNo FROM "+ Constants.BIRDS_TABLE)
     LiveData<List<String>> getRingNOfBirds();
 
-    @Query("SELECT ringNo FROM "+ BirdBreederConstants.BIRDS_TABLE + " WHERE gender  =  " +BirdBreederConstants.MALE )
+    @Query("SELECT ringNo FROM "+ Constants.BIRDS_TABLE + " WHERE gender  =  " + Constants.MALE )
     LiveData<List<String>> getRingNOfMales();
 
-    @Query("SELECT ringNo FROM "+ BirdBreederConstants.BIRDS_TABLE + " WHERE gender  =  " +BirdBreederConstants.FEMALE )
+    @Query("SELECT ringNo FROM "+ Constants.BIRDS_TABLE + " WHERE gender  =  " + Constants.FEMALE )
     LiveData<List<String>> getRingNOfFemales();
 
 

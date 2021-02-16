@@ -1,21 +1,21 @@
 package com.example.birdbreeder.View.ui.Activites.MainActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
+import com.example.birdbreeder.Model.Constants;
 import com.example.birdbreeder.Model.DataBase.Entity.Bird;
 
 import com.example.birdbreeder.Model.DataBase.Entity.Breeder;
 import com.example.birdbreeder.View.Adapters.BirdsAdapter;
 import com.example.birdbreeder.View.Adapters.BreederAdapter;
-import com.example.birdbreeder.View.ui.Birds.BirdProfileActivity;
+import com.example.birdbreeder.View.ui.Fitter;
 import com.example.birdbreeder.ViewModel.BirdViewModel;
 import com.example.birdbreeder.databinding.FragmentHomeBinding;
 
@@ -23,8 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment {
-    private FragmentHomeBinding binding ;
+public class HomeFragment extends Fragment implements BirdsAdapter.OnBirdClickListener {
+    public static final String TAG= "com.example.birdbreeder.View.ui.Activites.MainActivity.HomeFragment" ;
     private BreederAdapter breederAdapter ;
     private BirdsAdapter birdsAdapter ;
     private BirdViewModel birdViewModel ;
@@ -41,33 +41,19 @@ public class HomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dummy();
-        birdsAdapter = new BirdsAdapter(true , getActivity().getApplication()) {
-            @Override
-            public void itemClick(int position) {
-                Bird bird = getItemAt(position);
-                Intent intent = new Intent(getContext() , BirdProfileActivity.class );
-                intent.putExtra(BirdBreederConstants.BIRD_ACTION , BirdBreederConstants.SHOW_BIRD);
-                 intent.putExtra(BirdBreederConstants.BIRD_ID , bird.getBirdId());
-                 startActivity(intent);
-            }
-        };
-
+        birdsAdapter = new BirdsAdapter(true , getActivity().getApplication());
+        birdsAdapter.setOnBirdClickListener(this);
         breederAdapter = new BreederAdapter();
         breederAdapter.setItems(breeders);
         birdViewModel = new BirdViewModel(getActivity().getApplication());
-        observer = new Observer<List<Bird>>() {
-            @Override
-            public void onChanged(List<Bird> birds) {
-               birdsAdapter.setItems(birds);
-            }
-        };
+        observer = birds -> birdsAdapter.setItems(birds);
 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentHomeBinding.inflate(inflater , container, false);
+        com.example.birdbreeder.databinding.FragmentHomeBinding binding = FragmentHomeBinding.inflate(inflater, container, false);
         binding.birdRecycler.setAdapter(birdsAdapter);
         binding.breederRecycler.setAdapter(breederAdapter);
         birdViewModel.getAllBirds().observe(getViewLifecycleOwner() , observer);
@@ -98,5 +84,11 @@ public class HomeFragment extends Fragment {
         breeders.add(third);
         breeders.add(fourth);
 
+    }
+
+    @Override
+    public void itemClick(int position) {
+        Bird bird = birdsAdapter.getItemAt(position);
+        Fitter.toBirdProfile(getActivity().getSupportFragmentManager(), TAG , Constants.SHOW_BIRD , bird.getBirdId());
     }
 }

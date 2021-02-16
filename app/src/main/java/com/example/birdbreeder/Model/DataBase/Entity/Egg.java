@@ -5,11 +5,11 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
+import com.example.birdbreeder.Model.Constants;
 
 import java.util.Date;
 
-@Entity (tableName = BirdBreederConstants.EGG_TABLE)
+@Entity (tableName = Constants.EGG_TABLE)
 public class Egg {
     @PrimaryKey(autoGenerate = true)
     private int eggId;

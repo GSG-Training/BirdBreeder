@@ -4,9 +4,9 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
+import com.example.birdbreeder.Model.Constants;
 
-@Entity (tableName =BirdBreederConstants.NOTIFICATION_TABLE)
+@Entity (tableName = Constants.NOTIFICATION_TABLE)
 public class Notification {
     @PrimaryKey(autoGenerate = true)
     private int notificationId;

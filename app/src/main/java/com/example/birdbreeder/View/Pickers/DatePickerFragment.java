@@ -1,10 +1,14 @@
 package com.example.birdbreeder.View.Pickers;
 
+
+
+
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
+
+import androidx.fragment.app.DialogFragment;
 
 import java.util.Calendar;
 
@@ -31,7 +35,7 @@ public class DatePickerFragment extends DialogFragment {
         int day = c.get(Calendar.DAY_OF_MONTH);
 
         // Create a new instance of DatePickerDialog and return it
-        return new DatePickerDialog(getActivity(), onDateSetListener, year, month, day);
+        return new DatePickerDialog(getContext(), onDateSetListener, year, month, day);
 
     }
 

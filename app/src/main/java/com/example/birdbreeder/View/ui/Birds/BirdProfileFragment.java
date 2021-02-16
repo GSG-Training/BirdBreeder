@@ -1,70 +1,99 @@
 package com.example.birdbreeder.View.ui.Birds;
 
+
 import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 
 import com.example.birdbreeder.Model.Constants;
 import com.example.birdbreeder.Model.DataBase.Entity.Bird;
 import com.example.birdbreeder.R;
-import com.example.birdbreeder.View.ui.Fitter;
 import com.example.birdbreeder.View.Pickers.DatePickerFragment;
+import com.example.birdbreeder.View.ui.Fitter;
 import com.example.birdbreeder.ViewModel.BirdViewModel;
 import com.example.birdbreeder.ViewModel.SpeciesViewModel;
-import com.example.birdbreeder.databinding.ActivityBirdProfileBinding;
+import com.example.birdbreeder.databinding.FragmentBirdProfileBinding;
 
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class BirdProfileActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+import static android.app.Activity.RESULT_OK;
+
+public class BirdProfileFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
+    public static final String TAG= "com.example.birdbreeder.View.ui.Birds.BirdProfileFragment" ;
+    private FragmentBirdProfileBinding binding ;
+    private int action , id ;
     private BirdViewModel birdViewModel;
-    private ActivityBirdProfileBinding binding;
+    private  SpeciesViewModel speciesViewModel ;
     private Observer<Bird> observer;
     private Observer<List<String>> listObserver;
     private ArrayAdapter<String> speciesAdapter;
     private ArrayAdapter<String> statusAdapter;
     private boolean enable;
-    private int action;
     private Bird bird ;
 
+    private BirdProfileFragment() {
+        // Required empty public constructor
+    }
+
+    public static BirdProfileFragment newInstance(int action, int id) {
+        BirdProfileFragment fragment = new BirdProfileFragment();
+        Bundle args = new Bundle();
+        args.putInt(Constants.BIRD_ACTION, action);
+        args.putInt(Constants.BIRD_ID, id);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityBirdProfileBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        if (getArguments() != null) {
+            action = getArguments().getInt(Constants.BIRD_ACTION);
+            id = getArguments().getInt(Constants.BIRD_ID);
+        }
+        birdViewModel = new BirdViewModel(getActivity().getApplication());
+        speciesViewModel = new SpeciesViewModel(getActivity().getApplication());
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        binding = FragmentBirdProfileBinding.inflate(inflater , container , false);
         bird = new Bird();
-        birdViewModel = new BirdViewModel(getApplication());
-        SpeciesViewModel speciesViewModel = new SpeciesViewModel(getApplication());
+
         setObserver();
         setButtons();
         addStatus();
         speciesViewModel.getNamesOfSpecies().observeForever(listObserver);
-
+        return binding.getRoot();
     }
 
-
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //result of pick image from gallery for bird profile image
         if (resultCode == RESULT_OK && requestCode == Constants.PICK_IMAGE) {
             Bitmap photo = null;
             if (data != null) {
                 try {
-                    photo = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), data.getData());
+                    photo = MediaStore.Images.Media.getBitmap(getActivity().getApplicationContext().getContentResolver(), data.getData());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -80,15 +109,12 @@ public class BirdProfileActivity extends AppCompatActivity implements DatePicker
     // 1 : Add a new Bird
     // 2 : Show a Bird and edit it
     private void setLayout() {
-        Intent intent = getIntent();
-        action = intent.getIntExtra(Constants.BIRD_ACTION, -1);
         if (action == Constants.NEW_BIRD) {
             enable = true;
             setEnable();
         } else {
             enable = false;
             setEnable();
-            int id = intent.getIntExtra(Constants.BIRD_ID, -1);
             if (id != -1)
                 birdViewModel.getBird(id).observeForever(observer);
         }
@@ -112,8 +138,8 @@ public class BirdProfileActivity extends AppCompatActivity implements DatePicker
 
     //getAge of a bird
     private String getToday() {
-            Date today = Calendar.getInstance().getTime();
-            return Fitter.getDate(today);
+        Date today = Calendar.getInstance().getTime();
+        return Fitter.getDate(today);
     }//getToday
 
 
@@ -166,7 +192,7 @@ public class BirdProfileActivity extends AppCompatActivity implements DatePicker
 
     //Show the Species at its Spinner
     private void setSpecies(List<String> species) {
-        speciesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, species);
+        speciesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, species);
         speciesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.birdSpecies.setAdapter(speciesAdapter);
     }//setSpecies
@@ -185,14 +211,14 @@ public class BirdProfileActivity extends AppCompatActivity implements DatePicker
         binding.profileButton.setOnClickListener(view -> {
             if(enable) {
                 //1:
-                 storeBird();
+                storeBird();
                 if (action == Constants.SHOW_BIRD) {
                     bird.setBirdId(Fitter.toInteger(binding.birdId.getText().toString()));
                     birdViewModel.updateBird(bird);
-                    Toast.makeText(BirdProfileActivity.this, getText(R.string.update_note), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getText(R.string.update_note), Toast.LENGTH_SHORT).show();
                 } else {
                     birdViewModel.addBird(bird);
-                    Toast.makeText(BirdProfileActivity.this, getText(R.string.add_note), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getText(R.string.add_note), Toast.LENGTH_SHORT).show();
                 }
                 enable = false;
             } else {
@@ -235,7 +261,7 @@ public class BirdProfileActivity extends AppCompatActivity implements DatePicker
 
     //add the adapter of bird status to its Spinner
     private void addStatus() {
-        statusAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.bird_status));
+        statusAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.bird_status));
         statusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.birdStatus.setAdapter(statusAdapter);
     }//addStatus
@@ -274,13 +300,13 @@ public class BirdProfileActivity extends AppCompatActivity implements DatePicker
         }
         return Constants.IN_REST;
 
-     }//getStatus
+    }//getStatus
 
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
         String date = Fitter.setDateString(year , monthOfYear , dayOfMonth) ;
         binding.birdBirthDate.setText(date);
-        bird.setBthDate(Fitter.getDate(date, this));
+        bird.setBthDate(Fitter.getDate(date, getContext()));
         Fitter.getAge( getToday() , date );
     }
 
@@ -288,11 +314,13 @@ public class BirdProfileActivity extends AppCompatActivity implements DatePicker
      * Show DatePickerDialogFragment
      */
     private void showDatePickerDialog() {
-        DialogFragment newFragment = new DialogFragment();
-        newFragment.show(getFragmentManager(), Constants.DATE_PICKER);
+
+        DialogFragment datePickerFragment = new DialogFragment();
+        datePickerFragment.show(getActivity().getSupportFragmentManager()
+                , Constants.DATE_PICKER);
     }
 
     private void showDatePickerDialog(View view) {
         showDatePickerDialog();
     }
-}// Activity
+}

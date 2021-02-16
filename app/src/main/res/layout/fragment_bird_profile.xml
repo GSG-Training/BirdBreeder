@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.ui.Birds.BirdProfileFragment">
+    <Button
+        android:layout_margin="@dimen/eight"
+        android:id="@+id/profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit"
+        android:textSize="@dimen/text_sixteen"
+        android:layout_alignParentEnd="true"/>
+    <ImageView
+        android:id="@+id/bird_image"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/hundred_eighty"
+        android:src="@color/grey_200"/>
+    <TextView
+        android:visibility="gone"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@id/bird_image"
+        android:layout_margin="@dimen/eight"
+        android:id="@+id/edit_image"
+        android:textStyle="bold"
+        android:text="@string/choose_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/bird_image"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bird_id"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/bird_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/eight" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/breed" />
+
+            <Spinner
+                android:id="@+id/bird_species"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/eight"
+                android:background="@drawable/rectangle"
+                android:pointerIcon="arrow" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/birth_date" />
+
+            <EditText
+                android:id="@+id/bird_birth_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/eight"
+                android:drawableEnd="@drawable/ic_baseline_today_24"
+                android:drawableTint="@color/blue_300"
+                android:editable="false"
+                android:inputType="none" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bird_weight" />
+
+            <EditText
+                android:id="@+id/bird_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/eight"
+                android:inputType="numberDecimal"
+                android:maxLines="1" />
+
+            <LinearLayout
+                android:id="@+id/cost_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/eight"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/offered"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sixteen"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/reddish_brown"
+                    android:textOff="@string/offer_for_sale"
+                    android:textOn="@string/offered_for_sale" />
+
+                <EditText
+                    android:id="@+id/bird_cost"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/eight"
+                    android:layout_marginHorizontal="@dimen/eight"
+                    android:layout_weight="2"
+                    android:drawableStart="@drawable/ic_baseline_attach_money_24"
+                    android:drawableTint="@color/blue_300"
+                    android:hint="@string/cost"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:visibility="gone" />
+            </LinearLayout>
+            <TextView
+                android:text="@string/bird_ring_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/bird_ring"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/eight"
+                />
+            <TextView
+                android:text="@string/bird_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:maxLength="30"
+                android:lines="1"
+                android:id="@+id/bird_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/eight"
+                />
+            <TextView
+                android:text="@string/bird_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/bird_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/eight"
+                />
+            <TextView
+                android:text="@string/mating_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <Spinner
+                android:background="@drawable/rectangle"
+                android:id="@+id/bird_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/eight"
+                android:pointerIcon="arrow"
+                />
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+
+                    android:layout_marginHorizontal="@dimen/eight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gender"/>
+                <ToggleButton
+                    android:layout_marginVertical="@dimen/eight"
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sixteen"
+                    android:textOff="@string/female"
+                    android:textOn="@string/male"
+                    android:textColor="@color/reddish_brown"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+            <TextView
+                android:layout_margin="@dimen/eight"
+                android:text="@string/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/bird_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/eight"
+                android:minLines="2"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

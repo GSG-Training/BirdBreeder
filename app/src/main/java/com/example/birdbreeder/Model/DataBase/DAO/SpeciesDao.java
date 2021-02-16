@@ -8,8 +8,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
-import com.example.birdbreeder.Model.DataBase.Entity.Bird;
+import com.example.birdbreeder.Model.Constants;
 import com.example.birdbreeder.Model.DataBase.Entity.Species;
 
 import java.util.List;
@@ -26,17 +25,17 @@ public interface SpeciesDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void update(Species species);
 
-    @Query("DELETE FROM "+ BirdBreederConstants.SPECIES_TABLE)
+    @Query("DELETE FROM "+ Constants.SPECIES_TABLE)
     void deleteAllItems();
 
-    @Query("SELECT * FROM "+ BirdBreederConstants.SPECIES_TABLE)
+    @Query("SELECT * FROM "+ Constants.SPECIES_TABLE)
     LiveData<List<Species>> getAllItems();
 
 
-    @Query("SELECT * FROM "+ BirdBreederConstants.SPECIES_TABLE + " WHERE speciesId = :id")
+    @Query("SELECT * FROM "+ Constants.SPECIES_TABLE + " WHERE speciesId = :id")
     LiveData<Species> get(int id);
 
-    @Query("SELECT name FROM "+ BirdBreederConstants.SPECIES_TABLE )
+    @Query("SELECT name FROM "+ Constants.SPECIES_TABLE )
     LiveData<List<String>> getSpeciesNames();
 }
 

@@ -13,6 +13,7 @@ import com.example.birdbreeder.databinding.FragmentBirdsBinding;
 
 
 public class BirdsFragment extends Fragment {
+    public static final String TAG= "com.example.birdbreeder.View.ui.Birds.BirdsFragment" ;
     private FragmentBirdsBinding birdsBinding;
     private TabsLayoutAdapter adapter ;
     public BirdsFragment() {
@@ -32,7 +33,7 @@ public class BirdsFragment extends Fragment {
 
     }
  /* TODO :
- *   * ADD NEW BIRD
+ *
  *   * ADD NEW MATING
     **/
     @Override

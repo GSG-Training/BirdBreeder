@@ -30,18 +30,14 @@ public class MatingViewModel extends AndroidViewModel {
         repo.deleteMating(mating);
     }
 
-    public  void getMating(int id){
-        repo.getMating(id);
+    public  LiveData<Mating> getMating(int id){
+         return repo.getMating(id);
     }
     public LiveData<List<Mating>> getAllMatings(){
         return  repo.getAllMatings();
     }
 
 
-    public LiveData<List<Mating>> getPageOfMatings(int pageNum){
-
-        return  repo.getPageOfMatings(pageNum);
-    }
 
     public void deleteAll(){
         repo.deleteAll();

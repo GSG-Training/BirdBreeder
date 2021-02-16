@@ -6,10 +6,10 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
+import com.example.birdbreeder.Model.Constants;
 
 import java.util.Date;
-@Entity (tableName = BirdBreederConstants.BIRDS_TABLE)
+@Entity (tableName = Constants.BIRDS_TABLE)
 public class Bird {
     @PrimaryKey(autoGenerate = true)
     private int birdId ;

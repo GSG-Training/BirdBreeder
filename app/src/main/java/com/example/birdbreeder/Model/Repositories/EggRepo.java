@@ -2,13 +2,11 @@ package com.example.birdbreeder.Model.Repositories;
 
 import android.content.Context;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.LiveData;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
+import com.example.birdbreeder.Model.Constants;
 import com.example.birdbreeder.Model.DataBase.BirdsDataBase;
 import com.example.birdbreeder.Model.DataBase.DAO.EggDao;
-import com.example.birdbreeder.Model.DataBase.Entity.Bird;
 import com.example.birdbreeder.Model.DataBase.Entity.Egg;
 
 import java.util.List;
@@ -41,7 +39,7 @@ public class EggRepo {
 
     //TODO: FIX PAGINATION
     public LiveData<List<Egg>> getPageOfEggs(int pageNum){
-        int to = pageNum* BirdBreederConstants.PAGE_ITEM_COUNT ;
+        int to = pageNum* Constants.PAGE_ITEM_COUNT ;
         int from = to - pageNum ;
         return  eggDao.getAllItems();
     }

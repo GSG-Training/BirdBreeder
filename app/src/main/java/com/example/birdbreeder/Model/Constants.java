@@ -1,6 +1,6 @@
 package com.example.birdbreeder.Model;
 
-public interface BirdBreederConstants {
+public interface Constants {
     //DATABASE
     String DB_NAME = "bird_breeder_db";
     int DB_VERSION =2 ;
@@ -10,6 +10,7 @@ public interface BirdBreederConstants {
     String NOTIFICATION_TABLE="notifications";
     String EGG_TABLE ="eggs";
     String MATING_TABLE ="matings";
+    //*******************************************************************************************************************//
     //SPECIES TYPES
     int PET_BIRDS = 11 ;
     int WILD_BIRDS = 12 ;
@@ -36,18 +37,22 @@ public interface BirdBreederConstants {
     int UNFERTILIZED = 22 ;
     int HATCHED_OK = 23 ;
     int PAGE_ITEM_COUNT = 10 ;
-
-
-    int NEW_BIRD = 1 ;
-    int SHOW_BIRD= 2 ;
-
-    int NEW_MATING = 11 ;
-    int EDIT_MATING= 12 ;
-
-
+    //*******************************************************************************************************************//
+    //Bird Profile
     String BIRD_ID = "bird_id";
     String BIRD_ACTION = "bird_action";
+    int NEW_BIRD = 1 ;
+    int SHOW_BIRD= 2 ;
+    //Mating Profile
+    String MATING_ID = "mating_id";
+    String MATING_ACTION = "mating_action";
+    int NEW_MATING = 3 ;
+    int EDIT_MATING= 4 ;
+    //Egg Profile
+    String EGG_ID = "egg_id";
+    String EGG_ACTION = "egg_action";
+    int NEW_EGG = 5;
+    int EDIT_EGG= 6 ;
     int PICK_IMAGE = 410;
-
     String DATE_PICKER = "datePicker";
 }

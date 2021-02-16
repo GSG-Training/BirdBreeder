@@ -4,10 +4,10 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
+import com.example.birdbreeder.Model.Constants;
 
 
-@Entity (tableName = BirdBreederConstants.SPECIES_TABLE)
+@Entity (tableName = Constants.SPECIES_TABLE)
 public class Species {
     @PrimaryKey(autoGenerate = true)
     private int speciesId;

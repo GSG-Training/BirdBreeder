@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.birdbreeder.Model.BirdBreederConstants;
 import com.example.birdbreeder.Model.DataBase.Entity.Egg;
 import com.example.birdbreeder.Model.Repositories.EggRepo;
 

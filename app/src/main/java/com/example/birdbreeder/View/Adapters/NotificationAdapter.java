@@ -65,6 +65,7 @@ public class NotificationAdapter  extends RecyclerView.Adapter<NotificationAdapt
         void onItemClick(Notification notification);
     }//end OnItemClickListener
 
+
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }// end setOnItemClickListener
