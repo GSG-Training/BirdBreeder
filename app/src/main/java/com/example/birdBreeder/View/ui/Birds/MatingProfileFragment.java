@@ -1,7 +1,7 @@
 package com.example.birdBreeder.View.ui.Birds;
 
 import android.app.DatePickerDialog;
-import android.app.DialogFragment;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import com.example.birdBreeder.Model.Constants;
@@ -79,8 +80,6 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
         setObserver();
         setButtons();
         setLayout();
-        binding.matingDate.setClickable(true);
-        binding.matingDate.setOnClickListener(this::showDatePickerDialog);
         return binding.getRoot();
     }//onCreateView
 
@@ -96,21 +95,27 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
      */
     private void showDatePickerDialog(View view) {
         DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(requireActivity().getFragmentManager(), Constants.DATE_PICKER);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(requireActivity().getSupportFragmentManager(), Constants.DATE_PICKER);
     }
     //setting the right concept of the layout
     private void setLayout(){
         addStatus();
         checked = Constants.MALE ;
         birdViewModel.getRingNOfMales().observe(getViewLifecycleOwner() , listObserver );
-        binding.femaleRingNo.setEnabled(false);
-
-
-        if (id != -1) viewModel.getMating(id).observe(getViewLifecycleOwner(), observer);
+        if (id != -1){
+            binding.nestId.setVisibility(View.VISIBLE);
+            binding.labelId.setVisibility(View.VISIBLE);
+            viewModel.getMating(id).observe(getViewLifecycleOwner(), observer);
+        }
         else{
             binding.nestId.setVisibility(View.GONE);
             binding.labelId.setVisibility(View.GONE);
         }
+        binding.femaleRingNo.setEnabled(false);
+        binding.nestId.setEnabled(false);
+        binding.maleId.setEnabled(false);
+        binding.femaleId.setEnabled(false);
     }//setLayout
 
     //Observers Init
@@ -144,11 +149,7 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
             }else{
                 int position = malesAdapter.getPosition(bird.getRingNo());
                 binding.maleRingNo.setSelection(position);
-                //After setting the right male enable the female and set the all the females from the same species
-                binding.femaleRingNo.setEnabled(true);
-                checked = Constants.FEMALE ;
-                species=bird.getSpecies();
-                birdViewModel.getRingNOfFemales(species).observe(getViewLifecycleOwner() , listObserver );
+
             }
             else
                 //if the bird is getting from the ringNo then fill the id
@@ -156,6 +157,11 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
                binding.femaleId.setText(String.format("%s", bird.getBirdId()));
             }else{
                 binding.maleId.setText(String.format("%s", bird.getBirdId()));
+                //After setting the right male enable the female and set the all the females from the same species
+                binding.femaleRingNo.setEnabled(true);
+                checked = Constants.FEMALE ;
+                species=bird.getSpecies();
+                birdViewModel.getRingNOfFemales(species).observe(getViewLifecycleOwner() , listObserver );
             }
           }
         };
@@ -223,6 +229,7 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
                 fromRing = true ;
                 checked = Constants.MALE ;
                 birdViewModel.getBird(malesAdapter.getItem(position)).observe(getViewLifecycleOwner() , birdObserver);
+              
 
             }
 
@@ -244,6 +251,9 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
                 binding.femaleId.setText("");
             }
         });
+
+        binding.matingDate.setClickable(true);
+        binding.matingDate.setOnClickListener(this::showDatePickerDialog);
     }//setButtons
 
     //attach Adapter to the spinner

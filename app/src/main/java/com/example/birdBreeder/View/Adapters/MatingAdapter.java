@@ -4,21 +4,20 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.birdBreeder.Model.DataBase.Entity.Mating;
 import com.example.birdBreeder.R;
+import com.example.birdBreeder.databinding.MatingItemBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MatingAdapter extends RecyclerView.Adapter<MatingAdapter.MyViewHolder> {
     private List<Mating> matings = new ArrayList<>();
-    private OnMatingClickListener listener;
+     private OnMatingClickListener listener;
 
     @NonNull
     @Override
@@ -30,14 +29,14 @@ public class MatingAdapter extends RecyclerView.Adapter<MatingAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Mating mating = matings.get(position);
-        holder.mateId.setText(String.format("%s", mating.getMatingId()));
-        holder.species.setText(mating.getSpecies());
-        holder.maleId.setText(mating.getMaleId());
-        holder.femaleId.setText(mating.getFemaleId());
-        holder.date.setText(DateFormat.format("yyyy-MM-dd", mating.getFormationDate()));
-        holder.totalNum.setText(String.format("%s", mating.getTotalEggsNum()));
-        holder.incubatedNum.setText(String.format("%s", mating.getIncubatedEggsNum()));
-        holder.hatchedNum.setText(String.format("%s", mating.getHatchedEggsNum()));
+        holder.binding.mateId.setText(String.format("%s", mating.getMatingId()));
+        holder.binding.maleId.setText(String.format("%s", mating.getMaleId()));
+        holder.binding.mateBreedTxt.setText(mating.getSpecies());
+        holder.binding.femaleId.setText(String.format("%s", mating.getFemaleId()));
+        if(mating.getFormationDate()!=null)holder.binding.mateDateTxt.setText(DateFormat.format("dd/MM/yyyy", mating.getFormationDate()));
+        holder.binding.totalEggsNo.setText(String.format("%s", mating.getTotalEggsNum()));
+        holder.binding.currentEggs.setText(String.format("%s", mating.getIncubatedEggsNum()));
+        holder.binding.producedChicksNo.setText(String.format("%s", mating.getHatchedEggsNum()));
 
 
     }//end onBindViewHolder(..)
@@ -50,7 +49,7 @@ public class MatingAdapter extends RecyclerView.Adapter<MatingAdapter.MyViewHold
     public void setItems(List<Mating> matings) {
         this.matings = matings;
         notifyDataSetChanged();
-    }//set Posts
+    }//set Items
 
     public Mating getItemAt(int position) {
         return matings.get(position);
@@ -63,32 +62,31 @@ public class MatingAdapter extends RecyclerView.Adapter<MatingAdapter.MyViewHold
 
     public interface OnMatingClickListener {
         void onMatingClick(int position);
+        void onEditClick(int position);
     }
 
     //MyViewHolder Class
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        //post_item views declaration
-        TextView mateId, maleId, femaleId, hatchedNum, totalNum, incubatedNum, date, species;
-        Button edit;
+        MatingItemBinding binding ;
 
         //main constructor
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             //attaching java views to XML
-            mateId = itemView.findViewById(R.id.mate_id);
-            edit = itemView.findViewById(R.id.mating_edit_details);
-            species = itemView.findViewById(R.id.mate_breed_txt);
-            maleId = itemView.findViewById(R.id.male_id);
-            femaleId = itemView.findViewById(R.id.female_id);
-            hatchedNum = itemView.findViewById(R.id.produced_chicks_no);
-            totalNum = itemView.findViewById(R.id.total_eggs_no);
-            incubatedNum = itemView.findViewById(R.id.current_eggs);
+            binding = MatingItemBinding.bind(itemView);
+            binding.matingEditDetails.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION)
+                listener.onEditClick(position);
+            });
             itemView.setOnClickListener(view -> {
                 int position = getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION)
                 listener.onMatingClick(position);
             });
         }//end MyViewHolder(itemView)
+
+
     }//end MyViewHolder class
 
 }//end  Class

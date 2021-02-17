@@ -35,8 +35,8 @@ public class EggViewModel extends AndroidViewModel {
         repo.getEgg(eggId);
     }
 
-    public LiveData<List<Egg>> getAllEggs() {
-        return repo.getAllEggs();
+    public LiveData<List<Egg>> getAllEggs(int matingId) {
+        return repo.getAllEggs(matingId);
     }
 
 

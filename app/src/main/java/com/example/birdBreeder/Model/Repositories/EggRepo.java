@@ -35,8 +35,8 @@ public class EggRepo {
         //eggDao.get(eggId);
     }
 
-    public LiveData<List<Egg>> getAllEggs() {
-        return eggDao.getAllItems();
+    public LiveData<List<Egg>> getAllEggs(int matingId) {
+        return eggDao.getAllItems(matingId);
     }
 
 
@@ -44,7 +44,7 @@ public class EggRepo {
     public LiveData<List<Egg>> getPageOfEggs(int pageNum) {
         int to = pageNum * Constants.PAGE_ITEM_COUNT;
         int from = to - pageNum;
-        return eggDao.getAllItems();
+        return eggDao.getAllItems(1);
     }
 
     public void deleteAll() {

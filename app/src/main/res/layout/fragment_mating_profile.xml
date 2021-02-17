@@ -83,6 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <EditText
+                    android:editable="false"
                     android:id="@+id/mating_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

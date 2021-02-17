@@ -24,7 +24,6 @@ import java.util.List;
 
 public class MatingsFragment extends Fragment implements MatingAdapter.OnMatingClickListener {
     public static final String TAG = "com.example.birdBreeder.View.ui.Birds.MatingsFragment";
-    private FragmentMatingsBinding binding;
     private MatingViewModel viewModel;
     private MatingAdapter adapter;
     private Observer<List<Mating>> observer;
@@ -51,7 +50,7 @@ public class MatingsFragment extends Fragment implements MatingAdapter.OnMatingC
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentMatingsBinding.inflate(inflater, container, false);
+        com.example.birdBreeder.databinding.FragmentMatingsBinding binding = FragmentMatingsBinding.inflate(inflater, container, false);
         binding.matingListRecycler.setAdapter(adapter);
         viewModel.getAllMatings().observe(getViewLifecycleOwner(), observer);
         binding.newMatingFb.setOnClickListener(view -> birdViewModel.getRingNOfFemales().observe(getViewLifecycleOwner(), listObserver ));
@@ -75,7 +74,20 @@ public class MatingsFragment extends Fragment implements MatingAdapter.OnMatingC
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        viewModel.getAllMatings().observe(getViewLifecycleOwner() , observer);
+    }
+
+    @Override
     public void onMatingClick(int position) {
+        Mating mating = adapter.getItemAt(position);
+        BrowserHelper.toFragment(requireActivity().getSupportFragmentManager() ,  MatingControlFragment.newInstance(mating.getMatingId()) , TAG);
+
+    }
+
+    @Override
+    public void onEditClick(int position) {
         Mating mating = adapter.getItemAt(position);
         BrowserHelper.toMatingProfile(requireActivity().getSupportFragmentManager(), TAG, Constants.EDIT_MATING, mating.getMatingId());
     }

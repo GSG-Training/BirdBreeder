@@ -28,8 +28,8 @@ public interface EggDao {
     @Query("DELETE FROM " + Constants.EGG_TABLE)
     void deleteAllItems();
 
-    @Query("SELECT * FROM " + Constants.EGG_TABLE)
-    LiveData<List<Egg>> getAllItems();
+    @Query("SELECT * FROM " + Constants.EGG_TABLE + " WHERE matingId = :matingId")
+    LiveData<List<Egg>> getAllItems(int matingId);
 //
 //    LiveData<List<Egg>> getPage();
 //

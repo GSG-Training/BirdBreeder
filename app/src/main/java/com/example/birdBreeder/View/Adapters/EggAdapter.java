@@ -1,5 +1,6 @@
 package com.example.birdBreeder.View.Adapters;
 
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.birdBreeder.Model.DataBase.Entity.Egg;
 import com.example.birdBreeder.R;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class EggAdapter extends RecyclerView.Adapter<EggAdapter.MyViewHolder> {
-    List<Egg> eggs = new ArrayList<>();
-
+    private List<Egg> eggs = new ArrayList<>();
+     OnEggClickListener listener ;
 
     @NonNull
     @Override
@@ -32,7 +32,7 @@ public class EggAdapter extends RecyclerView.Adapter<EggAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Egg egg = eggs.get(position);
-        holder.eggId.setText(egg.getEggId() + "");
+        holder.eggId.setText(String.format("%s", egg.getEggId()));
         holder.layDate.setText(getDate(egg.getLayDate()));
         holder.hatchingDate.setText(getDate(egg.getExpectedHatchingDate()));
         holder.incubationDate.setText(getDate(egg.getIncubationDate()));
@@ -53,14 +53,20 @@ public class EggAdapter extends RecyclerView.Adapter<EggAdapter.MyViewHolder> {
         return eggs.get(position);
     }
 
-    public String getDate(Date date) {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        return df.format(date);
+    public CharSequence getDate(Date date) {
+        if(date!= null)
+        return DateFormat.format("dd/MM/yyyy", date ) ;
+
+        return "" ;
+    }
+
+    public void setListener(OnEggClickListener listener) {
+        this.listener = listener;
     }
 
     //MyViewHolder Class
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        //post_item views declaration
+    public  class MyViewHolder extends RecyclerView.ViewHolder {
+
         TextView eggId, hatchingDate;
         ImageView delete, status;
         EditText layDate, incubationDate;
@@ -76,13 +82,21 @@ public class EggAdapter extends RecyclerView.Adapter<EggAdapter.MyViewHolder> {
             delete = itemView.findViewById(R.id.delete_egg);
             incubationDate = itemView.findViewById(R.id.start_date);
             status = itemView.findViewById(R.id.egg_status);
-            //todo: add time pickers
-            //todo : delete activation
-            //todo : egg status picker
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition() ;
+                    if (position != RecyclerView.NO_POSITION)
+                        listener.onEggClick(position);
 
+                }
+            });
         }//end MyViewHolder(itemView)
 
     }//end MyViewHolder class
 
+  public interface OnEggClickListener{
+        void onEggClick(int position);
+  }
 
 }//end  Class

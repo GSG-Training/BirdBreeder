@@ -40,13 +40,13 @@ public interface BirdDao {
     @Query("SELECT ring_no FROM " + Constants.BIRDS_TABLE)
     LiveData<List<String>> getRingNOfBirds();
 
-    @Query("SELECT ring_no FROM " + Constants.BIRDS_TABLE + " WHERE gender  =  " + Constants.MALE)
+    @Query("SELECT ring_no FROM " + Constants.BIRDS_TABLE +" WHERE gender = 1 ")
     LiveData<List<String>> getRingNOfMales();
 
-    @Query("SELECT ring_no FROM " + Constants.BIRDS_TABLE + " WHERE gender  =  " + Constants.FEMALE)
+    @Query("SELECT ring_no FROM " + Constants.BIRDS_TABLE + " WHERE gender  =  0 ")
     LiveData<List<String>> getRingNOfFemales();
 
-    @Query("SELECT ring_no FROM " + Constants.BIRDS_TABLE + " WHERE gender  =  " + Constants.FEMALE + " AND species LIKE :species")
+    @Query("SELECT ring_no FROM " + Constants.BIRDS_TABLE + " WHERE gender  =  0 " + " AND species LIKE :species")
     LiveData<List<String>> getRingNOfFemales(String species);
 }
 

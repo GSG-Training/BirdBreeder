@@ -2,8 +2,8 @@ package com.example.birdBreeder.View.ui.Birds;
 
 
 import android.app.DatePickerDialog;
-import android.app.DialogFragment;
-import android.content.Context;
+import android.app.Dialog;
+import androidx.fragment.app.DialogFragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -35,7 +35,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static android.app.Activity.RESULT_CANCELED;
+
 import static android.app.Activity.RESULT_OK;
 
 public class BirdProfileFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
@@ -321,8 +321,8 @@ public class BirdProfileFragment extends Fragment implements DatePickerDialog.On
      */
     private void showDatePickerDialog(View view) {
         DialogFragment datePickerFragment = new DatePickerFragment();
-        //datePickerFragment.setArguments();
-        datePickerFragment.show(requireActivity().getFragmentManager(), Constants.DATE_PICKER);
+        datePickerFragment.setTargetFragment(BirdProfileFragment.this , 0);
+        datePickerFragment.show(requireActivity().getSupportFragmentManager(), Constants.DATE_PICKER);
     }
 
 }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/eight"
+    tools:context=".View.ui.Birds.EggProfileFragment">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/eight">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_width="@dimen/forty_eight"
+                    android:layout_height="@dimen/forty_eight"
+                    android:src="@drawable/ic_egg"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/forty_eight"
+                    android:layout_weight="1"
+                    android:text="@string/new_egg"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_twenty_four"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="@dimen/eight"/>
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/eight">
+                    <TextView
+                        android:text="@string/egg_id"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/nest_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/eight"
+                        />
+                    <TextView
+                        android:text="@string/laid_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:editable="false"
+                        android:id="@+id/egg_laid_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/eight"
+                        android:drawableEnd="@drawable/ic_baseline_today_24"
+                        android:drawableTint="@color/blue_300"
+                        />
+
+                    <TextView
+                        android:text="@string/mating_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <Spinner
+                        android:id="@+id/egg_status_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/eight"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                        android:background="@drawable/rectangle"
+                        android:popupBackground="@drawable/rectangle"
+                        />
+                    <TextView
+                        android:text="@string/start_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/egg_start_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/eight"
+                        android:drawableEnd="@drawable/ic_baseline_today_24"
+                        android:drawableTint="@color/blue_300"
+                        />
+
+
+
+                    <Button
+                        android:id="@+id/save_mating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/save"
+                        android:layout_gravity="end"
+                        android:layout_margin="@dimen/eight"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+
+    </ScrollView>
