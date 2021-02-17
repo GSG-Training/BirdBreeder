@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.birdbreeder">
+    package="com.example.birdBreeder">
 
     <application
         android:allowBackup="true"
@@ -9,18 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BirdBreeder">
-        <activity android:name=".View.ui.Birds.NewMatingActivity" ></activity>
-        <activity android:name=".View.ui.Birds.BirdProfileActivity" />
-        <activity android:name=".View.ui.Activites.SignUpActivity" />
-        <activity android:name=".View.ui.Activites.LogInActivity" />
-        <activity android:name=".View.ui.Activites.SplashActivity">
+        <activity android:name="com.example.birdBreeder.View.ui.Activites.SignUpActivity" />
+        <activity android:name="com.example.birdBreeder.View.ui.Activites.LogInActivity" />
+        <activity android:name="com.example.birdBreeder.View.ui.Activites.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.ui.Activites.MainActivity.MainActivity" />
+        <activity android:name="com.example.birdBreeder.View.ui.Activites.MainActivity.MainActivity" />
     </application>
 
 </manifest>

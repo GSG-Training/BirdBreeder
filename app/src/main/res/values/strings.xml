@@ -73,6 +73,7 @@
     <string name="select_image">Select Bird Image</string>
     <string name="update_note">Bird is updated</string>
     <string name="add_note">New Bird Added</string>
+    <string name="check_list">Check your bird ! There is missing bird .</string>
 
     <array name="bird_status">
         <item name="sick">Sick</item>

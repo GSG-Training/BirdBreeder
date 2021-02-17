@@ -29,6 +29,8 @@
         </LinearLayout>
 
                 <TextView
+                    android:layout_marginTop="@dimen/eight"
+                    android:id="@+id/label_id"
                     android:text="@string/mating_id"
                     android:textStyle="bold"
                     android:layout_width="match_parent"
@@ -54,11 +56,13 @@
                     android:text="@string/male_ring_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <EditText
+                <Spinner
                     android:id="@+id/male_ring_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/eight"
+                    android:background="@drawable/rectangle"
+                    android:popupBackground="@drawable/rectangle"
                     android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
                     />
                 <TextView
@@ -100,24 +104,26 @@
                     android:text="@string/female_ring_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <EditText
+                <Spinner
                     android:id="@+id/female_ring_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/eight"
                     android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                    android:background="@drawable/rectangle"
                     />
                 <TextView
                     android:text="@string/mating_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <EditText
+                <Spinner
                     android:id="@+id/mating_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/eight"
+                    android:popupBackground="@drawable/rectangle"
+                    android:background="@drawable/rectangle"
                     android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
-
                     />
 
                 <Button
