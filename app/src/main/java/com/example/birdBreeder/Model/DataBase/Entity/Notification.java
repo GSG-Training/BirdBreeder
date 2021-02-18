@@ -1,43 +1,33 @@
 package com.example.birdBreeder.Model.DataBase.Entity;
 
 import androidx.room.Entity;
-import androidx.room.Ignore;
+
 import androidx.room.PrimaryKey;
 
 import com.example.birdBreeder.Model.Constants;
+import com.example.birdBreeder.View.ui.Activites.Helpers.ValuesHelper;
+
+import java.util.Date;
 
 @Entity(tableName = Constants.NOTIFICATION_TABLE)
 public class Notification {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     private int notificationId;
-    private String title;
-    private int status;
     private String description;
+    private Date date ;
+    private int status;
 
-    public Notification() {
-    }
-
-    @Ignore
-    public Notification(String title, String description) {
-        this.title = title;
-        this.description = description;
+    public Notification(int notificationId , Date date, int status) {
+        this.notificationId = notificationId;
+        this.description = "Egg Id : " + notificationId + "is expected to hatch on " + ValuesHelper.getDate(date);
+        this.date = date;
+        this.status = status;
     }
 
     public int getNotificationId() {
         return notificationId;
     }
 
-    public void setNotificationId(int notificationId) {
-        this.notificationId = notificationId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public int getStatus() {
         return status;
@@ -53,5 +43,13 @@ public class Notification {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

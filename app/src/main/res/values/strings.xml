@@ -34,10 +34,8 @@
     <string name="produced_chicks">Produced Chicks</string>
     <string name="edit">EDIT</string>
     <string name="mating_info">Nest Details</string>
-    <string name="egg_id">"Egg ID: "</string>
-    <string name="egg_status">Egg Status</string>
-    <string name="laid_date">Laid Date</string>
-    <string name="start_date">Incubation Start Date</string>
+    <string name="egg_id">Egg ID:</string>
+    <string name="laid_date">Laid Date (Incubation Start Date)</string>
     <string name="expect_date">Expecting Hatching Date</string>
     <string name="delete">Delete</string>
     <string name="search">Search</string>
@@ -74,6 +72,8 @@
     <string name="update_note">Bird is updated</string>
     <string name="add_note">New Bird Added</string>
     <string name="check_list">Check your bird ! There is missing bird .</string>
+    <string name="egg_updated">Egg is updated successfully</string>
+    <string name="egg_added">Egg is added successfully</string>
 
     <array name="bird_status">
         <item name="sick">Sick</item>

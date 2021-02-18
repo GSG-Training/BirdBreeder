@@ -41,8 +41,8 @@ public class BrowserHelper {
      with 2 states
      *1 new Egg
      *2 show Egg
-     */ public static void toEggProfile(FragmentManager fragmentManager, String from, int action, int id) {
-        EggProfileFragment nextFrag = EggProfileFragment.newInstance(action, id);
+     */ public static void toEggProfile(FragmentManager fragmentManager, String from, int action, int id , int matingId , String spec) {
+        EggProfileFragment nextFrag = EggProfileFragment.newInstance(action, id , matingId , spec);
         toFragment(fragmentManager , nextFrag , from);
     }
 //toEggProfile

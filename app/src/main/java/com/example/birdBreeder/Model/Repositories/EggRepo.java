@@ -30,9 +30,8 @@ public class EggRepo {
         eggDao.delete(egg);
     }
 
-    //TODO: FIX WHERE CLAUSE
-    public void getEgg(int eggId) {
-        //eggDao.get(eggId);
+    public LiveData<Egg> getEgg(int eggId) {
+         return eggDao.get(eggId);
     }
 
     public LiveData<List<Egg>> getAllEggs(int matingId) {
@@ -40,12 +39,6 @@ public class EggRepo {
     }
 
 
-    //TODO: FIX PAGINATION
-    public LiveData<List<Egg>> getPageOfEggs(int pageNum) {
-        int to = pageNum * Constants.PAGE_ITEM_COUNT;
-        int from = to - pageNum;
-        return eggDao.getAllItems(1);
-    }
 
     public void deleteAll() {
         eggDao.deleteAllItems();

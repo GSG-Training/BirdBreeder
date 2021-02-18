@@ -15,8 +15,8 @@ public class Egg {
     private int eggId;
     @ForeignKey(entity = Mating.class, parentColumns = "matingId", childColumns = "matingId", deferred = false)
     private int matingId;
+    private String species ;
     private Date layDate;
-    private Date incubationDate;
     private Date expectedHatchingDate;
     private int status;
 
@@ -61,14 +61,6 @@ public class Egg {
         this.status = status;
     }
 
-    public Date getIncubationDate() {
-        return incubationDate;
-    }
-
-    public void setIncubationDate(Date incubationDate) {
-        this.incubationDate = incubationDate;
-    }
-
     public Date getExpectedHatchingDate() {
         return expectedHatchingDate;
     }
@@ -77,5 +69,11 @@ public class Egg {
         this.expectedHatchingDate = expectedHatchingDate;
     }
 
+    public String getSpecies() {
+        return species;
+    }
 
+    public void setSpecies(String species) {
+        this.species = species;
+    }
 }

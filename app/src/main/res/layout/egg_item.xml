@@ -19,7 +19,7 @@
             android:layout_height="@dimen/two_hundred"
             android:layout_margin="@dimen/four"
             android:layout_marginEnd="@dimen/eight"
-            android:contentDescription="@string/egg_status"
+            android:contentDescription="@string/mating_status"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -36,7 +36,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/egg_status"
             app:layout_constraintEnd_toEndOf="@+id/egg_status"
             app:layout_constraintTop_toTopOf="@+id/egg_status"
-            android:contentDescription="@string/egg_status"
+            android:contentDescription="@string/mating_status"
             app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />
 
@@ -69,7 +69,7 @@
             android:background="@drawable/shopping_background"
             app:layout_constraintBottom_toBottomOf="@+id/egg_id"
             app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="@string/egg_status"
+            android:contentDescription="@string/mating_status"
             app:layout_constraintTop_toTopOf="@+id/egg_id"
             app:srcCompat="@drawable/ic_baseline_delete_24" />
 
@@ -114,10 +114,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/thirty_two"
                 android:layout_gravity="center_vertical"
-                android:autofillHints="@string/start_date"
+                android:autofillHints="@string/laid_date"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_vertical"
-                android:hint="@string/start_date"
+                android:hint="@string/laid_date"
                 android:inputType="date" />
         </com.google.android.material.textfield.TextInputLayout>
 

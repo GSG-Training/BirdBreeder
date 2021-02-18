@@ -20,7 +20,7 @@ import java.util.List;
 
 public class EggAdapter extends RecyclerView.Adapter<EggAdapter.MyViewHolder> {
     private List<Egg> eggs = new ArrayList<>();
-     OnEggClickListener listener ;
+     OnEggClickListener listener  ;
 
     @NonNull
     @Override
@@ -35,7 +35,6 @@ public class EggAdapter extends RecyclerView.Adapter<EggAdapter.MyViewHolder> {
         holder.eggId.setText(String.format("%s", egg.getEggId()));
         holder.layDate.setText(getDate(egg.getLayDate()));
         holder.hatchingDate.setText(getDate(egg.getExpectedHatchingDate()));
-        holder.incubationDate.setText(getDate(egg.getIncubationDate()));
         holder.status.setImageLevel(egg.getStatus());
     }//end onBindViewHolder(..)
 

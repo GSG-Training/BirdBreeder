@@ -37,5 +37,8 @@ public interface SpeciesDao {
 
     @Query("SELECT name FROM " + Constants.SPECIES_TABLE)
     LiveData<List<String>> getSpeciesNames();
+
+    @Query("SELECT * FROM " + Constants.SPECIES_TABLE + " WHERE name = :name")
+    LiveData<Species> get(String name);
 }
 

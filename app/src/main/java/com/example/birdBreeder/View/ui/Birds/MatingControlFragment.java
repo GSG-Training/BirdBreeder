@@ -20,11 +20,7 @@ import com.example.birdBreeder.databinding.FragmentMatingControlBinding;
 import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MatingControlFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class MatingControlFragment extends Fragment implements EggAdapter.OnEggClickListener {
     public static final String TAG = "com.example.birdBreeder.View.ui.Birds.MatingControlFragment";
     private int id ;
@@ -60,6 +56,9 @@ public class MatingControlFragment extends Fragment implements EggAdapter.OnEggC
         matingViewModel = new MatingViewModel(requireActivity().getApplication());
         eggViewModel = new EggViewModel(requireActivity().getApplication());
         eggAdapter = new EggAdapter();
+        eggAdapter.setListener(this);
+        mating = new Mating();
+        mating.setMatingId(id);
     }//onCreate
 
     @Override
@@ -69,14 +68,16 @@ public class MatingControlFragment extends Fragment implements EggAdapter.OnEggC
         setButtons();
         setObservers();
         matingViewModel.getMating(id).observe(getViewLifecycleOwner() , matingObserver);
+        eggViewModel.getAllEggs(id).observe(getViewLifecycleOwner() , listObserver);
         return binding.getRoot();
     }//onCreateView
 
 
     //ClickListeners attaching
     private void setButtons(){
-        binding.matingCard.matingEditDetails.setOnClickListener(this::edit);
-        binding.newEggFb.setOnClickListener(this::newEgg);
+        binding.eggListRecycler.setAdapter(eggAdapter);
+        binding.matingCard.matingEditDetails.setOnClickListener(v -> edit());
+        binding.newEggFb.setOnClickListener(v -> newEgg());
     }//setButtons
 
 
@@ -106,27 +107,28 @@ public class MatingControlFragment extends Fragment implements EggAdapter.OnEggC
     }// setMating
 
     //edit button at the mating card clickFunction
-    private void edit(View view){
+    private void edit(){
         BrowserHelper.toMatingProfile(requireActivity().getSupportFragmentManager() ,
                 TAG , Constants.EDIT_MATING , id );
     }
 
     //edit button at the mating card clickFunction
-    private void newEgg(View view){
+    private void newEgg(){
         BrowserHelper.toEggProfile(requireActivity().getSupportFragmentManager() ,
-                TAG , Constants.EDIT_MATING , -1 );
+                TAG , Constants.EDIT_MATING , -1 , mating.getMatingId() , mating.getSpecies() );
     }
 
     @Override
     public void onEggClick(int position) {
         Egg egg = eggAdapter.getItemAt(position);
        BrowserHelper.toEggProfile(requireActivity().getSupportFragmentManager() ,
-               TAG , Constants.EDIT_EGG , egg.getEggId());
+               TAG , Constants.EDIT_EGG , egg.getEggId() , mating.getMatingId() , mating.getSpecies() );
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        matingViewModel.getMating(id).observe(getViewLifecycleOwner() , matingObserver);
+        matingViewModel.getMating(mating.getMatingId()).observe(getViewLifecycleOwner() , matingObserver);
+        eggViewModel.getAllEggs(mating.getMatingId()).observe(getViewLifecycleOwner() , listObserver);
     }
 }

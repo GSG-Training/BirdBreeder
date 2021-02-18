@@ -46,4 +46,8 @@ public class SpeciesRepo {
     public void deleteAll() {
         speciesDao.deleteAllItems();
     }
+
+    public LiveData<Species> getSpecies(String name) {
+        return speciesDao.get(name);
+    }
 }

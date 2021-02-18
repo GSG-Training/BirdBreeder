@@ -56,4 +56,5 @@ public interface Constants {
     int PICK_IMAGE = 410;
     String DATE_PICKER = "datePicker";
     int PICKER_REQUEST = 0 ;
+    String EGG_SPECIES = "eggSpecies";
 }

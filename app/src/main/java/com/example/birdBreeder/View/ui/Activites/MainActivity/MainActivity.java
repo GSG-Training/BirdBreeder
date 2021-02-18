@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         setContentView(R.layout.activity_main);
         setSupportActionBar(findViewById(R.id.toolbar));
         MainFragment mainFragment = new MainFragment();
-        BrowserHelper.toFragment(this.getSupportFragmentManager() , mainFragment ,TAG);
+        BrowserHelper.toFragment(this.getSupportFragmentManager() , mainFragment ,null);
         if(TIME==1) Dummy.addSpecies(getApplication());
         TIME++ ;
     }

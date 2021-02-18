@@ -30,9 +30,10 @@ public interface EggDao {
 
     @Query("SELECT * FROM " + Constants.EGG_TABLE + " WHERE matingId = :matingId")
     LiveData<List<Egg>> getAllItems(int matingId);
-//
-//    LiveData<List<Egg>> getPage();
-//
-//    void get(int eggId);
+
+
+    @Query("SELECT * FROM " + Constants.EGG_TABLE + " WHERE eggId = :eggId")
+    LiveData<Egg> get(int eggId);
+
 }
 

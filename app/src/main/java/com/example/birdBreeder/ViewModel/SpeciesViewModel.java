@@ -35,6 +35,10 @@ public class SpeciesViewModel extends AndroidViewModel {
         return repo.getSpecies(id);
     }
 
+    public LiveData<Species> getSpecies(String name) {
+        return repo.getSpecies(name);
+    }
+
     public LiveData<List<Species>> getAllSpecies() {
         return repo.getAllSpecies();
     }

@@ -40,7 +40,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                     <EditText
-                        android:id="@+id/nest_id"
+                        android:id="@+id/show_egg_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/eight"
@@ -56,7 +56,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/eight"
                         android:drawableEnd="@drawable/ic_baseline_today_24"
-                        android:drawableTint="@color/blue_300"
+                        android:drawableTint="@color/main_color"
                         />
 
                     <TextView
@@ -70,30 +70,30 @@
                         android:layout_marginHorizontal="@dimen/eight"
                         android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
                         android:background="@drawable/rectangle"
-                        android:popupBackground="@drawable/rectangle"
                         />
                     <TextView
-                        android:text="@string/start_date"
+                        android:text="@string/expect_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                     <EditText
+                        android:enabled="false"
                         android:id="@+id/egg_start_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/eight"
                         android:drawableEnd="@drawable/ic_baseline_today_24"
-                        android:drawableTint="@color/blue_300"
+                        android:drawableTint="@color/main_color"
                         />
 
 
 
                     <Button
                         android:id="@+id/save_mating"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/save"
                         android:layout_gravity="end"
-                        android:layout_margin="@dimen/eight"/>
+                        android:layout_margin="@dimen/sixteen"/>
                 </LinearLayout>
             </LinearLayout>
 

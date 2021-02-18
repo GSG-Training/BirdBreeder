@@ -31,8 +31,8 @@ public class EggViewModel extends AndroidViewModel {
         repo.deleteEgg(egg);
     }
 
-    public void getEgg(int eggId) {
-        repo.getEgg(eggId);
+    public LiveData<Egg> getEgg(int eggId) {
+        return  repo.getEgg(eggId);
     }
 
     public LiveData<List<Egg>> getAllEggs(int matingId) {
@@ -40,9 +40,6 @@ public class EggViewModel extends AndroidViewModel {
     }
 
 
-    public LiveData<List<Egg>> getPageOfEggs(int pageNum) {
-        return repo.getPageOfEggs(pageNum);
-    }
 
     public void deleteAll() {
         repo.deleteAll();
