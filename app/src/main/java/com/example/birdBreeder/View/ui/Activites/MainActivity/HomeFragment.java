@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment implements BirdsAdapter.OnBirdClickLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dummy();
-        birdsAdapter = new BirdsAdapter(true, getActivity().getApplication());
+        birdsAdapter = new BirdsAdapter(Constants.FOR_SALE, getActivity().getApplication());
         birdsAdapter.setOnBirdClickListener(this);
         breederAdapter = new BreederAdapter();
         breederAdapter.setItems(breeders);

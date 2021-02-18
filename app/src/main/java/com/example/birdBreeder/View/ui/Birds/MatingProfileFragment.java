@@ -95,7 +95,7 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
      */
     private void showDatePickerDialog(View view) {
         DialogFragment newFragment = new DatePickerFragment();
-        newFragment.setTargetFragment(this, 0);
+        newFragment.setTargetFragment(MatingProfileFragment.this,  Constants.PICKER_REQUEST);
         newFragment.show(requireActivity().getSupportFragmentManager(), Constants.DATE_PICKER);
     }
     //setting the right concept of the layout
@@ -300,6 +300,7 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
         }
         return Constants.IN_BREEDING;
     }//getStatus
+
 
 
 

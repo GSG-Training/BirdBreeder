@@ -33,7 +33,7 @@ public class BirdListFragment extends Fragment implements BirdsAdapter.OnBirdCli
         super.onCreate(savedInstanceState);
         viewModel = new BirdViewModel(requireActivity().getApplication());
         observer = birds -> adapter.setItems(birds);
-        adapter = new BirdsAdapter(false, requireActivity().getApplication());
+        adapter = new BirdsAdapter(Constants.FOR_SHOW, requireActivity().getApplication());
         adapter.setOnBirdClickListener(this);
     }
 

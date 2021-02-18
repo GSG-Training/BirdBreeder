@@ -17,6 +17,8 @@
     <color name="grey_100">#f6f1eb</color>
     <color name="grey_200">#f6e9f3</color>
      <color name="grey">#EEEEEE</color>
+    <color name="main_color">#FF4573</color>
+    <color name="main_background">#FCFCFC</color>
 
 
 

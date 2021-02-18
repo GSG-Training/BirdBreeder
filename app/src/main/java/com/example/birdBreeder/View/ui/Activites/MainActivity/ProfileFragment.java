@@ -51,7 +51,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, B
 //         Dummy.addSpecies(getActivity().getApplication());
         birdViewModel = new BirdViewModel(getActivity().getApplication());
         speciesAdapter = new SpeciesAdapter();
-        birdsAdapter = new BirdsAdapter(true, getActivity().getApplication());
+        birdsAdapter = new BirdsAdapter(Constants.FOR_SALE, getActivity().getApplication());
         birdsAdapter.setOnBirdClickListener(this);
         speciesObserver = new Observer<List<Species>>() {
             @Override

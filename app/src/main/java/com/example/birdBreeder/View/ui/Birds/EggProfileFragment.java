@@ -125,7 +125,7 @@ public class EggProfileFragment extends Fragment implements DatePickerDialog.OnD
      */
     private void showDatePickerDialog(View view) {
         DialogFragment datePickerFragment = new DatePickerFragment();
-        datePickerFragment.setTargetFragment(EggProfileFragment.this , 0);
+        datePickerFragment.setTargetFragment(EggProfileFragment.this , Constants.PICKER_REQUEST);
         datePickerFragment.show(requireActivity().getSupportFragmentManager(), Constants.DATE_PICKER);
     }
 

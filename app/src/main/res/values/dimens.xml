@@ -24,4 +24,5 @@
     <dimen name="text_twelve">12sp</dimen>
     <dimen name="hundred_twenty">120dp</dimen>
     <dimen name="hundred_eighty">180dp</dimen>
+    <dimen name="one">0.5dp</dimen>
 </resources>

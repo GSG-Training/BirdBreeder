@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_background"
     tools:context=".View.ui.Activites.SignUpActivity">
 
     <ImageView
@@ -21,7 +22,8 @@
 
     <EditText
         android:id="@+id/gmail"
-        android:layout_width="@dimen/two_hundred_fifty"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/sixteen"
         android:layout_height="wrap_content"
         android:hint="@string/gmail"
         android:inputType="textEmailAddress"
@@ -33,19 +35,19 @@
 
     <EditText
         android:id="@+id/user_name_et"
-        android:layout_width="@dimen/two_hundred_fifty"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/user_name"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/name_et"
-        app:layout_constraintEnd_toEndOf="@+id/profile_image"
+        app:layout_constraintEnd_toEndOf="@+id/gmail"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/profile_image"
+        app:layout_constraintStart_toStartOf="@+id/gmail"
         app:layout_constraintTop_toBottomOf="@+id/gmail" />
 
     <EditText
         android:id="@+id/name_et"
-        android:layout_width="@dimen/two_hundred_fifty"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/name"
         android:inputType="text"
@@ -58,7 +60,7 @@
 
     <EditText
         android:id="@+id/password_et"
-        android:layout_width="@dimen/two_hundred_fifty"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/password"
         android:inputType="textPassword"
@@ -70,7 +72,7 @@
 
     <EditText
         android:id="@+id/repeat_password_et"
-        android:layout_width="@dimen/two_hundred_fifty"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/repeat_password"
         android:inputType="textPassword"
@@ -82,7 +84,7 @@
 
     <Button
         android:id="@+id/sign_up_but"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/sign_up"
         app:layout_constraintBottom_toBottomOf="parent"

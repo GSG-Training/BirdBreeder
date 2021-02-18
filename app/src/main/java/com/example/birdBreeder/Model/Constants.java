@@ -22,7 +22,7 @@ public interface Constants {
     int IN_BREEDING = 1;
     //MATING STATUS
     int SEPARATED = -2;
-    //BIRD GENDER
+    //BIRD GENDER in SQLite the boolean replaced by 0 and 1
     boolean MALE = true;
     boolean FEMALE = false;
     //NOTIFICATION STATUS
@@ -55,4 +55,5 @@ public interface Constants {
     int EDIT_EGG = 6;
     int PICK_IMAGE = 410;
     String DATE_PICKER = "datePicker";
+    int PICKER_REQUEST = 0 ;
 }

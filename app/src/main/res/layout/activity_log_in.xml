@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_background"
     tools:context=".View.ui.Activites.LogInActivity">
 
     <ImageView
@@ -21,20 +22,21 @@
 
     <EditText
         android:id="@+id/user_name_et"
-        android:layout_width="@dimen/two_hundred_fifty"
+        android:layout_width="0dp"
+        android:layout_marginHorizontal="@dimen/sixteen"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/twenty_four"
         android:hint="@string/user_name"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/password_et"
-        app:layout_constraintEnd_toEndOf="@+id/profile_image"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/profile_image"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
     <EditText
         android:id="@+id/password_et"
-        android:layout_width="@dimen/two_hundred_fifty"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/twenty_four"
         android:hint="@string/password"
@@ -48,7 +50,7 @@
 
     <Button
         android:id="@+id/sign_in_but"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/twenty_four"
         android:text="@string/sign_in"

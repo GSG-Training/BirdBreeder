@@ -12,6 +12,7 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.birdBreeder.Model.Constants;
 import com.example.birdBreeder.Model.DataBase.Entity.Bird;
 import com.example.birdBreeder.R;
 import com.example.birdBreeder.ViewModel.BirdViewModel;
@@ -33,7 +34,7 @@ public class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if (forSale) {
+        if (forSale == Constants.FOR_SALE) {
             View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.sale_bird_item, parent, false);
             return new ForSaleViewHolder(itemView);
         } else {
@@ -45,7 +46,7 @@ public class BirdsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Bird bird = birdList.get(position);
-        if (forSale) {
+        if (forSale == Constants.FOR_SALE) {
             ForSaleViewHolder viewHolder = (ForSaleViewHolder) holder;
             if (bird.getProfileImage() != null) {
                 //TODO : RESIZE IMAGE TO FIT

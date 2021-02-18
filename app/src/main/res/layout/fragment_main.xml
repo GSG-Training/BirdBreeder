@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/main_background"
     tools:context=".View.ui.Activites.MainActivity.MainFragment">
 
     <com.google.android.material.tabs.TabLayout

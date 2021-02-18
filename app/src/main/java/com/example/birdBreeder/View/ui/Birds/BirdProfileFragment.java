@@ -2,7 +2,6 @@ package com.example.birdBreeder.View.ui.Birds;
 
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import androidx.fragment.app.DialogFragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,12 +13,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-
 import com.example.birdBreeder.Model.Constants;
 import com.example.birdBreeder.Model.DataBase.Entity.Bird;
 import com.example.birdBreeder.R;
@@ -29,13 +26,10 @@ import com.example.birdBreeder.View.ui.Activites.Helpers.ValuesHelper;
 import com.example.birdBreeder.ViewModel.BirdViewModel;
 import com.example.birdBreeder.ViewModel.SpeciesViewModel;
 import com.example.birdBreeder.databinding.FragmentBirdProfileBinding;
-
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-
 import static android.app.Activity.RESULT_OK;
 
 public class BirdProfileFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
@@ -321,7 +315,7 @@ public class BirdProfileFragment extends Fragment implements DatePickerDialog.On
      */
     private void showDatePickerDialog(View view) {
         DialogFragment datePickerFragment = new DatePickerFragment();
-        datePickerFragment.setTargetFragment(BirdProfileFragment.this , 0);
+        datePickerFragment.setTargetFragment(BirdProfileFragment.this ,  Constants.PICKER_REQUEST);
         datePickerFragment.show(requireActivity().getSupportFragmentManager(), Constants.DATE_PICKER);
     }
 
