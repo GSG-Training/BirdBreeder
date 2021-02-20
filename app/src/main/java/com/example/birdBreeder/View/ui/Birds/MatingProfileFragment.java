@@ -184,7 +184,6 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
         binding.nestId.setText(String.format("%s", mating.getMatingId()));
         binding.femaleId.setText(String.format("%s", mating.getFemaleId()));
         binding.maleId.setText(String.format("%s", mating.getMaleId()));
-        binding.totalEggs.setText(String.format("%s", mating.getTotalEggsNum()));
         binding.matingDate.setText(ValuesHelper.getDate(mating.getFormationDate()));
         binding.matingStatus.setSelection(statusAdapter.getPosition(setMatingStatus(mating.getStatus())));
         checked = Constants.MALE ;

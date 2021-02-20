@@ -96,7 +96,7 @@ public class EggProfileFragment extends Fragment implements DatePickerDialog.OnD
         binding.showEggId.setEnabled(false);
         binding.eggLaidDate.setClickable(true);
         binding.eggLaidDate.setOnClickListener(this::showDatePickerDialog);
-        binding.saveMating.setOnClickListener(this::storeEgg);
+        binding.saveEgg.setOnClickListener(this::storeEgg);
     }//setLayout
 
     //Init Observers

@@ -41,11 +41,11 @@ public class HomeFragment extends Fragment implements BirdsAdapter.OnBirdClickLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dummy();
-        birdsAdapter = new BirdsAdapter(Constants.FOR_SALE, getActivity().getApplication());
+        birdsAdapter = new BirdsAdapter(Constants.FOR_SALE, requireActivity().getApplication());
         birdsAdapter.setOnBirdClickListener(this);
         breederAdapter = new BreederAdapter();
         breederAdapter.setItems(breeders);
-        birdViewModel = new BirdViewModel(getActivity().getApplication());
+        birdViewModel = new BirdViewModel(requireActivity().getApplication());
         observer = birds -> birdsAdapter.setItems(birds);
 
     }
@@ -89,6 +89,6 @@ public class HomeFragment extends Fragment implements BirdsAdapter.OnBirdClickLi
     @Override
     public void itemClick(int position) {
         Bird bird = birdsAdapter.getItemAt(position);
-        BrowserHelper.toBirdProfile(getActivity().getSupportFragmentManager(), TAG, Constants.SHOW_BIRD, bird.getBirdId());
+        BrowserHelper.toBirdProfile(requireActivity().getSupportFragmentManager(), TAG, Constants.SHOW_BIRD, bird.getBirdId());
     }
 }

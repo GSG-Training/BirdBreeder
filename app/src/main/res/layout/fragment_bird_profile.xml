@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".View.ui.Birds.BirdProfileFragment">
     <Button
-        android:layout_margin="@dimen/eight"
         android:id="@+id/profile_button"
+        android:layout_margin="@dimen/eight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/edit"
@@ -20,11 +20,11 @@
         android:layout_height="@dimen/hundred_eighty"
         android:src="@color/grey_200"/>
     <TextView
+        android:id="@+id/edit_image"
         android:visibility="gone"
         android:layout_alignParentEnd="true"
         android:layout_alignBottom="@id/bird_image"
         android:layout_margin="@dimen/eight"
-        android:id="@+id/edit_image"
         android:textStyle="bold"
         android:text="@string/choose_image"
         android:layout_width="wrap_content"
@@ -96,7 +96,6 @@
                 android:maxLines="1" />
 
             <LinearLayout
-                android:id="@+id/cost_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/eight"
@@ -142,9 +141,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:id="@+id/bird_color"
                 android:maxLength="30"
                 android:lines="1"
-                android:id="@+id/bird_color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/eight"
@@ -164,8 +163,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <Spinner
-                android:background="@drawable/rectangle"
                 android:id="@+id/bird_status"
+                android:background="@drawable/rectangle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/eight"
@@ -183,8 +182,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/gender"/>
                 <ToggleButton
-                    android:layout_marginVertical="@dimen/eight"
                     android:id="@+id/gender"
+                    android:layout_marginVertical="@dimen/eight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/sixteen"

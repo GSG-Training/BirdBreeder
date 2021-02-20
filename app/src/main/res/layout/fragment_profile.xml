@@ -21,7 +21,6 @@
         app:tint="@color/grey_100" />
 
     <View
-        android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
@@ -157,7 +156,6 @@
         app:layout_constraintTop_toTopOf="@+id/user_image" />
 
     <Button
-        android:id="@+id/edit_button"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/forty_eight"
         android:layout_marginVertical="@dimen/sixteen"
@@ -185,7 +183,6 @@
         app:layout_constraintTop_toTopOf="@+id/user_name" />
 
     <View
-        android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
@@ -194,7 +191,6 @@
         app:layout_constraintStart_toStartOf="@+id/species_recycler" />
 
     <View
-        android:id="@+id/divider3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"

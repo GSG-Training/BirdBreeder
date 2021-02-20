@@ -17,7 +17,7 @@
 
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/main_view_pager"
+        android:id="@+id/mainViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/main_tabs"

@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.ui.Birds.BirdListFragment">
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/new_bird_fb"
+        android:id="@+id/new_bird"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -16,7 +16,7 @@
         app:elevation="@dimen/four" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/bird_list_recycler"
+        android:id="@+id/my_birds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/four"

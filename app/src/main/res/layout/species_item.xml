@@ -6,20 +6,20 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/species_icon"
         android:layout_width="@dimen/forty_eight"
         android:layout_height="@dimen/forty_eight"
         android:background="@drawable/circle"
         android:src="@drawable/ic__bird"
         app:tint="@color/grey_100"
         android:layout_margin="@dimen/eight"/>
+
     <TextView
         android:id="@+id/species_name"
         android:layout_width="@dimen/hundred"
         android:layout_height="match_parent"
+        android:gravity="center_vertical"
         android:text="@string/dummy_specie"
-        android:textStyle="bold"
-        android:gravity="center_vertical"/>
+        android:textStyle="bold" />
 
 
 </LinearLayout>

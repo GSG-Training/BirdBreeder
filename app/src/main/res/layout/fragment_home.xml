@@ -8,7 +8,6 @@
     android:padding="@dimen/four">
 
     <androidx.core.widget.ContentLoadingProgressBar
-        android:id="@+id/progress"
         android:layout_width="@dimen/thirty_two"
         android:layout_height="@dimen/thirty_two"
         android:layout_centerInParent="true" />

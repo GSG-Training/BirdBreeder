@@ -56,7 +56,7 @@ public class MainFragment extends Fragment {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private Drawable getDrawable(int id) {
-        return getContext().getDrawable(id);
+        return requireContext().getDrawable(id);
     }
 
     @Override

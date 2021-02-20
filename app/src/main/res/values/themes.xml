@@ -18,7 +18,7 @@
         <item name="editTextStyle">@style/Theme.BirdBreeder.InputText</item>
         <item name="buttonStyle">@style/Theme.BirdBreeder.Button</item>
         <item name="materialButtonStyle">@style/Theme.BirdBreeder.Button</item>
-        <item name="background">@color/main_background</item>
+        <item name="background">@drawable/splash_background</item>
 
     </style>
 

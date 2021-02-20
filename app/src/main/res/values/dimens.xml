@@ -19,10 +19,7 @@
 
     <dimen name="text_twenty_four">24sp</dimen>
     <dimen name="text_twenty">20sp</dimen>
-    <dimen name="text_thirty_two">32sp</dimen>
     <dimen name="text_sixteen">16sp</dimen>
     <dimen name="text_twelve">12sp</dimen>
-    <dimen name="hundred_twenty">120dp</dimen>
     <dimen name="hundred_eighty">180dp</dimen>
-    <dimen name="one">0.5dp</dimen>
 </resources>

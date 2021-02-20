@@ -8,7 +8,6 @@
     >
 
     <ImageView
-        android:id="@+id/notification_image"
         android:layout_width="@dimen/forty_eight"
         android:layout_height="@dimen/forty_eight"
         android:layout_margin="@dimen/eight"
@@ -25,7 +24,6 @@
         android:hint="@string/no_account" />
 
     <ImageView
-        android:id="@+id/notification_go"
         android:layout_width="@dimen/thirty_two"
         android:layout_height="@dimen/thirty_two"
         android:layout_gravity="center_vertical"

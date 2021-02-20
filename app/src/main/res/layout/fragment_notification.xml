@@ -7,7 +7,6 @@
     tools:context=".View.ui.Activites.MainActivity.NotificationFragment">
 
     <androidx.core.widget.ContentLoadingProgressBar
-        android:id="@+id/notification_progress"
         android:layout_width="@dimen/thirty_two"
         android:layout_height="@dimen/thirty_two"
         android:layout_centerInParent="true" />

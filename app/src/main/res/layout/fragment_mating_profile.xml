@@ -29,18 +29,18 @@
         </LinearLayout>
 
                 <TextView
-                    android:layout_marginTop="@dimen/eight"
                     android:id="@+id/label_id"
+                    android:layout_marginTop="@dimen/eight"
                     android:text="@string/mating_id"
                     android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <EditText
-                    android:id="@+id/nest_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/eight"
-                    />
+
+        <EditText
+            android:id="@+id/nest_id"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginHorizontal="@dimen/eight" />
 
                 <TextView
                     android:text="@string/male_id"
@@ -65,16 +65,7 @@
                     android:popupBackground="@drawable/rectangle"
                     android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
                     />
-                <TextView
-                    android:text="@string/total_eggs"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <EditText
-                    android:id="@+id/total_eggs"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/eight"
-                    />
+
 
 
 
@@ -83,8 +74,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <EditText
-                    android:editable="false"
                     android:id="@+id/mating_date"
+                    android:editable="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/eight"

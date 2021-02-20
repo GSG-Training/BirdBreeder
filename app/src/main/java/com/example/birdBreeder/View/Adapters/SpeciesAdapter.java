@@ -46,7 +46,7 @@ public class SpeciesAdapter extends RecyclerView.Adapter<SpeciesAdapter.MyViewHo
     }
 
     //MyViewHolder Class
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         SpeciesItemBinding binding;
 
         //main constructor

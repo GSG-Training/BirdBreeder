@@ -41,10 +41,10 @@ public class BirdListFragment extends Fragment implements BirdsAdapter.OnBirdCli
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        com.example.birdBreeder.databinding.FragmentBirdListBinding birdListBinding = FragmentBirdListBinding.inflate(inflater, container, false);
+       FragmentBirdListBinding birdListBinding = FragmentBirdListBinding.inflate(inflater, container, false);
         viewModel.getAllBirds().observe(getViewLifecycleOwner(), observer);
-        birdListBinding.newBirdFb.setOnClickListener(view -> BrowserHelper.toBirdProfile(requireActivity().getSupportFragmentManager(), TAG, Constants.NEW_BIRD, -1));
-        birdListBinding.birdListRecycler.setAdapter(adapter);
+        birdListBinding.newBird.setOnClickListener(view -> BrowserHelper.toBirdProfile(requireActivity().getSupportFragmentManager(), TAG, Constants.NEW_BIRD, -1));
+        birdListBinding.myBirds.setAdapter(adapter);
         return birdListBinding.getRoot();
     }
 
