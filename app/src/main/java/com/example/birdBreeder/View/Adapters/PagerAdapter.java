@@ -14,13 +14,13 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TabsLayoutAdapter extends FragmentStatePagerAdapter {
+public class PagerAdapter extends FragmentStatePagerAdapter {
     private List<Fragment> fragmentList;
     private List<String> fragmentTitle;
     private List<Drawable> fragmentIcons;
 
 
-    public TabsLayoutAdapter(FragmentManager fm) {
+    public PagerAdapter(FragmentManager fm) {
         super(fm);
         fragmentList = new ArrayList<>();
         fragmentTitle = new ArrayList<>();
@@ -39,7 +39,11 @@ public class TabsLayoutAdapter extends FragmentStatePagerAdapter {
         fragmentTitle.add(title);
         fragmentIcons.add(icon);
     }// end addFragment()
+    public void addFragment(Fragment fragment, String title) {
+        fragmentList.add(fragment);
+        fragmentTitle.add(title);
 
+    }
     @NonNull
     @Override
     public Fragment getItem(int position) {

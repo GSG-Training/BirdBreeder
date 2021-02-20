@@ -31,11 +31,19 @@ public class MatingsFragment extends Fragment implements MatingAdapter.OnMatingC
     private Observer<List<String>> listObserver ;
     private boolean checked = false ;
 
-    public MatingsFragment() {
+    private MatingsFragment() {
         // Required empty public constructor
     }
 
 
+    public static MatingsFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        MatingsFragment fragment = new MatingsFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

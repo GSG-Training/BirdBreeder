@@ -24,11 +24,11 @@ public class NotificationFragment extends Fragment {
     private NotificationAdapter adapter;
     private NotificationViewModel viewModel;
 
-    public NotificationFragment() {
+    private NotificationFragment() {
     }
 
 
-    public static NotificationFragment newInstance(String param1, String param2) {
+    public static NotificationFragment newInstance() {
         NotificationFragment fragment = new NotificationFragment();
 
         return fragment;

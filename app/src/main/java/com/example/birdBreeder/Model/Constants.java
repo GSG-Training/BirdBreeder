@@ -57,4 +57,12 @@ public interface Constants {
     String DATE_PICKER = "datePicker";
     int PICKER_REQUEST = 0 ;
     String EGG_SPECIES = "eggSpecies";
+    String SELECTED_ITEM = "selected_item";
+    int HOME_ITEM = 0 ;
+    int PROFILE_ITEM = 1 ;
+    int NOTIFICATION_ITEM = 2 ;
+    int BIRDS_ITEM = 3 ;
+    int BIRDS_TAB = 0 ;
+    int MATINGS_TAB = 1 ;
+    String SELECTED_TAB = "selectedTab";
 }

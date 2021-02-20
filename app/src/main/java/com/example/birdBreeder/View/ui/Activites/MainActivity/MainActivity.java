@@ -1,5 +1,6 @@
 package com.example.birdBreeder.View.ui.Activites.MainActivity;
 
+
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,8 +9,10 @@ import android.view.MenuItem;
 import android.widget.DatePicker;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.birdBreeder.Model.Constants;
 import com.example.birdBreeder.R;
 import com.example.birdBreeder.View.ui.Activites.Helpers.BrowserHelper;
 import com.example.birdBreeder.View.ui.Dummy;
@@ -21,8 +24,15 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setSupportActionBar(findViewById(R.id.toolbar));
-        MainFragment mainFragment = new MainFragment();
+        ActionBar actionBar = getSupportActionBar();
+       if(actionBar != null){
+           actionBar.setDisplayHomeAsUpEnabled(true);
+           actionBar.setTitle(R.string.home);
+           actionBar.show();
+       }
+
+        MainFragment mainFragment =  MainFragment.newInstance(Constants.HOME_ITEM);
+
         BrowserHelper.toFragment(this.getSupportFragmentManager() , mainFragment ,null);
         if(TIME==1) Dummy.addSpecies(getApplication());
         TIME++ ;

@@ -30,12 +30,19 @@ public class HomeFragment extends Fragment implements BirdsAdapter.OnBirdClickLi
     private Observer<List<Bird>> observer;
     private List<Breeder> breeders;
 
-    public HomeFragment() {
+    private HomeFragment() {
     }
 
     //TODO: CONNECT TO THE FIREBASE
     //TODO : CHECK INTERNET
+    public static HomeFragment newInstance() {
 
+        Bundle args = new Bundle();
+
+        HomeFragment fragment = new HomeFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -221,7 +221,7 @@ public class BirdProfileFragment extends Fragment implements DatePickerDialog.On
                 }
                 enable = false;
                 BrowserHelper.toFragment(requireActivity().getSupportFragmentManager() ,
-                        new BirdsFragment() ,
+                        BirdsFragment.newInstance(Constants.BIRDS_TAB) ,
                         TAG);
             } else {
                 //2:

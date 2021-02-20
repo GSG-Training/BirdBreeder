@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BirdBreeder">
-        <activity android:name="com.example.birdBreeder.View.ui.Activites.SignUpActivity" />
-        <activity android:name="com.example.birdBreeder.View.ui.Activites.LogInActivity" />
-        <activity android:name="com.example.birdBreeder.View.ui.Activites.SplashActivity">
+        <activity android:name="com.example.birdBreeder.View.ui.Activites.SignUpActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name="com.example.birdBreeder.View.ui.Activites.LogInActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity android:name="com.example.birdBreeder.View.ui.Activites.SplashActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

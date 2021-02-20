@@ -31,12 +31,12 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, B
     private Observer<List<Species>> speciesObserver;
     private Observer<List<Bird>> birdsObserver;
 
-    public ProfileFragment() {
+    private ProfileFragment() {
         // Required empty public constructor
     }
 
 
-    public static ProfileFragment newInstance(String param1, String param2) {
+    public static ProfileFragment newInstance() {
         ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
 

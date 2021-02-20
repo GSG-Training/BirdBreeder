@@ -21,6 +21,7 @@ import com.example.birdBreeder.R.array;
 import com.example.birdBreeder.View.Pickers.DatePickerFragment;
 import com.example.birdBreeder.View.ui.Activites.Helpers.BrowserHelper;
 import com.example.birdBreeder.View.ui.Activites.Helpers.ValuesHelper;
+import com.example.birdBreeder.View.ui.Activites.MainActivity.MainFragment;
 import com.example.birdBreeder.ViewModel.BirdViewModel;
 import com.example.birdBreeder.ViewModel.MatingViewModel;
 import com.example.birdBreeder.databinding.FragmentMatingProfileBinding;
@@ -47,7 +48,7 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
     private String species ;
 
 
-    public MatingProfileFragment() {
+    private MatingProfileFragment() {
         // Required empty public constructor
     }
 
@@ -217,7 +218,7 @@ public class MatingProfileFragment extends Fragment implements DatePickerDialog.
                 viewModel.addMating(mating);
             }
             BrowserHelper.toFragment(requireActivity().getSupportFragmentManager() ,
-                    new BirdsFragment() ,
+                    MainFragment.newInstance(Constants.BIRDS_ITEM),
                     TAG);
         });
 

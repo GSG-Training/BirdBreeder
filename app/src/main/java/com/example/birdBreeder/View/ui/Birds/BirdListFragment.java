@@ -24,9 +24,17 @@ public class BirdListFragment extends Fragment implements BirdsAdapter.OnBirdCli
     private BirdViewModel viewModel;
     private Observer<List<Bird>> observer;
 
-    public BirdListFragment() {
+    private BirdListFragment() {
     }
 
+    public static BirdListFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        BirdListFragment fragment = new BirdListFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
