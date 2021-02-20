@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.ui.Birds.MatingsFragment">
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/new_mating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -13,6 +14,7 @@
         android:src="@drawable/ic_baseline_post_add_24"
         app:elevation="@dimen/four" />
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mating_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/four"

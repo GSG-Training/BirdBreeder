@@ -51,9 +51,9 @@ public class MatingsFragment extends Fragment implements MatingAdapter.OnMatingC
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         com.example.birdBreeder.databinding.FragmentMatingsBinding binding = FragmentMatingsBinding.inflate(inflater, container, false);
-        binding.matingListRecycler.setAdapter(adapter);
+        binding.matingRecycler.setAdapter(adapter);
         viewModel.getAllMatings().observe(getViewLifecycleOwner(), observer);
-        binding.newMatingFb.setOnClickListener(view -> birdViewModel.getRingNOfFemales().observe(getViewLifecycleOwner(), listObserver ));
+        binding.newMating.setOnClickListener(view -> birdViewModel.getRingNOfFemales().observe(getViewLifecycleOwner(), listObserver ));
         return binding.getRoot();
     }
 
