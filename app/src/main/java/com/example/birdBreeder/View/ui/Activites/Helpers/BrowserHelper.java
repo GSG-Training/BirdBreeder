@@ -1,11 +1,15 @@
 package com.example.birdBreeder.View.ui.Activites.Helpers;
 
+import android.content.Context;
+import android.content.Intent;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.birdBreeder.Model.Constants;
 import com.example.birdBreeder.R;
 import com.example.birdBreeder.View.ui.Activites.MainActivity.HomeFragment;
+import com.example.birdBreeder.View.ui.Activites.MainActivity.MainActivity;
 import com.example.birdBreeder.View.ui.Activites.MainActivity.NotificationFragment;
 import com.example.birdBreeder.View.ui.Activites.MainActivity.ProfileFragment;
 import com.example.birdBreeder.View.ui.Birds.BirdProfileFragment;
@@ -60,34 +64,9 @@ public class BrowserHelper {
                 .commit();
     }
 
-//    public static void displayFragment(FragmentManager fragmentManager , Fragment nextFrag ){
-//        fragmentManager.beginTransaction()
-//                .replace(R.id.bottom_navigator, nextFrag)
-//                .commit();
-//    }
-
-//    private int getSelectedId() {
-//        switch (selectedItem){
-//            case Constants.BIRDS_ITEM :
-//                return R.id.birds_navigation ;
-//            case Constants.NOTIFICATION_ITEM :
-//                return  R.id.notification_navigation ;
-//            case Constants.PROFILE_ITEM :
-//                return R.id.profile_navigation ;
-//            case Constants.HOME_ITEM :
-//                return  R.id.home_navigation;
-//        }
-//        return  R.id.home_navigation;
-//    }
-//
-//
-//    private void setPager(){
-//        adapter.addFragment(HomeFragment.newInstance() , getString(R.string.home_fragment_title));
-//        adapter.addFragment(NotificationFragment.newInstance() , getString(R.string.notification_fragment_title));
-//        adapter.addFragment(ProfileFragment.newInstance() , getString(R.string.profile_fragment_title));
-//        adapter.addFragment( BirdsFragment.newInstance(Constants.BIRDS_TAB) , getString(R.string.bird_fragment_title));
-//        binding.mainViewPager.setAdapter(adapter);
-//        binding.mainViewPager.setCurrentItem(selectedItem);
-//
-//    }
+     public static Intent toMainActivity(Context context , int selectedItem){
+         Intent intent = new Intent(context , MainActivity.class);
+         intent.putExtra(Constants.SELECTED_ITEM , selectedItem);
+         intent.getBundleExtra(Constants.SELECTED_ITEM).putInt(Constants.SELECTED_ITEM , selectedItem);
+     return intent ; }
 }
