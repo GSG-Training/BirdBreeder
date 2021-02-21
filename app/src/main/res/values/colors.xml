@@ -5,7 +5,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue_100">#96c7d5</color>
+    <color name="blue_100">#6C72FF</color>
     <color name="brown">#bd684f</color>
     <color name="reddish_brown">#89181a</color>
     <color name="blue_300">#346c75</color>
@@ -15,14 +15,7 @@
      <color name="grey">#EEEEEE</color>
     <color name="main_color">#FF4573</color>
     <color name="main_background">#FCFCFC</color>
-
-
-
-
-
-
-
-
+    <color name="red">#FF4573</color>
 
 
 </resources>

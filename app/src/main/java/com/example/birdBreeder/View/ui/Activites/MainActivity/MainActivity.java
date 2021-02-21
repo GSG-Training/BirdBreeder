@@ -7,6 +7,7 @@ import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     protected void onResume() {
         super.onResume();
         binding.navigator.setSelectedItemId(getSelectedId());
+        binding.navigator.setVisibility(View.VISIBLE);
     }
 
 

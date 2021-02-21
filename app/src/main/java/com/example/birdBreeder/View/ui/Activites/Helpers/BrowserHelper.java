@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.birdBreeder.Model.Constants;
+import com.example.birdBreeder.Model.DataBase.Entity.Bird;
 import com.example.birdBreeder.R;
 import com.example.birdBreeder.View.ui.Activites.MainActivity.HomeFragment;
 import com.example.birdBreeder.View.ui.Activites.MainActivity.MainActivity;
@@ -69,4 +70,6 @@ public class BrowserHelper {
          intent.putExtra(Constants.SELECTED_ITEM , selectedItem);
          intent.getBundleExtra(Constants.SELECTED_ITEM).putInt(Constants.SELECTED_ITEM , selectedItem);
      return intent ; }
+
+
 }

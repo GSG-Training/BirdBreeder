@@ -5,8 +5,8 @@
         android:drawable="@drawable/ic_relationship"/>
     <item android:maxLevel="110"
      android:minLevel="110"
-     android:drawable="@drawable/ic_male"/>
+     android:drawable="@drawable/ic_sign_man"/>
     <item android:maxLevel="111"
         android:minLevel="111"
-        android:drawable="@drawable/ic_female"/>
+        android:drawable="@drawable/ic_sign_woman"/>
 </level-list>

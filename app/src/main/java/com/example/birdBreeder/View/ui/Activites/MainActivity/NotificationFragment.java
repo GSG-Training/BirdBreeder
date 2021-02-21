@@ -40,16 +40,11 @@ public class NotificationFragment extends Fragment {
         //   Dummy.addNotifications(getActivity().getApplication());
         adapter = new NotificationAdapter();
         viewModel = new NotificationViewModel(getActivity().getApplication());
-        observer = new Observer<List<Notification>>() {
-            @Override
-            public void onChanged(List<Notification> notifications) {
-                adapter.setItems(notifications);
-            }
-        };
+        observer = notifications -> adapter.setItems(notifications);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentNotificationBinding.inflate(inflater, container, false);
         binding.notificationRecycler.setAdapter(adapter);

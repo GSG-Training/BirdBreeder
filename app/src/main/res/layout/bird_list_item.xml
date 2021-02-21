@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/hundred_eighty"
-    android:layout_height="@dimen/three_hundred"
+    android:layout_height="@dimen/two_hundred"
     android:layout_marginVertical="@dimen/two"
-    android:backgroundTint="@color/grey_100"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -20,69 +19,75 @@
 
         <ImageView
             android:id="@+id/br_profile_image"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/hundred_fifty"
-            android:backgroundTint="@color/blue_300"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/hundred"
             android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher_foreground"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/grey_100" />
+            />
 
         <TextView
             android:id="@+id/br_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/eight"
-            android:layout_marginHorizontal="@dimen/eight"
+            android:layout_margin="@dimen/four"
+            android:lines="1"
+            android:ellipsize="end"
             android:text="@string/user_name"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textSize="@dimen/text_ten"
+            app:layout_constraintBottom_toBottomOf="@+id/br_gender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/br_gender" />
 
-        <ToggleButton
-            android:id="@+id/br_offered"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/eight"
-            android:textOff="@string/offer_for_sale"
-            android:textOn="@string/offered_for_sale"
-            android:textColor="@color/reddish_brown"
-            android:textAllCaps="false"
-            app:layout_constraintBottom_toBottomOf="@+id/br_id"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/br_id"
-            app:layout_constraintTop_toTopOf="@+id/br_id" />
 
         <ImageView
             android:id="@+id/br_gender"
-            android:layout_width="@dimen/forty_eight"
-            android:layout_height="@dimen/forty_eight"
-            app:layout_constraintBottom_toBottomOf="@+id/br_profile_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.84"
-            app:layout_constraintStart_toStartOf="@+id/br_profile_image"
-            app:layout_constraintTop_toBottomOf="@+id/br_profile_image"
-            android:background="@drawable/circle"
-            android:backgroundTint="@color/white"
+            android:layout_width="@dimen/twenty_four"
+            android:layout_height="@dimen/twenty_four"
             android:elevation="@dimen/four"
-            app:srcCompat="@drawable/gender"
-            android:scaleType="centerInside"
-            android:padding="@dimen/eight"
-           />
+            android:padding="@dimen/four"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/br_species"
+            app:srcCompat="@drawable/gender" />
 
         <TextView
             android:id="@+id/br_species"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/eight"
+            android:lines="1"
+            android:layout_margin="@dimen/four"
+            android:textSize="@dimen/text_twelve"
             android:text="@string/breed"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/br_gender"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/br_gender" />
+            app:layout_constraintTop_toBottomOf="@+id/br_profile_image" />
 
+        <ImageView
+            android:id="@+id/delete_bird"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/twenty_four"
+            android:src="@drawable/red_border_rect"
+            android:padding="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/br_profile_image"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/br_profile_image"
+            app:layout_constraintTop_toBottomOf="@+id/br_id" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/text_ten"
+            app:layout_constraintBottom_toBottomOf="@+id/delete_bird"
+            app:layout_constraintEnd_toEndOf="@+id/delete_bird"
+            app:layout_constraintStart_toStartOf="@+id/delete_bird"
+            app:layout_constraintTop_toTopOf="@+id/delete_bird" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

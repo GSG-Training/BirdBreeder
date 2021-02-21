@@ -97,8 +97,10 @@ public class BirdProfileFragment extends Fragment implements DatePickerDialog.On
                     e.printStackTrace();
                 }
             }
-            binding.birdImage.setImageBitmap(photo);
-            bird.setProfileImage(photo);
+            int width = getResources().getDisplayMetrics().widthPixels ;
+            Bitmap resized = Bitmap.createScaledBitmap(photo, width , (int)(width*0.333) , true);
+            binding.birdImage.setImageBitmap(resized);
+            bird.setProfileImage(resized);
 
         }
 

@@ -64,6 +64,9 @@
     <string name="check_list">Check your bird ! There is missing bird .</string>
     <string name="egg_updated">Egg is updated successfully</string>
     <string name="egg_added">Egg is added successfully</string>
+    <string name="delete">Delete</string>
+    <string name="delete_item">Delete Item</string>
+    <string name="delete_message">Do you really want to delete this item?</string>
 
     <array name="bird_status">
         <item name="sick">Sick</item>

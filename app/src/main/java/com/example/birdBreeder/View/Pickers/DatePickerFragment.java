@@ -5,13 +5,19 @@ package com.example.birdBreeder.View.Pickers;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
 
 
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * DialogFragment used to pick a ToDoItem deadline date
@@ -26,12 +32,14 @@ public class DatePickerFragment extends DialogFragment {
         onDateSetListener = (DatePickerDialog.OnDateSetListener) context;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         // Use the current date as the default date in the picker
         final Calendar c = Calendar.getInstance();
+        c.setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);

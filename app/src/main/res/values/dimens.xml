@@ -22,4 +22,7 @@
     <dimen name="text_sixteen">16sp</dimen>
     <dimen name="text_twelve">12sp</dimen>
     <dimen name="hundred_eighty">180dp</dimen>
+    <dimen name="text_ten">10sp</dimen>
+    <dimen name="text_forteen">14sp</dimen>
+    <dimen name="eigheen">18dp</dimen>
 </resources>
