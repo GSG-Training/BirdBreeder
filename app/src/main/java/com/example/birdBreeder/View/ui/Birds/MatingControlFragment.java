@@ -1,5 +1,8 @@
 package com.example.birdBreeder.View.ui.Birds;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.birdBreeder.Model.Constants;
 import com.example.birdBreeder.Model.DataBase.Entity.Egg;
 import com.example.birdBreeder.Model.DataBase.Entity.Mating;
+import com.example.birdBreeder.R;
 import com.example.birdBreeder.View.Adapters.EggAdapter;
 import com.example.birdBreeder.View.ui.Activites.Helpers.BrowserHelper;
 import com.example.birdBreeder.ViewModel.EggViewModel;
@@ -21,7 +25,7 @@ import java.util.List;
 
 
 
-public class MatingControlFragment extends Fragment implements EggAdapter.OnEggClickListener {
+public class MatingControlFragment extends Fragment implements EggAdapter.OnEggClickListener , EggAdapter.OnDeleteClickListener {
     public static final String TAG = "com.example.birdBreeder.View.ui.Birds.MatingControlFragment";
     private int id ;
     private FragmentMatingControlBinding binding ;
@@ -56,7 +60,8 @@ public class MatingControlFragment extends Fragment implements EggAdapter.OnEggC
         matingViewModel = new MatingViewModel(requireActivity().getApplication());
         eggViewModel = new EggViewModel(requireActivity().getApplication());
         eggAdapter = new EggAdapter();
-        eggAdapter.setListener(this);
+        eggAdapter.setOnEggClickListener(this);
+        eggAdapter.setOnDeleteClickListener(this);
         mating = new Mating();
         mating.setMatingId(id);
     }//onCreate
@@ -91,7 +96,10 @@ public class MatingControlFragment extends Fragment implements EggAdapter.OnEggC
             }
         };
 
-        listObserver = eggs ->{ if(eggs!=null)eggAdapter.setItems(eggs); };
+        listObserver = eggs ->{ if(eggs!=null) {
+            eggAdapter.setItems(eggs);
+            binding.adapterSize.setText(String.format("%s", eggAdapter.getItemCount()));
+        } };
     }//setObservers
 
 
@@ -130,5 +138,33 @@ public class MatingControlFragment extends Fragment implements EggAdapter.OnEggC
         super.onResume();
         matingViewModel.getMating(mating.getMatingId()).observe(getViewLifecycleOwner() , matingObserver);
         eggViewModel.getAllEggs(mating.getMatingId()).observe(getViewLifecycleOwner() , listObserver);
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+        Egg egg = eggAdapter.getItemAt(position);
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.delete_item)
+                .setMessage(R.string.delete_message)
+                .setIcon(R.drawable.ic_delete_outlined)
+                .setPositiveButton(android.R.string.yes, dialogInterface(egg))
+                .setNegativeButton(android.R.string.no, dialogInterface(egg)).show();
+
+    }
+
+
+    private  DialogInterface.OnClickListener dialogInterface(Egg egg){
+        return (dialog, which) -> {
+            switch (which){
+                case Dialog.BUTTON_NEGATIVE :
+                    dialog.dismiss();
+                    break;
+                case Dialog.BUTTON_POSITIVE :
+                    eggViewModel.deleteEgg(egg);
+                    dialog.dismiss();
+                    break;
+            }
+        };
+
     }
 }

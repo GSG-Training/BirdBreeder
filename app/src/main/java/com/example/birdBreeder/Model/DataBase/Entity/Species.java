@@ -20,9 +20,9 @@ public class Species {
     }
 
     @Ignore
-    public Species(String name, int type) {
+    public Species(String name, int daysForEgg) {
         this.name = name;
-        this.type = type;
+        this.daysForEgg = daysForEgg;
     }
 
     public int getSpeciesId() {

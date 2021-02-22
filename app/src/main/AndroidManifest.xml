@@ -11,14 +11,15 @@
         android:theme="@style/Theme.BirdBreeder">
         <activity android:name="com.example.birdBreeder.View.ui.Activites.SignUpActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity android:name="com.example.birdBreeder.View.ui.Activites.LogInActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name="com.example.birdBreeder.View.ui.Activites.SplashActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name="com.example.birdBreeder.View.ui.Activites.MainActivity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.birdBreeder.View.ui.Activites.MainActivity.MainActivity" />
+    <activity android:name="com.example.birdBreeder.View.ui.Activites.SplashActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+
     </application>
 
 </manifest>

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.birdBreeder.Model.DataBase.Entity.Egg;
 import com.example.birdBreeder.R;
+import com.example.birdBreeder.databinding.EggItemBinding;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,7 +21,8 @@ import java.util.List;
 
 public class EggAdapter extends RecyclerView.Adapter<EggAdapter.MyViewHolder> {
     private List<Egg> eggs = new ArrayList<>();
-     OnEggClickListener listener  ;
+     private OnEggClickListener listener  ;
+     private OnDeleteClickListener onDeleteClickListener ;
 
     @NonNull
     @Override
@@ -32,10 +34,11 @@ public class EggAdapter extends RecyclerView.Adapter<EggAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Egg egg = eggs.get(position);
-        holder.eggId.setText(String.format("%s", egg.getEggId()));
-        holder.layDate.setText(getDate(egg.getLayDate()));
-        holder.hatchingDate.setText(getDate(egg.getExpectedHatchingDate()));
-        holder.status.setImageLevel(egg.getStatus());
+        holder.binding.eggId.setText(String.format("%s", egg.getEggId()));
+        holder.binding.laidDate.setText(getDate(egg.getLayDate()));
+        holder.binding.expectDate.setText(getDate(egg.getExpectedHatchingDate()));
+
+        holder.binding.eggStatus.setImageLevel(egg.getStatus());
     }//end onBindViewHolder(..)
 
     @Override
@@ -59,36 +62,37 @@ public class EggAdapter extends RecyclerView.Adapter<EggAdapter.MyViewHolder> {
         return "" ;
     }
 
-    public void setListener(OnEggClickListener listener) {
+    public void setOnEggClickListener(OnEggClickListener listener) {
         this.listener = listener;
+    }
+
+    public void setOnDeleteClickListener(OnDeleteClickListener onDeleteClickListener) {
+        this.onDeleteClickListener = onDeleteClickListener;
     }
 
     //MyViewHolder Class
     public  class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView eggId, hatchingDate;
-        ImageView delete, status;
-        EditText layDate, incubationDate;
+         EggItemBinding binding ;
 
 
         //main constructor
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             //attaching java views to XML
-            eggId = itemView.findViewById(R.id.egg_id);
-            hatchingDate = itemView.findViewById(R.id.expect_date);
-            layDate = itemView.findViewById(R.id.laid_date);
-            delete = itemView.findViewById(R.id.delete_egg);
-            incubationDate = itemView.findViewById(R.id.start_date);
-            status = itemView.findViewById(R.id.egg_status);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition() ;
-                    if (position != RecyclerView.NO_POSITION)
-                        listener.onEggClick(position);
+         binding = EggItemBinding.bind(itemView);
+            itemView.setOnClickListener(v -> {
+                int position = getAdapterPosition() ;
+                if (position != RecyclerView.NO_POSITION)
+                    listener.onEggClick(position);
 
-                }
+            });
+
+            binding.deleteEgg.setOnClickListener(v -> {
+                int position = getAdapterPosition() ;
+                if (position != RecyclerView.NO_POSITION)
+                    onDeleteClickListener.onDeleteClick(position);
+
             });
         }//end MyViewHolder(itemView)
 
@@ -97,5 +101,9 @@ public class EggAdapter extends RecyclerView.Adapter<EggAdapter.MyViewHolder> {
   public interface OnEggClickListener{
         void onEggClick(int position);
   }
+
+    public interface OnDeleteClickListener{
+        void onDeleteClick(int position);
+    }
 
 }//end  Class

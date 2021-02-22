@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <level-list xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:maxLevel="20"
-        android:drawable="@drawable/ic_baseline_delete_24"/>
-    <item
+        android:minLevel="21"
         android:maxLevel="21"
         android:drawable="@drawable/ic_nest"/>
     <item
+        android:minLevel="22"
         android:maxLevel="22"
         android:drawable="@drawable/ic_unfretlized_egg"/>
     <item
+        android:minLevel="23"
         android:maxLevel="23"
         android:drawable="@drawable/ic_egg"/>
 </level-list>

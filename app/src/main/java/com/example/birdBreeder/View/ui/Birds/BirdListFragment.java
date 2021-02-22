@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.preference.DialogPreference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,6 @@ import com.example.birdBreeder.View.Adapters.BirdsAdapter;
 import com.example.birdBreeder.View.ui.Activites.Helpers.BrowserHelper;
 import com.example.birdBreeder.ViewModel.BirdViewModel;
 import com.example.birdBreeder.databinding.FragmentBirdListBinding;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -82,7 +80,7 @@ public class BirdListFragment extends Fragment implements BirdsAdapter.OnBirdCli
         new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.delete_item)
                 .setMessage(R.string.delete_message)
-                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setIcon(R.drawable.ic_delete_outlined)
                 .setPositiveButton(android.R.string.yes, dialogInterface(bird))
                 .setNegativeButton(android.R.string.no, dialogInterface(bird)).show();
 

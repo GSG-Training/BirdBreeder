@@ -12,11 +12,12 @@ public class Dummy {
 
     public static void addSpecies(Application application) {
         SpeciesViewModel viewModel = new SpeciesViewModel(application);
-        viewModel.addSpecies(new Species("Love Birds", Constants.WILD_BIRDS));
-        viewModel.addSpecies(new Species("Canary", Constants.PET_BIRDS));
-        viewModel.addSpecies(new Species("Cocktail", Constants.PET_BIRDS));
-        viewModel.addSpecies(new Species("Birds", Constants.WILD_BIRDS));
-        viewModel.addSpecies(new Species("Eagle", Constants.WILD_BIRDS));
+        viewModel.deleteAll();
+        viewModel.addSpecies(new Species("Love Birds", 23));
+        viewModel.addSpecies(new Species("Canary", 14));
+        viewModel.addSpecies(new Species("Cockatiel", 28));
+        viewModel.addSpecies(new Species("Goldfinch",13));
+        viewModel.addSpecies(new Species("House Sparrow", 14));
     }
 
 

@@ -7,27 +7,10 @@
     tools:context=".View.ui.Birds.EggProfileFragment">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_margin="@dimen/eight">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-                <ImageView
-                    android:layout_width="@dimen/forty_eight"
-                    android:layout_height="@dimen/forty_eight"
-                    android:src="@drawable/ic_egg"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/forty_eight"
-                    android:layout_weight="1"
-                    android:text="@string/new_egg"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_twenty_four"
-                    android:gravity="center_vertical"
-                    android:layout_marginStart="@dimen/eight"/>
-            </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_weight="1"
@@ -40,10 +23,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                     <EditText
+                        android:background="@color/grey"
                         android:id="@+id/show_egg_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/eight"
+
+                        android:layout_margin="@dimen/eight"
+                        />
+                    <TextView
+                        android:text="@string/mating_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <Spinner
+                        android:id="@+id/egg_status_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/eight"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                        android:background="@drawable/rectangle"
                         />
                     <TextView
                         android:text="@string/laid_date"
@@ -54,23 +51,11 @@
                         android:editable="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/eight"
+                        android:layout_margin="@dimen/eight"
                         android:drawableEnd="@drawable/ic_baseline_today_24"
-                        android:drawableTint="@color/main_color"
                         />
 
-                    <TextView
-                        android:text="@string/mating_status"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <Spinner
-                        android:id="@+id/egg_status_spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/eight"
-                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
-                        android:background="@drawable/rectangle"
-                        />
+
                     <TextView
                         android:text="@string/expect_date"
                         android:layout_width="match_parent"
@@ -80,9 +65,8 @@
                         android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/eight"
+                        android:layout_margin="@dimen/eight"
                         android:drawableEnd="@drawable/ic_baseline_today_24"
-                        android:drawableTint="@color/main_color"
                         />
 
 

@@ -3,17 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/fifty_six"
-    android:background="@color/grey_100"
-
     >
 
     <ImageView
-        android:layout_width="@dimen/forty_eight"
-        android:layout_height="@dimen/forty_eight"
+        android:layout_width="@dimen/eigheen"
+        android:layout_height="@dimen/eigheen"
         android:layout_margin="@dimen/eight"
-        android:background="@drawable/circle"
-        android:scaleType="center"
-        android:src="@drawable/ic_baseline_notifications_active_24" />
+        android:scaleType="fitXY"
+        android:layout_gravity="center_vertical"
+        app:tint="@color/main_color"
+        android:src="@drawable/circle" />
 
     <TextView
         android:id="@+id/notification_title"
@@ -23,10 +22,5 @@
         android:gravity="center_vertical"
         android:hint="@string/no_account" />
 
-    <ImageView
-        android:layout_width="@dimen/thirty_two"
-        android:layout_height="@dimen/thirty_two"
-        android:layout_gravity="center_vertical"
-        android:layout_margin="@dimen/eight"
-        android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+
 </LinearLayout>

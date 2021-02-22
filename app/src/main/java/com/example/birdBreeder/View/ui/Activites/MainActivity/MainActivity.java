@@ -1,6 +1,7 @@
 package com.example.birdBreeder.View.ui.Activites.MainActivity;
 
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -9,7 +10,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -18,18 +18,16 @@ import androidx.fragment.app.Fragment;
 
 import com.example.birdBreeder.Model.Constants;
 import com.example.birdBreeder.R;
-import com.example.birdBreeder.View.ui.Activites.Helpers.BrowserHelper;
 import com.example.birdBreeder.View.ui.Birds.BirdsFragment;
 import com.example.birdBreeder.View.ui.Dummy;
 import com.example.birdBreeder.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private ActivityMainBinding binding ;
-     public static final String TAG = "com.example.birdBreeder.View.ui.Activites.MainActivity";
+//     public static final String TAG = "com.example.birdBreeder.View.ui.Activites.MainActivity";
      private static int TIME = 1 ;
      private  int selectedItem ;
-     private Fragment fragment ;
-     private  ActionBar actionBar ;
+    private  ActionBar actionBar ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
        }
 
         binding.navigator.setOnNavigationItemSelectedListener(item -> seSelected(item.getItemId()));
-
         if(TIME==1) Dummy.addSpecies(getApplication());
         TIME++ ;
     }
@@ -87,9 +84,11 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     }
 
 
+    @SuppressLint("NonConstantResourceId")
     private boolean seSelected(int itemId){
 
 
+        Fragment fragment;
         switch (itemId){
             case R.id.home_navigation :
                 fragment = HomeFragment.newInstance() ;

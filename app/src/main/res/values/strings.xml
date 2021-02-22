@@ -67,6 +67,9 @@
     <string name="delete">Delete</string>
     <string name="delete_item">Delete Item</string>
     <string name="delete_message">Do you really want to delete this item?</string>
+    <string name="eggs">eggs</string>
+    <string name="add_egg">Add new egg</string>
+    <string name="edit_egg">Edit Egg</string>
 
     <array name="bird_status">
         <item name="sick">Sick</item>

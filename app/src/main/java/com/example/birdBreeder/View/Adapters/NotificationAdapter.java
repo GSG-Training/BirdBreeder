@@ -1,5 +1,6 @@
 package com.example.birdBreeder.View.Adapters;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.birdBreeder.Model.Constants;
 import com.example.birdBreeder.Model.DataBase.Entity.Notification;
 import com.example.birdBreeder.R;
 import com.example.birdBreeder.databinding.NotificationItemBinding;
@@ -26,10 +28,13 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         return new MyViewHolder(itemView);
     }// end onCreateViewHolder(..)
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Notification notification = notifications.get(position);
         holder.binding.notificationTitle.setText(notification.getDescription());
+        if(notification.getStatus()== Constants.VIEWED)
+        holder.binding.getRoot().setBackgroundColor(R.color.grey);//.setText(notification.getDescription());
     }//end onBindViewHolder(..)
 
     @Override

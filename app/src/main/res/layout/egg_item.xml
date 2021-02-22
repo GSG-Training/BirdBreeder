@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Theme.BirdBreeder.Card"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/two_hundred_fifty"
+    android:layout_height="@dimen/hundred_eighty"
     android:backgroundTint="@color/grey_200"
     android:padding="@dimen/eight">
 
@@ -15,39 +15,30 @@
 
         <ImageView
             android:id="@+id/egg_status"
-            android:layout_width="@dimen/hundred_fifty"
-            android:layout_height="@dimen/two_hundred"
+            android:layout_width="@dimen/hundred"
+            android:layout_height="@dimen/hundred"
             android:layout_margin="@dimen/four"
             android:layout_marginEnd="@dimen/eight"
             android:contentDescription="@string/mating_status"
+            android:padding="@dimen/eight"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/egg_status"
-            app:tint="@color/dark_brown" />
+            app:tint="@color/black" />
 
-
-        <ImageView
-            android:id="@+id/status"
-            android:layout_width="@dimen/forty_eight"
-            android:layout_height="@dimen/forty_eight"
-            app:layout_constraintBottom_toBottomOf="@+id/egg_status"
-            app:layout_constraintEnd_toEndOf="@+id/egg_status"
-            app:layout_constraintTop_toTopOf="@+id/egg_status"
-            android:contentDescription="@string/mating_status"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/egg_id"
-            android:layout_marginStart="@dimen/eight"
-            app:layout_constraintStart_toEndOf="@+id/status"
-            app:layout_constraintTop_toTopOf="@+id/egg_status" />
+            android:layout_margin="@dimen/eight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/egg_id"
@@ -61,74 +52,45 @@
             app:layout_constraintStart_toEndOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="@+id/textView2" />
 
-        <ImageView
+
+        <ImageButton
             android:id="@+id/delete_egg"
-            android:layout_width="@dimen/forty_eight"
-            android:layout_height="@dimen/forty_eight"
+            android:layout_width="@dimen/thirty_two"
+            android:layout_height="@dimen/thirty_two"
             android:layout_marginBottom="@dimen/four"
-            android:background="@drawable/shopping_background"
-            app:layout_constraintBottom_toBottomOf="@+id/egg_id"
+            android:background="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             android:contentDescription="@string/mating_status"
             app:layout_constraintTop_toTopOf="@+id/egg_id"
-            app:srcCompat="@drawable/ic_baseline_delete_24" />
+            app:srcCompat="@drawable/ic_delete_outlined" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            style="@style/Theme.BirdBreeder.TextStyle"
+
+        <TextView
+            android:editable="false"
+            android:enabled="false"
+            android:background="@drawable/blue_border_rect"
+            android:id="@+id/laid_date"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/eight"
-            android:layout_marginEnd="@dimen/eight"
-            app:layout_constraintEnd_toStartOf="@+id/delete_egg"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            android:gravity="center"
+            android:layout_height="@dimen/forty_eight"
+            android:textSize="@dimen/text_forteen"
+            android:textColor="@color/blue_100"
+            android:hint="@string/laid_date"
+            android:layout_margin="@dimen/sixteen"
+            app:layout_constraintBottom_toTopOf="@+id/textView10"
+            app:layout_constraintEnd_toStartOf="@+id/egg_status"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-            <EditText
-                android:id="@+id/laid_date"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/thirty_two"
-                android:layout_gravity="center_vertical"
-                android:autofillHints="@string/laid_date"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_vertical"
-                android:hint="@string/laid_date"
-                android:inputType="date" />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout2"
-            style="@style/Theme.BirdBreeder.TextStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/eight"
-            android:layout_marginEnd="@dimen/eight"
-            app:layout_constraintEnd_toStartOf="@+id/delete_egg"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
-
-            <EditText
-                android:id="@+id/start_date"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/thirty_two"
-                android:layout_gravity="center_vertical"
-                android:autofillHints="@string/laid_date"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_vertical"
-                android:hint="@string/laid_date"
-                android:inputType="date" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/expect_date"
             android:layout_marginVertical="@dimen/eight"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+            android:text="@string/expect_date"
+            app:layout_constraintBottom_toBottomOf="@+id/egg_status"
+            app:layout_constraintStart_toStartOf="@+id/textView2" />
 
         <TextView
             android:id="@+id/expect_date"
@@ -137,6 +99,8 @@
             android:text="@string/dummy_date"
             android:textSize="@dimen/text_twenty"
             android:textStyle="bold"
+            android:textColor="@color/blue_100"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView10"
             app:layout_constraintStart_toStartOf="@+id/textView10"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />

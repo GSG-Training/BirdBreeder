@@ -83,6 +83,7 @@ public class EggProfileFragment extends Fragment implements DatePickerDialog.OnD
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentEggProfileBinding.inflate(inflater , container , false);
+
         addStatus();
         setLayout();
         setObservers();
@@ -97,11 +98,15 @@ public class EggProfileFragment extends Fragment implements DatePickerDialog.OnD
         binding.eggLaidDate.setClickable(true);
         binding.eggLaidDate.setOnClickListener(this::showDatePickerDialog);
         binding.saveEgg.setOnClickListener(this::storeEgg);
+
     }//setLayout
 
     //Init Observers
     private void setObservers(){
-       observer = egg -> setDetails();
+       observer = observedEgg -> {
+           egg = observedEgg ;
+           setDetails();
+       };
 
        speciesObserver = species -> {
            int days = species.getDaysForEgg() ;
@@ -147,33 +152,33 @@ public class EggProfileFragment extends Fragment implements DatePickerDialog.OnD
     private String setEggStatus(int status) {
         switch (status) {
             case Constants.FAILED_INCUBATING:
-                return statusAdapter.getItem(1);
+                return statusAdapter.getItem(0);
 
             case Constants.INCUBATED:
-                return statusAdapter.getItem(2);
+                return statusAdapter.getItem(1);
 
             case Constants.UNFERTILIZED:
-                return statusAdapter.getItem(3);
+                return statusAdapter.getItem(2);
 
             case Constants.HATCHED_OK:
-                return statusAdapter.getItem(4);
+                return statusAdapter.getItem(3);
 
         }
 
-        return statusAdapter.getItem(2);
+        return statusAdapter.getItem(1);
     }//setStatus
 
     //convert StringStatus to intStatus
     private int getEggStatus(int statusPosition) {
         switch (statusPosition) {
-            case 1:
+            case 0:
                 //todo : Delete the egg
                 return Constants.FAILED_INCUBATING;
-            case 2:
+            case 1:
                 return Constants.INCUBATED;
-            case 3:
+            case 2:
                 return Constants.UNFERTILIZED;
-            case 4:
+            case 3:
                 //todo : Add as a New bird
                 return Constants.HATCHED_OK;
         }
